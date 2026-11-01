@@ -1924,6 +1924,9 @@ async function syncWithBackendServer() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  if (window.MarketService && typeof window.MarketService.initBrowserDatabase === "function") {
+    window.MarketService.initBrowserDatabase();
+  }
   updateNetworkStatus();
   if (window.CITIES_CONFIG && window.CITIES_CONFIG[currentCity]) {
     switchCity(currentCity);
@@ -1944,3 +1947,122 @@ document.addEventListener("DOMContentLoaded", () => {
     initLocationFlow();
   }, 1200);
 });
+
+// =========================================================================
+// AGENTE IA PREÇOBRASIL (Vercel AI SDK ToolLoopAgent + MarketService)
+// =========================================================================
+function openAiAgentModal() {
+  const modal = document.getElementById("ai-agent-modal");
+  if (modal) modal.classList.add("active");
+}
+
+function closeAiAgentModal() {
+  const modal = document.getElementById("ai-agent-modal");
+  if (modal) modal.classList.remove("active");
+}
+
+function askAiAgentChip(text) {
+  const input = document.getElementById("ai-agent-input");
+  if (input) {
+    input.value = text;
+    submitAiAgentPrompt({ preventDefault: () => {} });
+  }
+}
+
+function formatAgentMarkdown(text) {
+  return String(text || "")
+    .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+    .replace(/\_(.*?)\_/g, "<em>$1</em>")
+    .replace(/\`(.*?)\`/g, "<code style='background:rgba(0,0,0,0.06);padding:1px 4px;border-radius:4px;'>$1</code>")
+    .replace(/\n/g, "<br>");
+}
+
+async function submitAiAgentPrompt(event) {
+  if (event && event.preventDefault) event.preventDefault();
+  const input = document.getElementById("ai-agent-input");
+  const container = document.getElementById("ai-agent-messages");
+  const btn = document.getElementById("ai-agent-send-btn");
+  if (!input || !container) return;
+
+  const prompt = input.value.trim();
+  if (!prompt) return;
+  input.value = "";
+
+  // Mensagem do usuário
+  const userBubble = document.createElement("div");
+  userBubble.style.cssText = "align-self:flex-end; background:var(--primary); color:#fff; border-radius:12px 12px 2px 12px; padding:10px 12px; font-size:13px; max-width:85%; font-weight:600;";
+  userBubble.textContent = prompt;
+  container.appendChild(userBubble);
+
+  // Indicador de carregamento
+  const loadingBubble = document.createElement("div");
+  loadingBubble.style.cssText = "align-self:flex-start; background:#F8FAFC; border:1px solid var(--border); border-radius:12px; padding:10px 12px; font-size:12px; color:var(--text-secondary);";
+  loadingBubble.innerHTML = "⏳ <strong>ToolLoopAgent</strong> consultando <code>MarketService</code> e catálogo...";
+  container.appendChild(loadingBubble);
+  container.scrollTop = container.scrollHeight;
+
+  if (btn) btn.disabled = true;
+
+  try {
+    const cityObj = window.CITIES_CONFIG && window.CITIES_CONFIG[currentCity];
+    const capitalKey = (cityObj && cityObj.canonicalKey) || currentCity || "AM-Manaus";
+
+    const res = await fetch("/api/agent/chat", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ prompt, capitalKey })
+    });
+
+    const data = await res.json();
+    loadingBubble.remove();
+
+    const botBubble = document.createElement("div");
+    botBubble.style.cssText = "align-self:flex-start; background:#F8FAFC; border:1px solid var(--border); border-radius:12px 12px 12px 2px; padding:12px; font-size:13px; color:var(--text); max-width:95%; line-height:1.48;";
+
+    let marketsHtml = "";
+    if (Array.isArray(data.markets) && data.markets.length > 0) {
+      marketsHtml = `
+        <div style="display:flex; gap:6px; overflow-x:auto; margin-top:10px; padding-bottom:4px;">
+          ${data.markets.slice(0, 8).map(m => `
+            <div style="display:flex; align-items:center; gap:5px; background:#fff; border:1px solid var(--border); border-radius:999px; padding:3px 9px 3px 4px; white-space:nowrap; font-size:11px; font-weight:700;">
+              <img src="${m.logo}" alt="${m.nome}" onerror="this.src='web/assets/logos/default-market.svg'" style="width:18px; height:18px; border-radius:50%; object-fit:contain; background:#fff;">
+              <span>${m.nome}</span>
+            </div>
+          `).join("")}
+        </div>
+      `;
+    }
+
+    let productsHtml = "";
+    if (Array.isArray(data.recommendedProducts) && data.recommendedProducts.length > 0) {
+      productsHtml = `
+        <div style="display:flex; flex-direction:column; gap:6px; margin-top:10px;">
+          ${data.recommendedProducts.map(p => `
+            <div style="display:flex; justify-content:space-between; align-items:center; background:#fff; border:1px solid var(--border); border-radius:10px; padding:8px 10px;">
+              <div style="display:flex; align-items:center; gap:8px;">
+                <img src="${p.marketLogo}" alt="${p.marketName}" onerror="this.src='web/assets/logos/default-market.svg'" style="width:24px; height:24px; border-radius:6px; object-fit:contain;">
+                <div>
+                  <div style="font-size:12px; font-weight:800;">${p.name}</div>
+                  <div style="font-size:11px; color:var(--text-secondary);">${p.marketName} • <strong style="color:var(--green-best);">R$ ${Number(p.bestPrice).toFixed(2).replace(".", ",")}</strong></div>
+                </div>
+              </div>
+              <button type="button" class="btn-add" style="padding:5px 10px; font-size:11px;" onclick="addToBasket('${p.id}')">+ Cesta</button>
+            </div>
+          `).join("")}
+        </div>
+      `;
+    }
+
+    botBubble.innerHTML = `
+      <div>${formatAgentMarkdown(data.reply || "Consulta concluída!")}</div>
+      ${marketsHtml}
+      ${productsHtml}
+    `;
+    container.appendChild(botBubble);
+  } catch (err) {
+    loadingBubble.innerHTML = "⚠️ Erro ao consultar o Agente IA: " + err.message;
+  } finally {
+    if (btn) btn.disabled = false;
+    container.scrollTop = container.scrollHeight;
+  }
+}

@@ -691,6 +691,46 @@
     </div>
   </div>
 
+  <!-- Botão Flutuante & Modal do Agente IA PreçoBrasil (Vercel AI SDK) -->
+  <button id="ai-agent-fab" onclick="openAiAgentModal()" title="Assistente IA PreçoBrasil (Vercel AI SDK)" style="position:fixed; bottom:82px; right:16px; z-index:990; display:flex; align-items:center; gap:8px; background:linear-gradient(135deg, #0D9488 0%, #047857 100%); color:#fff; border:none; border-radius:999px; padding:11px 16px; font-size:13px; font-weight:800; box-shadow:0 8px 24px rgba(4,120,87,0.38); cursor:pointer;">
+    <span style="font-size:17px;">🤖</span>
+    <span>Agente IA</span>
+  </button>
+
+  <div class="modal-overlay" id="ai-agent-modal" onclick="if(event.target===this) closeAiAgentModal()">
+    <div class="modal-sheet" style="max-height:86vh; display:flex; flex-direction:column;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span style="font-size:22px;">🤖</span>
+          <div>
+            <h3 style="font-size:16px; font-weight:800; margin:0;">Agente IA PreçoBrasil</h3>
+            <span style="font-size:11px; color:var(--primary); font-weight:700;">Powered by Vercel AI SDK (ToolLoopAgent) • 27 Capitais</span>
+          </div>
+        </div>
+        <button class="btn-text" onclick="closeAiAgentModal()" style="font-size:16px;">✕</button>
+      </div>
+
+      <div style="display:flex; gap:6px; overflow-x:auto; padding-bottom:8px; margin-bottom:8px; border-bottom:1px solid var(--border);">
+        <button type="button" class="category-pill" style="font-size:11px; padding:5px 10px;" onclick="askAiAgentChip('Quais são os 15 mercados da minha capital?')">🏪 15 Mercados da Capital</button>
+        <button type="button" class="category-pill" style="font-size:11px; padding:5px 10px;" onclick="askAiAgentChip('Monte uma cesta básica mais barata hoje')">🛒 Otimizar Cesta Básica</button>
+        <button type="button" class="category-pill" style="font-size:11px; padding:5px 10px;" onclick="askAiAgentChip('Churrasco barato: picanha, cerveja e carvão')">🥩 Kit Churrasco</button>
+        <button type="button" class="category-pill" style="font-size:11px; padding:5px 10px;" onclick="askAiAgentChip('Quais são os 15 mercados de São Paulo?')">🏙️ Mercados de SP</button>
+      </div>
+
+      <div id="ai-agent-messages" style="flex:1; overflow-y:auto; padding:8px 4px; display:flex; flex-direction:column; gap:10px; max-height:48vh; min-height:220px;">
+        <div style="background:#F0FDF4; border:1px solid #BBF7D0; border-radius:12px; padding:12px; font-size:13px; color:#064E3B; line-height:1.45;">
+          👋 Olá! Sou o <strong>Agente IA PreçoBrasil</strong> construído com o <strong>Vercel AI SDK (<code>ToolLoopAgent</code>)</strong>.<br><br>
+          Estou conectado ao <code>MarketService</code> com os <strong>15 maiores supermercados de cada uma das 27 capitais</strong> e aos <strong>5.556 produtos</strong>. Pergunte onde comprar mais barato ou peça para montar sua cesta!
+        </div>
+      </div>
+
+      <form onsubmit="submitAiAgentPrompt(event)" style="display:flex; gap:8px; margin-top:10px; padding-top:8px; border-top:1px solid var(--border);">
+        <input type="text" id="ai-agent-input" class="form-control" placeholder="Ex: Onde comprar arroz, feijão e café mais barato?" style="flex:1; margin:0;" required>
+        <button type="submit" id="ai-agent-send-btn" class="btn-submit" style="width:auto; padding:0 16px; margin:0;">Enviar</button>
+      </form>
+    </div>
+  </div>
+
 </div>
 
   <!-- Módulos PreçoBrasil (Catálogo Canônico, MarketService, Distâncias Haversine, Otimizador, Cliente API e App UI) -->

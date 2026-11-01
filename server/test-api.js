@@ -106,9 +106,27 @@ async function runTests() {
   });
   assert.strictEqual(contribRes.json.ok, true);
   assert.strictEqual(contribRes.json.updatedProduct.prices.baratao.price, 14.49);
-  console.log(`✅ [6/6] /api/community/contribute OK (Tambaqui atualizado para R$ 14,49 no Baratão da Carne)`);
+  console.log(`✅ [6/8] /api/community/contribute OK (Tambaqui atualizado para R$ 14,49 no Baratão da Carne)`);
 
-  console.log("\n🎉 Todos os testes do Backend e Módulos PreçoManaus passaram!");
+  // 7. Canonical Markets endpoint (27 Capitals x 15 Supermarkets)
+  const mktRes = await invokeApi("GET", "/api/markets?capital=SP-SaoPaulo");
+  assert.strictEqual(mktRes.json.ok, true);
+  assert.strictEqual(mktRes.json.totalMercados, 15);
+  assert.strictEqual(mktRes.json.availableCapitals.length, 27);
+  console.log(`✅ [7/8] /api/markets OK (SP-SaoPaulo com ${mktRes.json.totalMercados} mercados e ${mktRes.json.availableCapitals.length} capitais disponíveis)`);
+
+  // 8. Vercel AI SDK Agent endpoint (/api/agent/chat)
+  const agentRes = await invokeApi("POST", "/api/agent/chat", {
+    prompt: "Monte uma cesta básica mais barata em São Paulo",
+    capitalKey: "SP-SaoPaulo"
+  });
+  assert.strictEqual(agentRes.json.ok, true);
+  assert.strictEqual(agentRes.json.capitalKey, "SP-SaoPaulo");
+  assert.ok(agentRes.json.reply.includes("São Paulo"));
+  assert.ok(Array.isArray(agentRes.json.recommendedProducts) && agentRes.json.recommendedProducts.length > 0);
+  console.log(`✅ [8/8] /api/agent/chat OK (Vercel AI SDK ToolLoopAgent respondeu para ${agentRes.json.cidade}-${agentRes.json.uf} com ${agentRes.json.recommendedProducts.length} produtos recomendados)`);
+
+  console.log("\n🎉 Todos os 8 testes do Backend, MarketService e Agente IA (Vercel AI SDK) passaram!");
 }
 
 runTests().catch(err => {

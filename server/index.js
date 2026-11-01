@@ -10,6 +10,8 @@ const { URL } = require("url");
 const ManausCatalog = require("../web/data/manausCatalog");
 const DistanceService = require("../web/services/distanceService");
 const ShoppingOptimizer = require("../web/services/shoppingOptimizer");
+const MarketService = require("../web/services/marketService");
+const { runPrecoBrasilAgent } = require("./agent");
 
 const ROOT_DIR = path.resolve(__dirname, "..");
 const DATA_DIR = path.join(__dirname, "data");
@@ -429,6 +431,34 @@ const handleRequest = async (req, res) => {
     if (pathname === "/api/ai/scan-label" && req.method === "POST") {
       const body = await readJsonBody(req);
       const result = await handleAiScanLabel(body);
+      return sendJson(res, 200, result);
+    }
+
+    // 6b. GET /api/markets (Catálogo Canônico de 27 Capitais x 15 Supermercados)
+    if (pathname === "/api/markets" && req.method === "GET") {
+      const capitalKey = parsedUrl.searchParams.get("capital") || "AM-Manaus";
+      const resolved = MarketService.resolveCapitalKey(capitalKey);
+      const info = MarketService.getCapitalInfo(resolved);
+      const markets = MarketService.getMarketsByCapital(resolved);
+      return sendJson(res, 200, {
+        ok: true,
+        capitalKey: resolved,
+        cidade: info ? info.cidade : resolved,
+        uf: info ? info.uf : "",
+        totalMercados: markets.length,
+        mercados: markets,
+        availableCapitals: MarketService.getAvailableCapitals()
+      });
+    }
+
+    // 6c. POST /api/agent/chat (Agente IA PreçoBrasil com Vercel AI SDK ToolLoopAgent)
+    if (pathname === "/api/agent/chat" && req.method === "POST") {
+      const body = await readJsonBody(req);
+      const result = await runPrecoBrasilAgent({
+        prompt: body.prompt || "",
+        capitalKey: body.capitalKey || "AM-Manaus",
+        db
+      });
       return sendJson(res, 200, result);
     }
 
