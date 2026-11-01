@@ -537,6 +537,15 @@ const handleRequest = async (req, res) => {
       return fs.createReadStream(filePath).pipe(res);
     }
 
+    // Fallback CDN GitHub Pages para assets estáticos em ambientes Serverless enxutos
+    if (safePath.startsWith("/web/assets/")) {
+      res.writeHead(302, {
+        "Location": `https://lucaspp64.github.io/preco-brasil${safePath}`,
+        "Cache-Control": "public, max-age=86400"
+      });
+      return res.end();
+    }
+
     res.writeHead(404, { "Content-Type": "text/plain; charset=utf-8" });
     res.end("404 - Arquivo não encontrado");
   } catch (err) {
