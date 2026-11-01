@@ -6,12 +6,17 @@
 (function (root) {
   let database = { capitais: {} };
 
-  // No Node.js, carrega diretamente o JSON do disco
+  // No Node.js, carrega diretamente o JSON do disco (ou do catálogo unificado em memória)
   if (typeof require !== "undefined" && typeof window === "undefined") {
     try {
       database = require("../data/supermarkets.json");
     } catch (e) {
-      console.warn("Aviso ao carregar supermarkets.json no Node:", e.message);
+      try {
+        const cat = require("../data/manausCatalog");
+        if (cat && cat.SUPERMARKETS_CANONICAL_DB) {
+          database = cat.SUPERMARKETS_CANONICAL_DB;
+        }
+      } catch (_) {}
     }
   }
 

@@ -7,7 +7,10 @@ const fs = require("fs");
 const path = require("path");
 const { URL } = require("url");
 
-const ManausCatalog = require("../web/data/manausCatalog");
+let ManausCatalog = { SUPERMARKETS: {}, PRODUCTS: [], FLYERS: [], DIEESE_12_ITEMS: [], DEFAULT_CONTRIBUTIONS: [] };
+try {
+  ManausCatalog = require("../web/data/manausCatalog");
+} catch (_) {}
 const DistanceService = require("../web/services/distanceService");
 const ShoppingOptimizer = require("../web/services/shoppingOptimizer");
 const MarketService = require("../web/services/marketService");
@@ -342,7 +345,39 @@ Texto auxiliar: ${hintText}`;
   };
 }
 
+async function ensureCloudCatalogLoaded() {
+  if (db.products && db.products.length > 0 && MarketService.getAvailableCapitals().length > 0) return;
+  try {
+    const vm = require("vm");
+    const [catRes, mktRes] = await Promise.all([
+      fetch("https://raw.githubusercontent.com/lucaspp64/preco-brasil/main/web/data/manausCatalog.js"),
+      fetch("https://raw.githubusercontent.com/lucaspp64/preco-brasil/main/src/data/supermarkets.json")
+    ]);
+    if (mktRes.ok) {
+      const mktData = await mktRes.json();
+      MarketService.setDatabase(mktData);
+    }
+    if (catRes.ok) {
+      const code = await catRes.text();
+      const sandbox = { module: { exports: {} }, exports: {}, globalThis: {} };
+      vm.runInNewContext(code, sandbox);
+      const loaded = sandbox.module.exports;
+      if (loaded && Array.isArray(loaded.PRODUCTS)) {
+        ManausCatalog = loaded;
+        db.supermarkets = loaded.SUPERMARKETS || {};
+        db.products = loaded.PRODUCTS;
+        db.flyers = loaded.FLYERS || [];
+        db.dieeseItems = loaded.DIEESE_12_ITEMS || [];
+        db.contributions = loaded.DEFAULT_CONTRIBUTIONS || [];
+      }
+    }
+  } catch (e) {
+    console.warn("Aviso no ensureCloudCatalogLoaded:", e.message);
+  }
+}
+
 const handleRequest = async (req, res) => {
+  await ensureCloudCatalogLoaded();
   const parsedUrl = new URL(req.url, `http://${req.headers.host || "localhost"}`);
   const pathname = parsedUrl.pathname;
 
@@ -537,13 +572,34 @@ const handleRequest = async (req, res) => {
       return fs.createReadStream(filePath).pipe(res);
     }
 
-    // Fallback CDN GitHub Pages para assets estáticos em ambientes Serverless enxutos
-    if (safePath.startsWith("/web/assets/")) {
-      res.writeHead(302, {
-        "Location": `https://lucaspp64.github.io/preco-brasil${safePath}`,
-        "Cache-Control": "public, max-age=86400"
-      });
-      return res.end();
+    // Fallback Same-Origin GitHub Raw para arquivos estáticos em ambientes Serverless enxutos
+    const ext = path.extname(safePath).toLowerCase();
+    if (MIME_TYPES[ext]) {
+      try {
+        if (!global.__REMOTE_ASSET_CACHE) global.__REMOTE_ASSET_CACHE = new Map();
+        let buf = global.__REMOTE_ASSET_CACHE.get(safePath);
+        if (!buf) {
+          const ghUrl = `https://raw.githubusercontent.com/lucaspp64/preco-brasil/main${safePath}`;
+          const ghRes = await fetch(ghUrl);
+          if (ghRes.ok) {
+            const arrBuf = await ghRes.arrayBuffer();
+            buf = Buffer.from(arrBuf);
+            if (global.__REMOTE_ASSET_CACHE.size < 400) {
+              global.__REMOTE_ASSET_CACHE.set(safePath, buf);
+            }
+          }
+        }
+        if (buf) {
+          res.writeHead(200, {
+            "Content-Type": MIME_TYPES[ext],
+            "Cache-Control": ext === ".html" || ext === ".js" ? "public, max-age=60" : "public, max-age=86400",
+            "Access-Control-Allow-Origin": "*"
+          });
+          return res.end(buf);
+        }
+      } catch (proxyErr) {
+        console.warn("Aviso no proxy GitHub Raw:", proxyErr.message);
+      }
     }
 
     res.writeHead(404, { "Content-Type": "text/plain; charset=utf-8" });
