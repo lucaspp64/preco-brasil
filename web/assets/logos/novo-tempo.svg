@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+    <rect width="120" height="120" rx="26" fill="#283593"/>
+    <circle cx="60" cy="45" r="22" fill="#FF8F00"/>
+    <text x="60" y="53" font-family="Arial Black, sans-serif" font-size="20" font-weight="900" fill="#FFF" text-anchor="middle">NT</text>
+    <text x="60" y="86" font-family="Arial Black, sans-serif" font-size="14" font-weight="900" fill="#FFF" text-anchor="middle">NOVO TEMPO</text>
+    <text x="60" y="103" font-family="Arial, sans-serif" font-size="10" font-weight="800" fill="#FFD600" text-anchor="middle">REGIONAL</text>
+  </svg>

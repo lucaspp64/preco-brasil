@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">PreçoManaus</string>
+    <string name="tab_monitor">Monitor</string>
+    <string name="tab_compare">Comparar Cesta</string>
+    <string name="tab_encartes">Encartes</string>
+    <string name="tab_stores">Mercados</string>
+    <string name="tab_alerts">Alertas</string>
+</resources>

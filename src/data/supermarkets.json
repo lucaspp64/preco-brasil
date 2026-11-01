@@ -1,0 +1,3487 @@
+{
+  "capitais": {
+    "AM-Manaus": {
+      "key": "AM-Manaus",
+      "legacyId": "manaus",
+      "cidade": "Manaus",
+      "uf": "AM",
+      "regiao": "Norte",
+      "mercados": [
+        {
+          "id": "db-supermercados",
+          "nome": "DB Supermercados",
+          "tipo": "hiper",
+          "porte": "grande",
+          "cor": "#D32F2F",
+          "logo": "web/assets/logos/db-supermercados.svg"
+        },
+        {
+          "id": "nova-era",
+          "nome": "Nova Era Superatacado",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#F57C00",
+          "logo": "web/assets/logos/nova-era.svg"
+        },
+        {
+          "id": "atacadao",
+          "nome": "Atacadão",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#2E7D32",
+          "logo": "web/assets/logos/atacadao.svg"
+        },
+        {
+          "id": "assai",
+          "nome": "Assaí Atacadista",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#1976D2",
+          "logo": "web/assets/logos/assai.svg"
+        },
+        {
+          "id": "baratao-da-carne",
+          "nome": "Baratão da Carne",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#C62828",
+          "logo": "web/assets/logos/baratao-da-carne.svg"
+        },
+        {
+          "id": "carrefour",
+          "nome": "Carrefour",
+          "tipo": "hiper",
+          "porte": "grande",
+          "cor": "#0D47A1",
+          "logo": "web/assets/logos/carrefour.svg"
+        },
+        {
+          "id": "supermercados-rodrigues",
+          "nome": "Supermercados Rodrigues",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#1565C0",
+          "logo": "web/assets/logos/supermercados-rodrigues.svg"
+        },
+        {
+          "id": "supermercado-coari",
+          "nome": "Supermercado Coari",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#2E7D32",
+          "logo": "web/assets/logos/supermercado-coari.svg"
+        },
+        {
+          "id": "supermercado-veneza-am",
+          "nome": "Supermercado Veneza",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#AD1457",
+          "logo": "web/assets/logos/supermercado-veneza-am.svg"
+        },
+        {
+          "id": "supermercado-vitoria-am",
+          "nome": "Supermercados Vitória",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#EF6C00",
+          "logo": "web/assets/logos/supermercado-vitoria-am.svg"
+        },
+        {
+          "id": "emporio-db",
+          "nome": "Empório DB",
+          "tipo": "premium",
+          "porte": "medio",
+          "cor": "#B71C1C",
+          "logo": "web/assets/logos/emporio-db.svg"
+        },
+        {
+          "id": "mania-supermercados",
+          "nome": "Mania Supermercados",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#00838F",
+          "logo": "web/assets/logos/mania-supermercados.svg"
+        },
+        {
+          "id": "supermercado-bom-preco-am",
+          "nome": "Bom Preço Manaus",
+          "tipo": "proximidade",
+          "porte": "pequeno",
+          "cor": "#283593",
+          "logo": "web/assets/logos/supermercado-bom-preco-am.svg"
+        },
+        {
+          "id": "mercadinho-sao-jorge",
+          "nome": "Mercadinho São Jorge",
+          "tipo": "proximidade",
+          "porte": "pequeno",
+          "cor": "#00695C",
+          "logo": "web/assets/logos/mercadinho-sao-jorge.svg"
+        },
+        {
+          "id": "feira-manaus-moderna",
+          "nome": "Feira da Manaus Moderna",
+          "tipo": "hortifruti",
+          "porte": "pequeno",
+          "cor": "#33691E",
+          "logo": "web/assets/logos/feira-manaus-moderna.svg"
+        }
+      ]
+    },
+    "RR-BoaVista": {
+      "key": "RR-BoaVista",
+      "legacyId": "boa_vista",
+      "cidade": "Boa Vista",
+      "uf": "RR",
+      "regiao": "Norte",
+      "mercados": [
+        {
+          "id": "db-supermercados",
+          "nome": "Hiper DB Boa Vista",
+          "tipo": "hiper",
+          "porte": "grande",
+          "cor": "#D32F2F",
+          "logo": "web/assets/logos/db-supermercados.svg"
+        },
+        {
+          "id": "supermercado-gaviao",
+          "nome": "Supermercado Gavião",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#00695C",
+          "logo": "web/assets/logos/supermercado-gaviao.svg"
+        },
+        {
+          "id": "atacadao",
+          "nome": "Atacadão",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#2E7D32",
+          "logo": "web/assets/logos/atacadao.svg"
+        },
+        {
+          "id": "assai",
+          "nome": "Assaí Atacadista",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#1976D2",
+          "logo": "web/assets/logos/assai.svg"
+        },
+        {
+          "id": "supermercado-goiana",
+          "nome": "Supermercado Goiana",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#2E7D32",
+          "logo": "web/assets/logos/supermercado-goiana.svg"
+        },
+        {
+          "id": "novo-tempo",
+          "nome": "Supermercado Novo Tempo",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#283593",
+          "logo": "web/assets/logos/novo-tempo.svg"
+        },
+        {
+          "id": "supermercado-sao-jorge-rr",
+          "nome": "Supermercado São Jorge RR",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#C62828",
+          "logo": "web/assets/logos/supermercado-sao-jorge-rr.svg"
+        },
+        {
+          "id": "supermercado-pato-branco",
+          "nome": "Supermercado Pato Branco",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#1565C0",
+          "logo": "web/assets/logos/supermercado-pato-branco.svg"
+        },
+        {
+          "id": "supermercado-progresso-rr",
+          "nome": "Supermercado Progresso",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#EF6C00",
+          "logo": "web/assets/logos/supermercado-progresso-rr.svg"
+        },
+        {
+          "id": "atacadao-bandeirantes",
+          "nome": "Atacadão Bandeirantes RR",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#00838F",
+          "logo": "web/assets/logos/atacadao-bandeirantes.svg"
+        },
+        {
+          "id": "supermercado-bom-jesus-rr",
+          "nome": "Supermercado Bom Jesus",
+          "tipo": "proximidade",
+          "porte": "pequeno",
+          "cor": "#6A1B9A",
+          "logo": "web/assets/logos/supermercado-bom-jesus-rr.svg"
+        },
+        {
+          "id": "supermercado-uniao-rr",
+          "nome": "Supermercado União BV",
+          "tipo": "proximidade",
+          "porte": "pequeno",
+          "cor": "#4E342E",
+          "logo": "web/assets/logos/supermercado-uniao-rr.svg"
+        },
+        {
+          "id": "minimercado-paraviana",
+          "nome": "Mercadinho Paraviana",
+          "tipo": "proximidade",
+          "porte": "pequeno",
+          "cor": "#00695C",
+          "logo": "web/assets/logos/minimercado-paraviana.svg"
+        },
+        {
+          "id": "mercadinho-boa-compra",
+          "nome": "Mercadinho Boa Compra",
+          "tipo": "proximidade",
+          "porte": "pequeno",
+          "cor": "#00796B",
+          "logo": "web/assets/logos/mercadinho-boa-compra.svg"
+        },
+        {
+          "id": "feira-do-produtor-rr",
+          "nome": "Feira do Produtor de Roraima",
+          "tipo": "hortifruti",
+          "porte": "pequeno",
+          "cor": "#33691E",
+          "logo": "web/assets/logos/feira-do-produtor-rr.svg"
+        }
+      ]
+    },
+    "PA-Belem": {
+      "key": "PA-Belem",
+      "legacyId": "belem",
+      "cidade": "Belém",
+      "uf": "PA",
+      "regiao": "Norte",
+      "mercados": [
+        {
+          "id": "supermercados-lider",
+          "nome": "Supermercados Líder",
+          "tipo": "hiper",
+          "porte": "grande",
+          "cor": "#D32F2F",
+          "logo": "web/assets/logos/supermercados-lider.svg"
+        },
+        {
+          "id": "mix-mateus",
+          "nome": "Mix Mateus",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#0D47A1",
+          "logo": "web/assets/logos/mix-mateus.svg"
+        },
+        {
+          "id": "supermercado-formosa",
+          "nome": "Supermercado Formosa",
+          "tipo": "hiper",
+          "porte": "grande",
+          "cor": "#C2185B",
+          "logo": "web/assets/logos/supermercado-formosa.svg"
+        },
+        {
+          "id": "atacadao",
+          "nome": "Atacadão",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#2E7D32",
+          "logo": "web/assets/logos/atacadao.svg"
+        },
+        {
+          "id": "assai",
+          "nome": "Assaí Atacadista",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#1976D2",
+          "logo": "web/assets/logos/assai.svg"
+        },
+        {
+          "id": "preco-baixo-pa",
+          "nome": "Supermercado Preço Baixo",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#283593",
+          "logo": "web/assets/logos/preco-baixo-pa.svg"
+        },
+        {
+          "id": "supermercado-cidade-pa",
+          "nome": "Supermercado Cidade",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#EF6C00",
+          "logo": "web/assets/logos/supermercado-cidade-pa.svg"
+        },
+        {
+          "id": "supermercado--mateus-pa",
+          "nome": "Supermercado Mateus",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#1565C0",
+          "logo": "web/assets/logos/supermercado--mateus-pa.svg"
+        },
+        {
+          "id": "economico-belem",
+          "nome": "Econômico Supermercados",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#00838F",
+          "logo": "web/assets/logos/economico-belem.svg"
+        },
+        {
+          "id": "supermercado-elos",
+          "nome": "Supermercado Elos",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#2E7D32",
+          "logo": "web/assets/logos/supermercado-elos.svg"
+        },
+        {
+          "id": "supermercado-belem",
+          "nome": "Belém Supermercados",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#6A1B9A",
+          "logo": "web/assets/logos/supermercado-belem.svg"
+        },
+        {
+          "id": "lider-quick",
+          "nome": "Líder Quick",
+          "tipo": "proximidade",
+          "porte": "pequeno",
+          "cor": "#B71C1C",
+          "logo": "web/assets/logos/lider-quick.svg"
+        },
+        {
+          "id": "mercadinho-nazare",
+          "nome": "Mercadinho Nazaré",
+          "tipo": "proximidade",
+          "porte": "pequeno",
+          "cor": "#00695C",
+          "logo": "web/assets/logos/mercadinho-nazare.svg"
+        },
+        {
+          "id": "sacolao-pedreira",
+          "nome": "Sacolão da Pedreira",
+          "tipo": "hortifruti",
+          "porte": "pequeno",
+          "cor": "#558B2F",
+          "logo": "web/assets/logos/sacolao-pedreira.svg"
+        },
+        {
+          "id": "feira-ver-o-peso",
+          "nome": "Feira do Ver-o-Peso",
+          "tipo": "hortifruti",
+          "porte": "pequeno",
+          "cor": "#33691E",
+          "logo": "web/assets/logos/feira-ver-o-peso.svg"
+        }
+      ]
+    },
+    "RO-PortoVelho": {
+      "key": "RO-PortoVelho",
+      "legacyId": "porto_velho",
+      "cidade": "Porto Velho",
+      "uf": "RO",
+      "regiao": "Norte",
+      "mercados": [
+        {
+          "id": "irmaos-goncalves",
+          "nome": "Irmãos Gonçalves (IG)",
+          "tipo": "hiper",
+          "porte": "grande",
+          "cor": "#D32F2F",
+          "logo": "web/assets/logos/irmaos-goncalves.svg"
+        },
+        {
+          "id": "nova-era",
+          "nome": "Nova Era Superatacado",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#F57C00",
+          "logo": "web/assets/logos/nova-era.svg"
+        },
+        {
+          "id": "atacadao",
+          "nome": "Atacadão",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#2E7D32",
+          "logo": "web/assets/logos/atacadao.svg"
+        },
+        {
+          "id": "assai",
+          "nome": "Assaí Atacadista",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#1976D2",
+          "logo": "web/assets/logos/assai.svg"
+        },
+        {
+          "id": "supermercado-araujo-ro",
+          "nome": "Supermercado Araújo RO",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#C62828",
+          "logo": "web/assets/logos/supermercado-araujo-ro.svg"
+        },
+        {
+          "id": "supermercado-coimbra",
+          "nome": "Supermercado Coimbra",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#283593",
+          "logo": "web/assets/logos/supermercado-coimbra.svg"
+        },
+        {
+          "id": "supermercado-dydyo",
+          "nome": "Supermercado Central PVH",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#00838F",
+          "logo": "web/assets/logos/supermercado-dydyo.svg"
+        },
+        {
+          "id": "tatiana-supermercados",
+          "nome": "Tatiana Supermercados",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#AD1457",
+          "logo": "web/assets/logos/tatiana-supermercados.svg"
+        },
+        {
+          "id": "supermercado-esperanca-ro",
+          "nome": "Supermercado Esperança",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#2E7D32",
+          "logo": "web/assets/logos/supermercado-esperanca-ro.svg"
+        },
+        {
+          "id": "supermercado-popular-ro",
+          "nome": "Supermercado Popular PVH",
+          "tipo": "proximidade",
+          "porte": "pequeno",
+          "cor": "#EF6C00",
+          "logo": "web/assets/logos/supermercado-popular-ro.svg"
+        },
+        {
+          "id": "supermercado-jatuarana",
+          "nome": "Supermercado Jatuarana",
+          "tipo": "proximidade",
+          "porte": "pequeno",
+          "cor": "#1565C0",
+          "logo": "web/assets/logos/supermercado-jatuarana.svg"
+        },
+        {
+          "id": "supermercado-calama",
+          "nome": "Supermercado Calama",
+          "tipo": "proximidade",
+          "porte": "pequeno",
+          "cor": "#4E342E",
+          "logo": "web/assets/logos/supermercado-calama.svg"
+        },
+        {
+          "id": "mercadinho-embratel",
+          "nome": "Mercadinho Embratel",
+          "tipo": "proximidade",
+          "porte": "pequeno",
+          "cor": "#00695C",
+          "logo": "web/assets/logos/mercadinho-embratel.svg"
+        },
+        {
+          "id": "sacolao-zona-sul-ro",
+          "nome": "Sacolão Zona Sul PVH",
+          "tipo": "hortifruti",
+          "porte": "pequeno",
+          "cor": "#558B2F",
+          "logo": "web/assets/logos/sacolao-zona-sul-ro.svg"
+        },
+        {
+          "id": "feira-do-produtor-pvh",
+          "nome": "Feira do Produtor PVH",
+          "tipo": "hortifruti",
+          "porte": "pequeno",
+          "cor": "#33691E",
+          "logo": "web/assets/logos/feira-do-produtor-pvh.svg"
+        }
+      ]
+    },
+    "AC-RioBranco": {
+      "key": "AC-RioBranco",
+      "legacyId": "rio_branco",
+      "cidade": "Rio Branco",
+      "uf": "AC",
+      "regiao": "Norte",
+      "mercados": [
+        {
+          "id": "supermercados-araujo",
+          "nome": "Supermercados Araújo",
+          "tipo": "hiper",
+          "porte": "grande",
+          "cor": "#D32F2F",
+          "logo": "web/assets/logos/supermercados-araujo.svg"
+        },
+        {
+          "id": "atacale",
+          "nome": "Atacale Atacarejo",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#F57C00",
+          "logo": "web/assets/logos/atacale.svg"
+        },
+        {
+          "id": "mercale",
+          "nome": "Mercale Supermercados",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#EF6C00",
+          "logo": "web/assets/logos/mercale.svg"
+        },
+        {
+          "id": "atacadao",
+          "nome": "Atacadão",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#2E7D32",
+          "logo": "web/assets/logos/atacadao.svg"
+        },
+        {
+          "id": "assai",
+          "nome": "Assaí Atacadista",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#1976D2",
+          "logo": "web/assets/logos/assai.svg"
+        },
+        {
+          "id": "pague-pouco-ac",
+          "nome": "Supermercado Pague Pouco",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#C2185B",
+          "logo": "web/assets/logos/pague-pouco-ac.svg"
+        },
+        {
+          "id": "irmaos-goncalves",
+          "nome": "Irmãos Gonçalves AC",
+          "tipo": "hiper",
+          "porte": "grande",
+          "cor": "#B71C1C",
+          "logo": "web/assets/logos/irmaos-goncalves.svg"
+        },
+        {
+          "id": "supermercado-popular-ac",
+          "nome": "Supermercado Popular AC",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#283593",
+          "logo": "web/assets/logos/supermercado-popular-ac.svg"
+        },
+        {
+          "id": "supermercado-sao-pedro-ac",
+          "nome": "Supermercado São Pedro",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#00838F",
+          "logo": "web/assets/logos/supermercado-sao-pedro-ac.svg"
+        },
+        {
+          "id": "supermercado-bom-preco-ac",
+          "nome": "Bom Preço Rio Branco",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#1565C0",
+          "logo": "web/assets/logos/supermercado-bom-preco-ac.svg"
+        },
+        {
+          "id": "supermercado-sobral",
+          "nome": "Supermercado Sobral",
+          "tipo": "proximidade",
+          "porte": "pequeno",
+          "cor": "#6A1B9A",
+          "logo": "web/assets/logos/supermercado-sobral.svg"
+        },
+        {
+          "id": "supermercado-floresta-ac",
+          "nome": "Supermercado Floresta",
+          "tipo": "proximidade",
+          "porte": "pequeno",
+          "cor": "#2E7D32",
+          "logo": "web/assets/logos/supermercado-floresta-ac.svg"
+        },
+        {
+          "id": "mercadinho-do-bosque",
+          "nome": "Mercadinho do Bosque",
+          "tipo": "proximidade",
+          "porte": "pequeno",
+          "cor": "#00695C",
+          "logo": "web/assets/logos/mercadinho-do-bosque.svg"
+        },
+        {
+          "id": "hortifruti-via-verde",
+          "nome": "Hortifruti Via Verde",
+          "tipo": "hortifruti",
+          "porte": "pequeno",
+          "cor": "#558B2F",
+          "logo": "web/assets/logos/hortifruti-via-verde.svg"
+        },
+        {
+          "id": "mercado-elias-mansour",
+          "nome": "Mercado Elias Mansour",
+          "tipo": "hortifruti",
+          "porte": "pequeno",
+          "cor": "#33691E",
+          "logo": "web/assets/logos/mercado-elias-mansour.svg"
+        }
+      ]
+    },
+    "AP-Macapa": {
+      "key": "AP-Macapa",
+      "legacyId": "macapa",
+      "cidade": "Macapá",
+      "uf": "AP",
+      "regiao": "Norte",
+      "mercados": [
+        {
+          "id": "fortaleza-supermercados",
+          "nome": "Fortaleza Supermercados",
+          "tipo": "hiper",
+          "porte": "grande",
+          "cor": "#D32F2F",
+          "logo": "web/assets/logos/fortaleza-supermercados.svg"
+        },
+        {
+          "id": "santa-lucia-ap",
+          "nome": "Santa Lúcia Supermercados",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#F57C00",
+          "logo": "web/assets/logos/santa-lucia-ap.svg"
+        },
+        {
+          "id": "atacadao",
+          "nome": "Atacadão",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#2E7D32",
+          "logo": "web/assets/logos/atacadao.svg"
+        },
+        {
+          "id": "assai",
+          "nome": "Assaí Atacadista",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#1976D2",
+          "logo": "web/assets/logos/assai.svg"
+        },
+        {
+          "id": "favorito-ap",
+          "nome": "Supermercado Favorito AP",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#C2185B",
+          "logo": "web/assets/logos/favorito-ap.svg"
+        },
+        {
+          "id": "rede-mini-box",
+          "nome": "Rede Mini Box",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#283593",
+          "logo": "web/assets/logos/rede-mini-box.svg"
+        },
+        {
+          "id": "supermercado-ramiro",
+          "nome": "Supermercado Ramiro",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#1565C0",
+          "logo": "web/assets/logos/supermercado-ramiro.svg"
+        },
+        {
+          "id": "supermercado-empala",
+          "nome": "Supermercado Empala",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#00838F",
+          "logo": "web/assets/logos/supermercado-empala.svg"
+        },
+        {
+          "id": "supermercado-2000-ap",
+          "nome": "Supermercado 2000",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#AD1457",
+          "logo": "web/assets/logos/supermercado-2000-ap.svg"
+        },
+        {
+          "id": "atacadao-macapa-norte",
+          "nome": "Atacarejo Macapá Norte",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#EF6C00",
+          "logo": "web/assets/logos/atacadao-macapa-norte.svg"
+        },
+        {
+          "id": "supermercado-buritizal",
+          "nome": "Supermercado Buritizal",
+          "tipo": "proximidade",
+          "porte": "pequeno",
+          "cor": "#6A1B9A",
+          "logo": "web/assets/logos/supermercado-buritizal.svg"
+        },
+        {
+          "id": "mercadinho-do-trem",
+          "nome": "Mercadinho do Trem",
+          "tipo": "proximidade",
+          "porte": "pequeno",
+          "cor": "#00695C",
+          "logo": "web/assets/logos/mercadinho-do-trem.svg"
+        },
+        {
+          "id": "mercadinho-marco-zero",
+          "nome": "Mercadinho Marco Zero",
+          "tipo": "proximidade",
+          "porte": "pequeno",
+          "cor": "#00796B",
+          "logo": "web/assets/logos/mercadinho-marco-zero.svg"
+        },
+        {
+          "id": "sacolao-equador",
+          "nome": "Sacolão Meio do Mundo",
+          "tipo": "hortifruti",
+          "porte": "pequeno",
+          "cor": "#558B2F",
+          "logo": "web/assets/logos/sacolao-equador.svg"
+        },
+        {
+          "id": "feira-do-agricultor-ap",
+          "nome": "Feira do Agricultor Macapá",
+          "tipo": "hortifruti",
+          "porte": "pequeno",
+          "cor": "#33691E",
+          "logo": "web/assets/logos/feira-do-agricultor-ap.svg"
+        }
+      ]
+    },
+    "TO-Palmas": {
+      "key": "TO-Palmas",
+      "legacyId": "palmas",
+      "cidade": "Palmas",
+      "uf": "TO",
+      "regiao": "Norte",
+      "mercados": [
+        {
+          "id": "quartetto",
+          "nome": "Quartetto Supermercados",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#D32F2F",
+          "logo": "web/assets/logos/quartetto.svg"
+        },
+        {
+          "id": "mix-mateus",
+          "nome": "Mix Mateus",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#0D47A1",
+          "logo": "web/assets/logos/mix-mateus.svg"
+        },
+        {
+          "id": "atacadao",
+          "nome": "Atacadão",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#2E7D32",
+          "logo": "web/assets/logos/atacadao.svg"
+        },
+        {
+          "id": "assai",
+          "nome": "Assaí Atacadista",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#1976D2",
+          "logo": "web/assets/logos/assai.svg"
+        },
+        {
+          "id": "big-norte-to",
+          "nome": "Supermercado Big Norte",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#C2185B",
+          "logo": "web/assets/logos/big-norte-to.svg"
+        },
+        {
+          "id": "super-vale-to",
+          "nome": "Supermercado Super Vale",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#283593",
+          "logo": "web/assets/logos/super-vale-to.svg"
+        },
+        {
+          "id": "supermercado-real-to",
+          "nome": "Supermercado Real Palmas",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#EF6C00",
+          "logo": "web/assets/logos/supermercado-real-to.svg"
+        },
+        {
+          "id": "supermercado-flamboyant-to",
+          "nome": "Supermercado Flamboyant",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#00838F",
+          "logo": "web/assets/logos/supermercado-flamboyant-to.svg"
+        },
+        {
+          "id": "atacadao-taquaralto",
+          "nome": "Atacarejo Taquaralto",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#1565C0",
+          "logo": "web/assets/logos/atacadao-taquaralto.svg"
+        },
+        {
+          "id": "supermercado-sol-nascente",
+          "nome": "Supermercado Sol Nascente",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#6A1B9A",
+          "logo": "web/assets/logos/supermercado-sol-nascente.svg"
+        },
+        {
+          "id": "supermercado-aureny",
+          "nome": "Supermercado Aureny",
+          "tipo": "proximidade",
+          "porte": "pequeno",
+          "cor": "#4E342E",
+          "logo": "web/assets/logos/supermercado-aureny.svg"
+        },
+        {
+          "id": "mercadinho-da-quadra-to",
+          "nome": "Mercadinho da Quadra Sul",
+          "tipo": "proximidade",
+          "porte": "pequeno",
+          "cor": "#00695C",
+          "logo": "web/assets/logos/mercadinho-da-quadra-to.svg"
+        },
+        {
+          "id": "mercadinho-graciosa",
+          "nome": "Mercadinho Orla Graciosa",
+          "tipo": "proximidade",
+          "porte": "pequeno",
+          "cor": "#00796B",
+          "logo": "web/assets/logos/mercadinho-graciosa.svg"
+        },
+        {
+          "id": "hortifruti-plano-diretor",
+          "nome": "Hortifruti Plano Diretor",
+          "tipo": "hortifruti",
+          "porte": "pequeno",
+          "cor": "#558B2F",
+          "logo": "web/assets/logos/hortifruti-plano-diretor.svg"
+        },
+        {
+          "id": "feira-da-304-sul",
+          "nome": "Feira Coberta da 304 Sul",
+          "tipo": "hortifruti",
+          "porte": "pequeno",
+          "cor": "#33691E",
+          "logo": "web/assets/logos/feira-da-304-sul.svg"
+        }
+      ]
+    },
+    "CE-Fortaleza": {
+      "key": "CE-Fortaleza",
+      "legacyId": "fortaleza",
+      "cidade": "Fortaleza",
+      "uf": "CE",
+      "regiao": "Nordeste",
+      "mercados": [
+        {
+          "id": "mercadinhos-sao-luiz",
+          "nome": "Mercadinhos São Luiz",
+          "tipo": "premium",
+          "porte": "medio",
+          "cor": "#D32F2F",
+          "logo": "web/assets/logos/mercadinhos-sao-luiz.svg"
+        },
+        {
+          "id": "mix-mateus",
+          "nome": "Mix Mateus",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#0D47A1",
+          "logo": "web/assets/logos/mix-mateus.svg"
+        },
+        {
+          "id": "atacadao",
+          "nome": "Atacadão",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#2E7D32",
+          "logo": "web/assets/logos/atacadao.svg"
+        },
+        {
+          "id": "assai",
+          "nome": "Assaí Atacadista",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#1976D2",
+          "logo": "web/assets/logos/assai.svg"
+        },
+        {
+          "id": "cometa-supermercados",
+          "nome": "Cometa Supermercados",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#C2185B",
+          "logo": "web/assets/logos/cometa-supermercados.svg"
+        },
+        {
+          "id": "pinheiro-supermercados",
+          "nome": "Pinheiro Supermercados",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#2E7D32",
+          "logo": "web/assets/logos/pinheiro-supermercados.svg"
+        },
+        {
+          "id": "supermercado-guara",
+          "nome": "Supermercado Guará",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#EF6C00",
+          "logo": "web/assets/logos/supermercado-guara.svg"
+        },
+        {
+          "id": "centerbox",
+          "nome": "Centerbox Supermercados",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#1565C0",
+          "logo": "web/assets/logos/centerbox.svg"
+        },
+        {
+          "id": "frangolandiace",
+          "nome": "Super Frangolândia",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#B71C1C",
+          "logo": "web/assets/logos/frangolandiace.svg"
+        },
+        {
+          "id": "nidobox",
+          "nome": "Nidobox Supermercados",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#283593",
+          "logo": "web/assets/logos/nidobox.svg"
+        },
+        {
+          "id": "super-do-povo-ce",
+          "nome": "Super do Povo",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#00838F",
+          "logo": "web/assets/logos/super-do-povo-ce.svg"
+        },
+        {
+          "id": "isidoro-ce",
+          "nome": "Supermercado Isidoro",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#6A1B9A",
+          "logo": "web/assets/logos/isidoro-ce.svg"
+        },
+        {
+          "id": "pao-de-acucar",
+          "nome": "Pão de Açúcar",
+          "tipo": "varejo",
+          "porte": "medio",
+          "cor": "#1B5E20",
+          "logo": "web/assets/logos/pao-de-acucar.svg"
+        },
+        {
+          "id": "mercadinho-popular-ce",
+          "nome": "Mercadinho Popular Aldeota",
+          "tipo": "proximidade",
+          "porte": "pequeno",
+          "cor": "#00695C",
+          "logo": "web/assets/logos/mercadinho-popular-ce.svg"
+        },
+        {
+          "id": "mercado-sao-sebastiao",
+          "nome": "Mercado São Sebastião",
+          "tipo": "hortifruti",
+          "porte": "pequeno",
+          "cor": "#33691E",
+          "logo": "web/assets/logos/mercado-sao-sebastiao.svg"
+        }
+      ]
+    },
+    "PE-Recife": {
+      "key": "PE-Recife",
+      "legacyId": "recife",
+      "cidade": "Recife",
+      "uf": "PE",
+      "regiao": "Nordeste",
+      "mercados": [
+        {
+          "id": "novo-atacarejo",
+          "nome": "Novo Atacarejo",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#D32F2F",
+          "logo": "web/assets/logos/novo-atacarejo.svg"
+        },
+        {
+          "id": "mix-mateus",
+          "nome": "Mix Mateus",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#0D47A1",
+          "logo": "web/assets/logos/mix-mateus.svg"
+        },
+        {
+          "id": "atacadao",
+          "nome": "Atacadão",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#2E7D32",
+          "logo": "web/assets/logos/atacadao.svg"
+        },
+        {
+          "id": "assai",
+          "nome": "Assaí Atacadista",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#1976D2",
+          "logo": "web/assets/logos/assai.svg"
+        },
+        {
+          "id": "extrabom",
+          "nome": "Extrabom Supermercados",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#C2185B",
+          "logo": "web/assets/logos/extrabom.svg"
+        },
+        {
+          "id": "carrefour",
+          "nome": "Carrefour",
+          "tipo": "hiper",
+          "porte": "grande",
+          "cor": "#0D47A1",
+          "logo": "web/assets/logos/carrefour.svg"
+        },
+        {
+          "id": "deskontao",
+          "nome": "Deskontão Atacarejo",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#EF6C00",
+          "logo": "web/assets/logos/deskontao.svg"
+        },
+        {
+          "id": "arco-mix",
+          "nome": "Arco-Mix Supermercados",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#1565C0",
+          "logo": "web/assets/logos/arco-mix.svg"
+        },
+        {
+          "id": "supermercado-soberano",
+          "nome": "Supermercado Soberano",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#283593",
+          "logo": "web/assets/logos/supermercado-soberano.svg"
+        },
+        {
+          "id": "rm-express",
+          "nome": "RM Express",
+          "tipo": "premium",
+          "porte": "medio",
+          "cor": "#4E342E",
+          "logo": "web/assets/logos/rm-express.svg"
+        },
+        {
+          "id": "pao-de-acucar",
+          "nome": "Pão de Açúcar",
+          "tipo": "varejo",
+          "porte": "medio",
+          "cor": "#1B5E20",
+          "logo": "web/assets/logos/pao-de-acucar.svg"
+        },
+        {
+          "id": "bompreco-pe",
+          "nome": "Super Bompreço",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#00838F",
+          "logo": "web/assets/logos/bompreco-pe.svg"
+        },
+        {
+          "id": "mercadinho-boa-viagem",
+          "nome": "Mercadinho Boa Viagem",
+          "tipo": "proximidade",
+          "porte": "pequeno",
+          "cor": "#00695C",
+          "logo": "web/assets/logos/mercadinho-boa-viagem.svg"
+        },
+        {
+          "id": "ceasa-recife",
+          "nome": "CEASA Recife Hortifruti",
+          "tipo": "hortifruti",
+          "porte": "pequeno",
+          "cor": "#558B2F",
+          "logo": "web/assets/logos/ceasa-recife.svg"
+        },
+        {
+          "id": "mercado-de-sao-jose",
+          "nome": "Mercado de São José",
+          "tipo": "hortifruti",
+          "porte": "pequeno",
+          "cor": "#33691E",
+          "logo": "web/assets/logos/mercado-de-sao-jose.svg"
+        }
+      ]
+    },
+    "BA-Salvador": {
+      "key": "BA-Salvador",
+      "legacyId": "salvador",
+      "cidade": "Salvador",
+      "uf": "BA",
+      "regiao": "Nordeste",
+      "mercados": [
+        {
+          "id": "atakarejo",
+          "nome": "Atakarejo",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#D32F2F",
+          "logo": "web/assets/logos/atakarejo.svg"
+        },
+        {
+          "id": "hiperideal",
+          "nome": "Hiperideal",
+          "tipo": "premium",
+          "porte": "medio",
+          "cor": "#F57C00",
+          "logo": "web/assets/logos/hiperideal.svg"
+        },
+        {
+          "id": "atacadao",
+          "nome": "Atacadão",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#2E7D32",
+          "logo": "web/assets/logos/atacadao.svg"
+        },
+        {
+          "id": "assai",
+          "nome": "Assaí Atacadista",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#1976D2",
+          "logo": "web/assets/logos/assai.svg"
+        },
+        {
+          "id": "redemix",
+          "nome": "RedeMix Supermercados",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#C2185B",
+          "logo": "web/assets/logos/redemix.svg"
+        },
+        {
+          "id": "gbarbosa",
+          "nome": "GBarbosa",
+          "tipo": "hiper",
+          "porte": "grande",
+          "cor": "#283593",
+          "logo": "web/assets/logos/gbarbosa.svg"
+        },
+        {
+          "id": "mix-mateus",
+          "nome": "Mix Mateus",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#0D47A1",
+          "logo": "web/assets/logos/mix-mateus.svg"
+        },
+        {
+          "id": "perini",
+          "nome": "Perini Deli & Super",
+          "tipo": "premium",
+          "porte": "medio",
+          "cor": "#6A1B9A",
+          "logo": "web/assets/logos/perini.svg"
+        },
+        {
+          "id": "mercantil-rodrigues",
+          "nome": "Mercantil Rodrigues",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#EF6C00",
+          "logo": "web/assets/logos/mercantil-rodrigues.svg"
+        },
+        {
+          "id": "bompreco-ba",
+          "nome": "Hiper Bompreço",
+          "tipo": "hiper",
+          "porte": "grande",
+          "cor": "#1565C0",
+          "logo": "web/assets/logos/bompreco-ba.svg"
+        },
+        {
+          "id": "todo-dia-ba",
+          "nome": "TodoDia Proximidade",
+          "tipo": "proximidade",
+          "porte": "pequeno",
+          "cor": "#2E7D32",
+          "logo": "web/assets/logos/todo-dia-ba.svg"
+        },
+        {
+          "id": "supermercado-cambui",
+          "nome": "Supermercado Cambuí",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#00838F",
+          "logo": "web/assets/logos/supermercado-cambui.svg"
+        },
+        {
+          "id": "mercadinho-pituba",
+          "nome": "Mercadinho Pituba",
+          "tipo": "proximidade",
+          "porte": "pequeno",
+          "cor": "#00695C",
+          "logo": "web/assets/logos/mercadinho-pituba.svg"
+        },
+        {
+          "id": "hortifruti-cesta-do-povo",
+          "nome": "Hortifruti Salvador",
+          "tipo": "hortifruti",
+          "porte": "pequeno",
+          "cor": "#558B2F",
+          "logo": "web/assets/logos/hortifruti-cesta-do-povo.svg"
+        },
+        {
+          "id": "feira-de-sao-joaquim",
+          "nome": "Feira de São Joaquim",
+          "tipo": "hortifruti",
+          "porte": "pequeno",
+          "cor": "#33691E",
+          "logo": "web/assets/logos/feira-de-sao-joaquim.svg"
+        }
+      ]
+    },
+    "MA-SaoLuis": {
+      "key": "MA-SaoLuis",
+      "legacyId": "sao_luis",
+      "cidade": "São Luís",
+      "uf": "MA",
+      "regiao": "Nordeste",
+      "mercados": [
+        {
+          "id": "supermercado-mateus",
+          "nome": "Supermercado Mateus",
+          "tipo": "hiper",
+          "porte": "grande",
+          "cor": "#0D47A1",
+          "logo": "web/assets/logos/supermercado-mateus.svg"
+        },
+        {
+          "id": "mix-mateus",
+          "nome": "Mix Mateus",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#0D47A1",
+          "logo": "web/assets/logos/mix-mateus.svg"
+        },
+        {
+          "id": "atacadao",
+          "nome": "Atacadão",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#2E7D32",
+          "logo": "web/assets/logos/atacadao.svg"
+        },
+        {
+          "id": "assai",
+          "nome": "Assaí Atacadista",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#1976D2",
+          "logo": "web/assets/logos/assai.svg"
+        },
+        {
+          "id": "supermercados-maciel",
+          "nome": "Supermercados Maciel",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#C2185B",
+          "logo": "web/assets/logos/supermercados-maciel.svg"
+        },
+        {
+          "id": "emporio-fribal",
+          "nome": "Empório Fribal",
+          "tipo": "premium",
+          "porte": "medio",
+          "cor": "#D32F2F",
+          "logo": "web/assets/logos/emporio-fribal.svg"
+        },
+        {
+          "id": "camino-supermercados",
+          "nome": "Camino Supermercados",
+          "tipo": "proximidade",
+          "porte": "pequeno",
+          "cor": "#EF6C00",
+          "logo": "web/assets/logos/camino-supermercados.svg"
+        },
+        {
+          "id": "spazio-mateus",
+          "nome": "Spazio Mateus",
+          "tipo": "premium",
+          "porte": "medio",
+          "cor": "#283593",
+          "logo": "web/assets/logos/spazio-mateus.svg"
+        },
+        {
+          "id": "supermercado-bom-preco-ma",
+          "nome": "Bom Preço São Luís",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#1565C0",
+          "logo": "web/assets/logos/supermercado-bom-preco-ma.svg"
+        },
+        {
+          "id": "supermercado-silva-ma",
+          "nome": "Supermercado Silva",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#00838F",
+          "logo": "web/assets/logos/supermercado-silva-ma.svg"
+        },
+        {
+          "id": "todo-dia-ma",
+          "nome": "Mercado TodoDia SLZ",
+          "tipo": "proximidade",
+          "porte": "pequeno",
+          "cor": "#2E7D32",
+          "logo": "web/assets/logos/todo-dia-ma.svg"
+        },
+        {
+          "id": "mercadinho-cohama",
+          "nome": "Mercadinho Cohama",
+          "tipo": "proximidade",
+          "porte": "pequeno",
+          "cor": "#00695C",
+          "logo": "web/assets/logos/mercadinho-cohama.svg"
+        },
+        {
+          "id": "mercadinho-renascenca",
+          "nome": "Mercadinho Renascença",
+          "tipo": "proximidade",
+          "porte": "pequeno",
+          "cor": "#00796B",
+          "logo": "web/assets/logos/mercadinho-renascenca.svg"
+        },
+        {
+          "id": "feira-da-cohab-slz",
+          "nome": "Feira da Cohab",
+          "tipo": "hortifruti",
+          "porte": "pequeno",
+          "cor": "#558B2F",
+          "logo": "web/assets/logos/feira-da-cohab-slz.svg"
+        },
+        {
+          "id": "feira-da-praia-grande",
+          "nome": "Feira da Praia Grande",
+          "tipo": "hortifruti",
+          "porte": "pequeno",
+          "cor": "#33691E",
+          "logo": "web/assets/logos/feira-da-praia-grande.svg"
+        }
+      ]
+    },
+    "PI-Teresina": {
+      "key": "PI-Teresina",
+      "legacyId": "teresina",
+      "cidade": "Teresina",
+      "uf": "PI",
+      "regiao": "Nordeste",
+      "mercados": [
+        {
+          "id": "carvalho-super",
+          "nome": "Carvalho Super",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#D32F2F",
+          "logo": "web/assets/logos/carvalho-super.svg"
+        },
+        {
+          "id": "carvalho-mercadao",
+          "nome": "Carvalho Mercadão",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#B71C1C",
+          "logo": "web/assets/logos/carvalho-mercadao.svg"
+        },
+        {
+          "id": "mix-mateus",
+          "nome": "Mix Mateus",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#0D47A1",
+          "logo": "web/assets/logos/mix-mateus.svg"
+        },
+        {
+          "id": "atacadao",
+          "nome": "Atacadão",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#2E7D32",
+          "logo": "web/assets/logos/atacadao.svg"
+        },
+        {
+          "id": "assai",
+          "nome": "Assaí Atacadista",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#1976D2",
+          "logo": "web/assets/logos/assai.svg"
+        },
+        {
+          "id": "ferreira-supermercados",
+          "nome": "Ferreira Supermercados",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#C2185B",
+          "logo": "web/assets/logos/ferreira-supermercados.svg"
+        },
+        {
+          "id": "r-carvalho",
+          "nome": "Comercial R. Carvalho",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#283593",
+          "logo": "web/assets/logos/r-carvalho.svg"
+        },
+        {
+          "id": "pao-de-acucar",
+          "nome": "Pão de Açúcar",
+          "tipo": "varejo",
+          "porte": "medio",
+          "cor": "#1B5E20",
+          "logo": "web/assets/logos/pao-de-acucar.svg"
+        },
+        {
+          "id": "supermercado-toureiro",
+          "nome": "Supermercado Toureiro",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#EF6C00",
+          "logo": "web/assets/logos/supermercado-toureiro.svg"
+        },
+        {
+          "id": "extra-teresina",
+          "nome": "Mercado Extra",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#1565C0",
+          "logo": "web/assets/logos/extra-teresina.svg"
+        },
+        {
+          "id": "supermercado-van-pi",
+          "nome": "Supermercado União PI",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#00838F",
+          "logo": "web/assets/logos/supermercado-van-pi.svg"
+        },
+        {
+          "id": "mercadinho-fatima-pi",
+          "nome": "Mercadinho Fátima",
+          "tipo": "proximidade",
+          "porte": "pequeno",
+          "cor": "#00695C",
+          "logo": "web/assets/logos/mercadinho-fatima-pi.svg"
+        },
+        {
+          "id": "mercadinho-dirceu",
+          "nome": "Mercadinho do Dirceu",
+          "tipo": "proximidade",
+          "porte": "pequeno",
+          "cor": "#00796B",
+          "logo": "web/assets/logos/mercadinho-dirceu.svg"
+        },
+        {
+          "id": "nova-ceasa-pi",
+          "nome": "Nova Ceasa Teresina",
+          "tipo": "hortifruti",
+          "porte": "pequeno",
+          "cor": "#558B2F",
+          "logo": "web/assets/logos/nova-ceasa-pi.svg"
+        },
+        {
+          "id": "mercado-central-teresina",
+          "nome": "Mercado Central de Teresina",
+          "tipo": "hortifruti",
+          "porte": "pequeno",
+          "cor": "#33691E",
+          "logo": "web/assets/logos/mercado-central-teresina.svg"
+        }
+      ]
+    },
+    "RN-Natal": {
+      "key": "RN-Natal",
+      "legacyId": "natal",
+      "cidade": "Natal",
+      "uf": "RN",
+      "regiao": "Nordeste",
+      "mercados": [
+        {
+          "id": "nordestao",
+          "nome": "Supermercados Nordestão",
+          "tipo": "hiper",
+          "porte": "grande",
+          "cor": "#D32F2F",
+          "logo": "web/assets/logos/nordestao.svg"
+        },
+        {
+          "id": "superfacil-atacado",
+          "nome": "SuperFácil Atacado",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#F57C00",
+          "logo": "web/assets/logos/superfacil-atacado.svg"
+        },
+        {
+          "id": "atacadao",
+          "nome": "Atacadão",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#2E7D32",
+          "logo": "web/assets/logos/atacadao.svg"
+        },
+        {
+          "id": "assai",
+          "nome": "Assaí Atacadista",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#1976D2",
+          "logo": "web/assets/logos/assai.svg"
+        },
+        {
+          "id": "favorito-rn",
+          "nome": "Favorito Supermercados",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#EF6C00",
+          "logo": "web/assets/logos/favorito-rn.svg"
+        },
+        {
+          "id": "redemais-rn",
+          "nome": "RedeMais Supermercados",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#C2185B",
+          "logo": "web/assets/logos/redemais-rn.svg"
+        },
+        {
+          "id": "carrefour",
+          "nome": "Carrefour",
+          "tipo": "hiper",
+          "porte": "grande",
+          "cor": "#0D47A1",
+          "logo": "web/assets/logos/carrefour.svg"
+        },
+        {
+          "id": "super-show-rn",
+          "nome": "Super Show Supermercados",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#283593",
+          "logo": "web/assets/logos/super-show-rn.svg"
+        },
+        {
+          "id": "mix-mateus",
+          "nome": "Mix Mateus",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#0D47A1",
+          "logo": "web/assets/logos/mix-mateus.svg"
+        },
+        {
+          "id": "supermercado-queiroz",
+          "nome": "Queiroz Atacadão",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#1565C0",
+          "logo": "web/assets/logos/supermercado-queiroz.svg"
+        },
+        {
+          "id": "pao-de-acucar",
+          "nome": "Pão de Açúcar",
+          "tipo": "varejo",
+          "porte": "medio",
+          "cor": "#1B5E20",
+          "logo": "web/assets/logos/pao-de-acucar.svg"
+        },
+        {
+          "id": "mar-vermelho-rn",
+          "nome": "Mar Vermelho Supermercados",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#B71C1C",
+          "logo": "web/assets/logos/mar-vermelho-rn.svg"
+        },
+        {
+          "id": "mercadinho-ponta-negra-rn",
+          "nome": "Mercadinho Ponta Negra",
+          "tipo": "proximidade",
+          "porte": "pequeno",
+          "cor": "#00695C",
+          "logo": "web/assets/logos/mercadinho-ponta-negra-rn.svg"
+        },
+        {
+          "id": "hortifruti-lagoa-nova",
+          "nome": "Sacolão Lagoa Nova",
+          "tipo": "hortifruti",
+          "porte": "pequeno",
+          "cor": "#558B2F",
+          "logo": "web/assets/logos/hortifruti-lagoa-nova.svg"
+        },
+        {
+          "id": "feira-do-alecrim",
+          "nome": "Feira do Alecrim",
+          "tipo": "hortifruti",
+          "porte": "pequeno",
+          "cor": "#33691E",
+          "logo": "web/assets/logos/feira-do-alecrim.svg"
+        }
+      ]
+    },
+    "PB-JoaoPessoa": {
+      "key": "PB-JoaoPessoa",
+      "legacyId": "joao_pessoa",
+      "cidade": "João Pessoa",
+      "uf": "PB",
+      "regiao": "Nordeste",
+      "mercados": [
+        {
+          "id": "supermercado-manaira",
+          "nome": "Supermercado Manaíra",
+          "tipo": "hiper",
+          "porte": "grande",
+          "cor": "#D32F2F",
+          "logo": "web/assets/logos/supermercado-manaira.svg"
+        },
+        {
+          "id": "supermercado-santiago",
+          "nome": "Supermercado Santiago",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#B71C1C",
+          "logo": "web/assets/logos/supermercado-santiago.svg"
+        },
+        {
+          "id": "mix-mateus",
+          "nome": "Mix Mateus",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#0D47A1",
+          "logo": "web/assets/logos/mix-mateus.svg"
+        },
+        {
+          "id": "atacadao",
+          "nome": "Atacadão",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#2E7D32",
+          "logo": "web/assets/logos/atacadao.svg"
+        },
+        {
+          "id": "assai",
+          "nome": "Assaí Atacadista",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#1976D2",
+          "logo": "web/assets/logos/assai.svg"
+        },
+        {
+          "id": "menor-preco-pb",
+          "nome": "Supermercado Menor Preço",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#C2185B",
+          "logo": "web/assets/logos/menor-preco-pb.svg"
+        },
+        {
+          "id": "rede-bemais",
+          "nome": "Rede Bemais",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#283593",
+          "logo": "web/assets/logos/rede-bemais.svg"
+        },
+        {
+          "id": "superbox-brasil",
+          "nome": "SuperBox Brasil",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#EF6C00",
+          "logo": "web/assets/logos/superbox-brasil.svg"
+        },
+        {
+          "id": "do-dia-supermercados",
+          "nome": "DoDia Supermercados",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#00838F",
+          "logo": "web/assets/logos/do-dia-supermercados.svg"
+        },
+        {
+          "id": "latorre-supermercados",
+          "nome": "LaTorre Supermercados",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#1565C0",
+          "logo": "web/assets/logos/latorre-supermercados.svg"
+        },
+        {
+          "id": "pao-de-acucar",
+          "nome": "Pão de Açúcar",
+          "tipo": "varejo",
+          "porte": "medio",
+          "cor": "#1B5E20",
+          "logo": "web/assets/logos/pao-de-acucar.svg"
+        },
+        {
+          "id": "carrefour",
+          "nome": "Carrefour",
+          "tipo": "hiper",
+          "porte": "grande",
+          "cor": "#0D47A1",
+          "logo": "web/assets/logos/carrefour.svg"
+        },
+        {
+          "id": "mercadinho-tambau",
+          "nome": "Mercadinho Tambaú",
+          "tipo": "proximidade",
+          "porte": "pequeno",
+          "cor": "#00695C",
+          "logo": "web/assets/logos/mercadinho-tambau.svg"
+        },
+        {
+          "id": "mercado-da-torre-jp",
+          "nome": "Mercado Público da Torre",
+          "tipo": "hortifruti",
+          "porte": "pequeno",
+          "cor": "#558B2F",
+          "logo": "web/assets/logos/mercado-da-torre-jp.svg"
+        },
+        {
+          "id": "mercado-central-jp",
+          "nome": "Mercado Central João Pessoa",
+          "tipo": "hortifruti",
+          "porte": "pequeno",
+          "cor": "#33691E",
+          "logo": "web/assets/logos/mercado-central-jp.svg"
+        }
+      ]
+    },
+    "AL-Maceio": {
+      "key": "AL-Maceio",
+      "legacyId": "maceio",
+      "cidade": "Maceió",
+      "uf": "AL",
+      "regiao": "Nordeste",
+      "mercados": [
+        {
+          "id": "palato",
+          "nome": "Palato Supermercados",
+          "tipo": "premium",
+          "porte": "medio",
+          "cor": "#D32F2F",
+          "logo": "web/assets/logos/palato.svg"
+        },
+        {
+          "id": "unicompra",
+          "nome": "Unicompra Supermercados",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#C2185B",
+          "logo": "web/assets/logos/unicompra.svg"
+        },
+        {
+          "id": "mix-mateus",
+          "nome": "Mix Mateus",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#0D47A1",
+          "logo": "web/assets/logos/mix-mateus.svg"
+        },
+        {
+          "id": "atacadao",
+          "nome": "Atacadão",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#2E7D32",
+          "logo": "web/assets/logos/atacadao.svg"
+        },
+        {
+          "id": "assai",
+          "nome": "Assaí Atacadista",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#1976D2",
+          "logo": "web/assets/logos/assai.svg"
+        },
+        {
+          "id": "gbarbosa",
+          "nome": "GBarbosa",
+          "tipo": "hiper",
+          "porte": "grande",
+          "cor": "#283593",
+          "logo": "web/assets/logos/gbarbosa.svg"
+        },
+        {
+          "id": "cesta-de-alimentos",
+          "nome": "Cesta de Alimentos",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#EF6C00",
+          "logo": "web/assets/logos/cesta-de-alimentos.svg"
+        },
+        {
+          "id": "super-giro-al",
+          "nome": "Super Giro",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#00838F",
+          "logo": "web/assets/logos/super-giro-al.svg"
+        },
+        {
+          "id": "sao-domingos-al",
+          "nome": "Supermercado São Domingos",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#1565C0",
+          "logo": "web/assets/logos/sao-domingos-al.svg"
+        },
+        {
+          "id": "pao-de-acucar",
+          "nome": "Pão de Açúcar",
+          "tipo": "varejo",
+          "porte": "medio",
+          "cor": "#1B5E20",
+          "logo": "web/assets/logos/pao-de-acucar.svg"
+        },
+        {
+          "id": "ideal-supermercados-al",
+          "nome": "Ideal Supermercados",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#6A1B9A",
+          "logo": "web/assets/logos/ideal-supermercados-al.svg"
+        },
+        {
+          "id": "supermercado-lopes-al",
+          "nome": "Supermercado Lopes AL",
+          "tipo": "proximidade",
+          "porte": "pequeno",
+          "cor": "#4E342E",
+          "logo": "web/assets/logos/supermercado-lopes-al.svg"
+        },
+        {
+          "id": "mercadinho-jatiuca",
+          "nome": "Mercadinho Jatiúca",
+          "tipo": "proximidade",
+          "porte": "pequeno",
+          "cor": "#00695C",
+          "logo": "web/assets/logos/mercadinho-jatiuca.svg"
+        },
+        {
+          "id": "sacolao-ponta-verde",
+          "nome": "Hortifruti Ponta Verde",
+          "tipo": "hortifruti",
+          "porte": "pequeno",
+          "cor": "#558B2F",
+          "logo": "web/assets/logos/sacolao-ponta-verde.svg"
+        },
+        {
+          "id": "mercado-da-producao",
+          "nome": "Mercado da Produção",
+          "tipo": "hortifruti",
+          "porte": "pequeno",
+          "cor": "#33691E",
+          "logo": "web/assets/logos/mercado-da-producao.svg"
+        }
+      ]
+    },
+    "SE-Aracaju": {
+      "key": "SE-Aracaju",
+      "legacyId": "aracaju",
+      "cidade": "Aracaju",
+      "uf": "SE",
+      "regiao": "Nordeste",
+      "mercados": [
+        {
+          "id": "gbarbosa",
+          "nome": "GBarbosa",
+          "tipo": "hiper",
+          "porte": "grande",
+          "cor": "#D32F2F",
+          "logo": "web/assets/logos/gbarbosa.svg"
+        },
+        {
+          "id": "mix-mateus",
+          "nome": "Mix Mateus",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#0D47A1",
+          "logo": "web/assets/logos/mix-mateus.svg"
+        },
+        {
+          "id": "atacadao",
+          "nome": "Atacadão",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#2E7D32",
+          "logo": "web/assets/logos/atacadao.svg"
+        },
+        {
+          "id": "assai",
+          "nome": "Assaí Atacadista",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#1976D2",
+          "logo": "web/assets/logos/assai.svg"
+        },
+        {
+          "id": "supermercado-bombom",
+          "nome": "Supermercado Bombom",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#C2185B",
+          "logo": "web/assets/logos/supermercado-bombom.svg"
+        },
+        {
+          "id": "massimo-supermercados",
+          "nome": "Massimo Supermercados",
+          "tipo": "premium",
+          "porte": "medio",
+          "cor": "#283593",
+          "logo": "web/assets/logos/massimo-supermercados.svg"
+        },
+        {
+          "id": "menor-preco-se",
+          "nome": "Rede Menor Preço SE",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#EF6C00",
+          "logo": "web/assets/logos/menor-preco-se.svg"
+        },
+        {
+          "id": "pao-de-acucar",
+          "nome": "Pão de Açúcar",
+          "tipo": "varejo",
+          "porte": "medio",
+          "cor": "#1B5E20",
+          "logo": "web/assets/logos/pao-de-acucar.svg"
+        },
+        {
+          "id": "mercantil-rodrigues",
+          "nome": "Mercantil Rodrigues",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#1565C0",
+          "logo": "web/assets/logos/mercantil-rodrigues.svg"
+        },
+        {
+          "id": "supermercado-popular-se",
+          "nome": "Supermercado Popular Aju",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#00838F",
+          "logo": "web/assets/logos/supermercado-popular-se.svg"
+        },
+        {
+          "id": "hiper-carnes-se",
+          "nome": "Hiper Carnes Aracaju",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#B71C1C",
+          "logo": "web/assets/logos/hiper-carnes-se.svg"
+        },
+        {
+          "id": "todo-dia-se",
+          "nome": "TodoDia Aracaju",
+          "tipo": "proximidade",
+          "porte": "pequeno",
+          "cor": "#2E7D32",
+          "logo": "web/assets/logos/todo-dia-se.svg"
+        },
+        {
+          "id": "mercadinho-atalaia",
+          "nome": "Mercadinho Atalaia",
+          "tipo": "proximidade",
+          "porte": "pequeno",
+          "cor": "#00695C",
+          "logo": "web/assets/logos/mercadinho-atalaia.svg"
+        },
+        {
+          "id": "hortifruti-jardins-se",
+          "nome": "Hortifruti Jardins",
+          "tipo": "hortifruti",
+          "porte": "pequeno",
+          "cor": "#558B2F",
+          "logo": "web/assets/logos/hortifruti-jardins-se.svg"
+        },
+        {
+          "id": "mercado-albano-franco",
+          "nome": "Mercado Albano Franco",
+          "tipo": "hortifruti",
+          "porte": "pequeno",
+          "cor": "#33691E",
+          "logo": "web/assets/logos/mercado-albano-franco.svg"
+        }
+      ]
+    },
+    "DF-Brasilia": {
+      "key": "DF-Brasilia",
+      "legacyId": "brasilia",
+      "cidade": "Brasília",
+      "uf": "DF",
+      "regiao": "Centro-Oeste",
+      "mercados": [
+        {
+          "id": "super-adega",
+          "nome": "Super Adega Atacadista",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#F57C00",
+          "logo": "web/assets/logos/super-adega.svg"
+        },
+        {
+          "id": "big-box",
+          "nome": "Big Box Supermercados",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#D32F2F",
+          "logo": "web/assets/logos/big-box.svg"
+        },
+        {
+          "id": "atacadao-dia-a-dia",
+          "nome": "Atacadão Dia a Dia",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#2E7D32",
+          "logo": "web/assets/logos/atacadao-dia-a-dia.svg"
+        },
+        {
+          "id": "atacadao",
+          "nome": "Atacadão",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#2E7D32",
+          "logo": "web/assets/logos/atacadao.svg"
+        },
+        {
+          "id": "assai",
+          "nome": "Assaí Atacadista",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#1976D2",
+          "logo": "web/assets/logos/assai.svg"
+        },
+        {
+          "id": "carrefour",
+          "nome": "Carrefour",
+          "tipo": "hiper",
+          "porte": "grande",
+          "cor": "#0D47A1",
+          "logo": "web/assets/logos/carrefour.svg"
+        },
+        {
+          "id": "pao-de-acucar",
+          "nome": "Pão de Açúcar",
+          "tipo": "varejo",
+          "porte": "medio",
+          "cor": "#1B5E20",
+          "logo": "web/assets/logos/pao-de-acucar.svg"
+        },
+        {
+          "id": "dona-de-casa",
+          "nome": "Dona de Casa Supermercados",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#C2185B",
+          "logo": "web/assets/logos/dona-de-casa.svg"
+        },
+        {
+          "id": "supermercado-veneza-df",
+          "nome": "Supermercado Veneza DF",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#283593",
+          "logo": "web/assets/logos/supermercado-veneza-df.svg"
+        },
+        {
+          "id": "vivendas-supermercados",
+          "nome": "Supermercado Vivendas",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#00838F",
+          "logo": "web/assets/logos/vivendas-supermercados.svg"
+        },
+        {
+          "id": "superbom-df",
+          "nome": "Superbom Brasília",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#1565C0",
+          "logo": "web/assets/logos/superbom-df.svg"
+        },
+        {
+          "id": "oba-hortifruti",
+          "nome": "Oba Hortifruti",
+          "tipo": "hortifruti",
+          "porte": "pequeno",
+          "cor": "#33691E",
+          "logo": "web/assets/logos/oba-hortifruti.svg"
+        },
+        {
+          "id": "ultrafacil-box",
+          "nome": "UltraBox Atacarejo",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#EF6C00",
+          "logo": "web/assets/logos/ultrafacil-box.svg"
+        },
+        {
+          "id": "mercadinho-da-comercial",
+          "nome": "Mercadinho da Comercial",
+          "tipo": "proximidade",
+          "porte": "pequeno",
+          "cor": "#00695C",
+          "logo": "web/assets/logos/mercadinho-da-comercial.svg"
+        },
+        {
+          "id": "feira-do-guara-ceasa",
+          "nome": "Feira do Guará & Ceasa DF",
+          "tipo": "hortifruti",
+          "porte": "pequeno",
+          "cor": "#558B2F",
+          "logo": "web/assets/logos/feira-do-guara-ceasa.svg"
+        }
+      ]
+    },
+    "GO-Goiania": {
+      "key": "GO-Goiania",
+      "legacyId": "goiania",
+      "cidade": "Goiânia",
+      "uf": "GO",
+      "regiao": "Centro-Oeste",
+      "mercados": [
+        {
+          "id": "bretas",
+          "nome": "Bretas Supermercados",
+          "tipo": "hiper",
+          "porte": "grande",
+          "cor": "#D32F2F",
+          "logo": "web/assets/logos/bretas.svg"
+        },
+        {
+          "id": "barao-supermercados",
+          "nome": "Barão Supermercados",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#F57C00",
+          "logo": "web/assets/logos/barao-supermercados.svg"
+        },
+        {
+          "id": "atacadao",
+          "nome": "Atacadão",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#2E7D32",
+          "logo": "web/assets/logos/atacadao.svg"
+        },
+        {
+          "id": "assai",
+          "nome": "Assaí Atacadista",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#1976D2",
+          "logo": "web/assets/logos/assai.svg"
+        },
+        {
+          "id": "tatico",
+          "nome": "Tatico Supermercados",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#C2185B",
+          "logo": "web/assets/logos/tatico.svg"
+        },
+        {
+          "id": "carrefour",
+          "nome": "Carrefour",
+          "tipo": "hiper",
+          "porte": "grande",
+          "cor": "#0D47A1",
+          "logo": "web/assets/logos/carrefour.svg"
+        },
+        {
+          "id": "pao-de-acucar",
+          "nome": "Pão de Açúcar",
+          "tipo": "varejo",
+          "porte": "medio",
+          "cor": "#1B5E20",
+          "logo": "web/assets/logos/pao-de-acucar.svg"
+        },
+        {
+          "id": "emporio-prime",
+          "nome": "Empório Prime",
+          "tipo": "premium",
+          "porte": "medio",
+          "cor": "#4E342E",
+          "logo": "web/assets/logos/emporio-prime.svg"
+        },
+        {
+          "id": "pro-brazilian",
+          "nome": "Pró Brazilian",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#283593",
+          "logo": "web/assets/logos/pro-brazilian.svg"
+        },
+        {
+          "id": "atacadao-dia-a-dia",
+          "nome": "Atacadão Dia a Dia GO",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#00838F",
+          "logo": "web/assets/logos/atacadao-dia-a-dia.svg"
+        },
+        {
+          "id": "supermercado-store-go",
+          "nome": "Store Supermercados",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#1565C0",
+          "logo": "web/assets/logos/supermercado-store-go.svg"
+        },
+        {
+          "id": "oba-hortifruti",
+          "nome": "Oba Hortifruti",
+          "tipo": "hortifruti",
+          "porte": "pequeno",
+          "cor": "#33691E",
+          "logo": "web/assets/logos/oba-hortifruti.svg"
+        },
+        {
+          "id": "supermercado-moreira",
+          "nome": "Hiper Moreira",
+          "tipo": "hiper",
+          "porte": "grande",
+          "cor": "#B71C1C",
+          "logo": "web/assets/logos/supermercado-moreira.svg"
+        },
+        {
+          "id": "mercadinho-setor-bueno",
+          "nome": "Mercadinho Setor Bueno",
+          "tipo": "proximidade",
+          "porte": "pequeno",
+          "cor": "#00695C",
+          "logo": "web/assets/logos/mercadinho-setor-bueno.svg"
+        },
+        {
+          "id": "feira-do-cepal-go",
+          "nome": "Feira do Cepal & Cerrado",
+          "tipo": "hortifruti",
+          "porte": "pequeno",
+          "cor": "#558B2F",
+          "logo": "web/assets/logos/feira-do-cepal-go.svg"
+        }
+      ]
+    },
+    "MT-Cuiaba": {
+      "key": "MT-Cuiaba",
+      "legacyId": "cuiaba",
+      "cidade": "Cuiabá",
+      "uf": "MT",
+      "regiao": "Centro-Oeste",
+      "mercados": [
+        {
+          "id": "comper",
+          "nome": "Comper Supermercados",
+          "tipo": "hiper",
+          "porte": "grande",
+          "cor": "#D32F2F",
+          "logo": "web/assets/logos/comper.svg"
+        },
+        {
+          "id": "biglar",
+          "nome": "BigLar Supermercados",
+          "tipo": "premium",
+          "porte": "medio",
+          "cor": "#F57C00",
+          "logo": "web/assets/logos/biglar.svg"
+        },
+        {
+          "id": "fort-atacadista",
+          "nome": "Fort Atacadista",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#1565C0",
+          "logo": "web/assets/logos/fort-atacadista.svg"
+        },
+        {
+          "id": "atacadao",
+          "nome": "Atacadão",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#2E7D32",
+          "logo": "web/assets/logos/atacadao.svg"
+        },
+        {
+          "id": "assai",
+          "nome": "Assaí Atacadista",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#1976D2",
+          "logo": "web/assets/logos/assai.svg"
+        },
+        {
+          "id": "supermercados-machado",
+          "nome": "Supermercados Machado",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#C2185B",
+          "logo": "web/assets/logos/supermercados-machado.svg"
+        },
+        {
+          "id": "america-supermercados",
+          "nome": "América Supermercados",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#283593",
+          "logo": "web/assets/logos/america-supermercados.svg"
+        },
+        {
+          "id": "tropical-supermercados-mt",
+          "nome": "Tropical Supermercados",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#00838F",
+          "logo": "web/assets/logos/tropical-supermercados-mt.svg"
+        },
+        {
+          "id": "supermercado-imperial-mt",
+          "nome": "Supermercado Imperial",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#EF6C00",
+          "logo": "web/assets/logos/supermercado-imperial-mt.svg"
+        },
+        {
+          "id": "supermercado-alvorada-mt",
+          "nome": "Supermercado Alvorada CBA",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#6A1B9A",
+          "logo": "web/assets/logos/supermercado-alvorada-mt.svg"
+        },
+        {
+          "id": "atacado-pantanal",
+          "nome": "Pantanal Atacado",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#2E7D32",
+          "logo": "web/assets/logos/atacado-pantanal.svg"
+        },
+        {
+          "id": "minimercado-cpa",
+          "nome": "Mercadinho do CPA",
+          "tipo": "proximidade",
+          "porte": "pequeno",
+          "cor": "#00796B",
+          "logo": "web/assets/logos/minimercado-cpa.svg"
+        },
+        {
+          "id": "mercadinho-coxipo",
+          "nome": "Mercadinho Coxipó",
+          "tipo": "proximidade",
+          "porte": "pequeno",
+          "cor": "#00695C",
+          "logo": "web/assets/logos/mercadinho-coxipo.svg"
+        },
+        {
+          "id": "hortifruti-goiabeiras",
+          "nome": "Sacolão Goiabeiras",
+          "tipo": "hortifruti",
+          "porte": "pequeno",
+          "cor": "#558B2F",
+          "logo": "web/assets/logos/hortifruti-goiabeiras.svg"
+        },
+        {
+          "id": "mercado-do-porto-cba",
+          "nome": "Mercado do Porto Cuiabá",
+          "tipo": "hortifruti",
+          "porte": "pequeno",
+          "cor": "#33691E",
+          "logo": "web/assets/logos/mercado-do-porto-cba.svg"
+        }
+      ]
+    },
+    "MS-CampoGrande": {
+      "key": "MS-CampoGrande",
+      "legacyId": "campo_grande",
+      "cidade": "Campo Grande",
+      "uf": "MS",
+      "regiao": "Centro-Oeste",
+      "mercados": [
+        {
+          "id": "comper",
+          "nome": "Comper Supermercados",
+          "tipo": "hiper",
+          "porte": "grande",
+          "cor": "#D32F2F",
+          "logo": "web/assets/logos/comper.svg"
+        },
+        {
+          "id": "fort-atacadista",
+          "nome": "Fort Atacadista",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#1565C0",
+          "logo": "web/assets/logos/fort-atacadista.svg"
+        },
+        {
+          "id": "atacadao",
+          "nome": "Atacadão",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#2E7D32",
+          "logo": "web/assets/logos/atacadao.svg"
+        },
+        {
+          "id": "assai",
+          "nome": "Assaí Atacadista",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#1976D2",
+          "logo": "web/assets/logos/assai.svg"
+        },
+        {
+          "id": "carrefour",
+          "nome": "Carrefour",
+          "tipo": "hiper",
+          "porte": "grande",
+          "cor": "#0D47A1",
+          "logo": "web/assets/logos/carrefour.svg"
+        },
+        {
+          "id": "mister-junior",
+          "nome": "Mister Júnior",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#C2185B",
+          "logo": "web/assets/logos/mister-junior.svg"
+        },
+        {
+          "id": "supermercado-pires",
+          "nome": "Supermercado Pires",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#283593",
+          "logo": "web/assets/logos/supermercado-pires.svg"
+        },
+        {
+          "id": "supermercado-legal-ms",
+          "nome": "Supermercado Legal",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#EF6C00",
+          "logo": "web/assets/logos/supermercado-legal-ms.svg"
+        },
+        {
+          "id": "supermercado-nunes-ms",
+          "nome": "Supermercado Nunes",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#00838F",
+          "logo": "web/assets/logos/supermercado-nunes-ms.svg"
+        },
+        {
+          "id": "supermercado-estrela-ms",
+          "nome": "Supermercado Estrela CG",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#6A1B9A",
+          "logo": "web/assets/logos/supermercado-estrela-ms.svg"
+        },
+        {
+          "id": "pao-de-acucar",
+          "nome": "Pão de Açúcar",
+          "tipo": "varejo",
+          "porte": "medio",
+          "cor": "#1B5E20",
+          "logo": "web/assets/logos/pao-de-acucar.svg"
+        },
+        {
+          "id": "maxi-compras-ms",
+          "nome": "Maxi Compras",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#B71C1C",
+          "logo": "web/assets/logos/maxi-compras-ms.svg"
+        },
+        {
+          "id": "mercadinho-tiradentes-ms",
+          "nome": "Mercadinho Tiradentes",
+          "tipo": "proximidade",
+          "porte": "pequeno",
+          "cor": "#00695C",
+          "logo": "web/assets/logos/mercadinho-tiradentes-ms.svg"
+        },
+        {
+          "id": "hortifruti-estados-ms",
+          "nome": "Sacolão Jardim dos Estados",
+          "tipo": "hortifruti",
+          "porte": "pequeno",
+          "cor": "#558B2F",
+          "logo": "web/assets/logos/hortifruti-estados-ms.svg"
+        },
+        {
+          "id": "mercadao-municipal-cg",
+          "nome": "Mercadão Municipal CG",
+          "tipo": "hortifruti",
+          "porte": "pequeno",
+          "cor": "#33691E",
+          "logo": "web/assets/logos/mercadao-municipal-cg.svg"
+        }
+      ]
+    },
+    "SP-SaoPaulo": {
+      "key": "SP-SaoPaulo",
+      "legacyId": "sao_paulo",
+      "cidade": "São Paulo",
+      "uf": "SP",
+      "regiao": "Sudeste",
+      "mercados": [
+        {
+          "id": "pao-de-acucar",
+          "nome": "Pão de Açúcar",
+          "tipo": "varejo",
+          "porte": "medio",
+          "cor": "#1B5E20",
+          "logo": "web/assets/logos/pao-de-acucar.svg"
+        },
+        {
+          "id": "carrefour",
+          "nome": "Carrefour",
+          "tipo": "hiper",
+          "porte": "grande",
+          "cor": "#0D47A1",
+          "logo": "web/assets/logos/carrefour.svg"
+        },
+        {
+          "id": "atacadao",
+          "nome": "Atacadão",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#2E7D32",
+          "logo": "web/assets/logos/atacadao.svg"
+        },
+        {
+          "id": "assai",
+          "nome": "Assaí Atacadista",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#1976D2",
+          "logo": "web/assets/logos/assai.svg"
+        },
+        {
+          "id": "sonda",
+          "nome": "Sonda Supermercados",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#F57C00",
+          "logo": "web/assets/logos/sonda.svg"
+        },
+        {
+          "id": "mambo",
+          "nome": "Mambo",
+          "tipo": "premium",
+          "porte": "medio",
+          "cor": "#C2185B",
+          "logo": "web/assets/logos/mambo.svg"
+        },
+        {
+          "id": "st-marche",
+          "nome": "St. Marche",
+          "tipo": "premium",
+          "porte": "medio",
+          "cor": "#4E342E",
+          "logo": "web/assets/logos/st-marche.svg"
+        },
+        {
+          "id": "dia",
+          "nome": "Dia",
+          "tipo": "proximidade",
+          "porte": "pequeno",
+          "cor": "#D32F2F",
+          "logo": "web/assets/logos/dia.svg"
+        },
+        {
+          "id": "nagumo",
+          "nome": "Nagumo",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#1565C0",
+          "logo": "web/assets/logos/nagumo.svg"
+        },
+        {
+          "id": "davo",
+          "nome": "D'avó",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#E53935",
+          "logo": "web/assets/logos/davo.svg"
+        },
+        {
+          "id": "hirota",
+          "nome": "Hirota Food",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#AD1457",
+          "logo": "web/assets/logos/hirota.svg"
+        },
+        {
+          "id": "pastorinho",
+          "nome": "Pastorinho",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#00838F",
+          "logo": "web/assets/logos/pastorinho.svg"
+        },
+        {
+          "id": "lopes",
+          "nome": "Lopes Supermercados",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#283593",
+          "logo": "web/assets/logos/lopes.svg"
+        },
+        {
+          "id": "natural-da-terra",
+          "nome": "Natural da Terra",
+          "tipo": "hortifruti",
+          "porte": "pequeno",
+          "cor": "#33691E",
+          "logo": "web/assets/logos/natural-da-terra.svg"
+        },
+        {
+          "id": "akki-atacadista",
+          "nome": "Akki Atacadista",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#EF6C00",
+          "logo": "web/assets/logos/akki-atacadista.svg"
+        }
+      ]
+    },
+    "RJ-RioDeJaneiro": {
+      "key": "RJ-RioDeJaneiro",
+      "legacyId": "rio_de_janeiro",
+      "cidade": "Rio de Janeiro",
+      "uf": "RJ",
+      "regiao": "Sudeste",
+      "mercados": [
+        {
+          "id": "guanabara",
+          "nome": "Supermercados Guanabara",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#D32F2F",
+          "logo": "web/assets/logos/guanabara.svg"
+        },
+        {
+          "id": "mundial",
+          "nome": "Supermercados Mundial",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#F57C00",
+          "logo": "web/assets/logos/mundial.svg"
+        },
+        {
+          "id": "zona-sul",
+          "nome": "Zona Sul",
+          "tipo": "premium",
+          "porte": "medio",
+          "cor": "#C62828",
+          "logo": "web/assets/logos/zona-sul.svg"
+        },
+        {
+          "id": "prezunic",
+          "nome": "Prezunic",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#1565C0",
+          "logo": "web/assets/logos/prezunic.svg"
+        },
+        {
+          "id": "assai",
+          "nome": "Assaí Atacadista",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#1976D2",
+          "logo": "web/assets/logos/assai.svg"
+        },
+        {
+          "id": "atacadao",
+          "nome": "Atacadão",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#2E7D32",
+          "logo": "web/assets/logos/atacadao.svg"
+        },
+        {
+          "id": "carrefour",
+          "nome": "Carrefour",
+          "tipo": "hiper",
+          "porte": "grande",
+          "cor": "#0D47A1",
+          "logo": "web/assets/logos/carrefour.svg"
+        },
+        {
+          "id": "pao-de-acucar",
+          "nome": "Pão de Açúcar",
+          "tipo": "varejo",
+          "porte": "medio",
+          "cor": "#1B5E20",
+          "logo": "web/assets/logos/pao-de-acucar.svg"
+        },
+        {
+          "id": "redemais",
+          "nome": "Rede Mais",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#C2185B",
+          "logo": "web/assets/logos/redemais.svg"
+        },
+        {
+          "id": "princesa",
+          "nome": "Supermercados Princesa",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#AD1457",
+          "logo": "web/assets/logos/princesa.svg"
+        },
+        {
+          "id": "costazul",
+          "nome": "Costazul Multimercado",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#00838F",
+          "logo": "web/assets/logos/costazul.svg"
+        },
+        {
+          "id": "inter-supermercados",
+          "nome": "Inter Supermercados",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#2E7D32",
+          "logo": "web/assets/logos/inter-supermercados.svg"
+        },
+        {
+          "id": "supermarket",
+          "nome": "Rede Supermarket",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#283593",
+          "logo": "web/assets/logos/supermarket.svg"
+        },
+        {
+          "id": "redetop",
+          "nome": "Rede Top",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#EF6C00",
+          "logo": "web/assets/logos/redetop.svg"
+        },
+        {
+          "id": "megabox",
+          "nome": "Megabox",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#B71C1C",
+          "logo": "web/assets/logos/megabox.svg"
+        }
+      ]
+    },
+    "MG-BeloHorizonte": {
+      "key": "MG-BeloHorizonte",
+      "legacyId": "belo_horizonte",
+      "cidade": "Belo Horizonte",
+      "uf": "MG",
+      "regiao": "Sudeste",
+      "mercados": [
+        {
+          "id": "supermercados-bh",
+          "nome": "Supermercados BH",
+          "tipo": "hiper",
+          "porte": "grande",
+          "cor": "#D32F2F",
+          "logo": "web/assets/logos/supermercados-bh.svg"
+        },
+        {
+          "id": "verdemar",
+          "nome": "Verdemar",
+          "tipo": "premium",
+          "porte": "medio",
+          "cor": "#1B5E20",
+          "logo": "web/assets/logos/verdemar.svg"
+        },
+        {
+          "id": "epa-plus",
+          "nome": "EPA Plus Supermercados",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#C2185B",
+          "logo": "web/assets/logos/epa-plus.svg"
+        },
+        {
+          "id": "mart-minas",
+          "nome": "Mart Minas Atacado",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#F57C00",
+          "logo": "web/assets/logos/mart-minas.svg"
+        },
+        {
+          "id": "apoio-mineiro",
+          "nome": "Apoio Mineiro",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#1565C0",
+          "logo": "web/assets/logos/apoio-mineiro.svg"
+        },
+        {
+          "id": "atacadao",
+          "nome": "Atacadão",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#2E7D32",
+          "logo": "web/assets/logos/atacadao.svg"
+        },
+        {
+          "id": "assai",
+          "nome": "Assaí Atacadista",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#1976D2",
+          "logo": "web/assets/logos/assai.svg"
+        },
+        {
+          "id": "super-nosso",
+          "nome": "Super Nosso",
+          "tipo": "premium",
+          "porte": "medio",
+          "cor": "#B71C1C",
+          "logo": "web/assets/logos/super-nosso.svg"
+        },
+        {
+          "id": "carrefour",
+          "nome": "Carrefour",
+          "tipo": "hiper",
+          "porte": "grande",
+          "cor": "#0D47A1",
+          "logo": "web/assets/logos/carrefour.svg"
+        },
+        {
+          "id": "villefort",
+          "nome": "Villefort Atacarejo",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#283593",
+          "logo": "web/assets/logos/villefort.svg"
+        },
+        {
+          "id": "supermercado-dia-mg",
+          "nome": "Dia Proximidade BH",
+          "tipo": "proximidade",
+          "porte": "pequeno",
+          "cor": "#E53935",
+          "logo": "web/assets/logos/supermercado-dia-mg.svg"
+        },
+        {
+          "id": "decisao-atacarejo",
+          "nome": "Decisão Atacarejo",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#EF6C00",
+          "logo": "web/assets/logos/decisao-atacarejo.svg"
+        },
+        {
+          "id": "mercadinho-savassi",
+          "nome": "Mercearia & Mercadinho Savassi",
+          "tipo": "proximidade",
+          "porte": "pequeno",
+          "cor": "#00695C",
+          "logo": "web/assets/logos/mercadinho-savassi.svg"
+        },
+        {
+          "id": "sacolao-abc-bh",
+          "nome": "Sacolão ABC Hortifruti",
+          "tipo": "hortifruti",
+          "porte": "pequeno",
+          "cor": "#558B2F",
+          "logo": "web/assets/logos/sacolao-abc-bh.svg"
+        },
+        {
+          "id": "mercado-central-bh",
+          "nome": "Mercado Central BH",
+          "tipo": "hortifruti",
+          "porte": "pequeno",
+          "cor": "#33691E",
+          "logo": "web/assets/logos/mercado-central-bh.svg"
+        }
+      ]
+    },
+    "ES-Vitoria": {
+      "key": "ES-Vitoria",
+      "legacyId": "vitoria",
+      "cidade": "Vitória",
+      "uf": "ES",
+      "regiao": "Sudeste",
+      "mercados": [
+        {
+          "id": "supermercados-perim",
+          "nome": "Supermercados Perim",
+          "tipo": "hiper",
+          "porte": "grande",
+          "cor": "#D32F2F",
+          "logo": "web/assets/logos/supermercados-perim.svg"
+        },
+        {
+          "id": "extrabom",
+          "nome": "Extrabom Supermercados",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#F57C00",
+          "logo": "web/assets/logos/extrabom.svg"
+        },
+        {
+          "id": "supermercados-carone",
+          "nome": "Supermercados Carone",
+          "tipo": "premium",
+          "porte": "medio",
+          "cor": "#C2185B",
+          "logo": "web/assets/logos/supermercados-carone.svg"
+        },
+        {
+          "id": "atacadao",
+          "nome": "Atacadão",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#2E7D32",
+          "logo": "web/assets/logos/atacadao.svg"
+        },
+        {
+          "id": "assai",
+          "nome": "Assaí Atacadista",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#1976D2",
+          "logo": "web/assets/logos/assai.svg"
+        },
+        {
+          "id": "sempre-tem",
+          "nome": "SempreTem Superatacado",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#1565C0",
+          "logo": "web/assets/logos/sempre-tem.svg"
+        },
+        {
+          "id": "supermercados-bh",
+          "nome": "Supermercados BH (ES)",
+          "tipo": "hiper",
+          "porte": "grande",
+          "cor": "#B71C1C",
+          "logo": "web/assets/logos/supermercados-bh.svg"
+        },
+        {
+          "id": "sao-jose-es",
+          "nome": "Supermercado São José",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#283593",
+          "logo": "web/assets/logos/sao-jose-es.svg"
+        },
+        {
+          "id": "casagrande-es",
+          "nome": "Supermercados Casagrande",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#00838F",
+          "logo": "web/assets/logos/casagrande-es.svg"
+        },
+        {
+          "id": "multishow-es",
+          "nome": "Rede MultiShow",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#EF6C00",
+          "logo": "web/assets/logos/multishow-es.svg"
+        },
+        {
+          "id": "devens-supermercados",
+          "nome": "Devens Supermercados",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#6A1B9A",
+          "logo": "web/assets/logos/devens-supermercados.svg"
+        },
+        {
+          "id": "extra-plus-es",
+          "nome": "Extra Plus Gourmet",
+          "tipo": "premium",
+          "porte": "medio",
+          "cor": "#4E342E",
+          "logo": "web/assets/logos/extra-plus-es.svg"
+        },
+        {
+          "id": "mercadinho-camburi",
+          "nome": "Mercadinho Jardim Camburi",
+          "tipo": "proximidade",
+          "porte": "pequeno",
+          "cor": "#00695C",
+          "logo": "web/assets/logos/mercadinho-camburi.svg"
+        },
+        {
+          "id": "hortifruti-vitoria",
+          "nome": "Hortifruti Praia do Canto",
+          "tipo": "hortifruti",
+          "porte": "pequeno",
+          "cor": "#558B2F",
+          "logo": "web/assets/logos/hortifruti-vitoria.svg"
+        },
+        {
+          "id": "feira-livre-vitoria",
+          "nome": "Feira Livre de Vitória",
+          "tipo": "hortifruti",
+          "porte": "pequeno",
+          "cor": "#33691E",
+          "logo": "web/assets/logos/feira-livre-vitoria.svg"
+        }
+      ]
+    },
+    "PR-Curitiba": {
+      "key": "PR-Curitiba",
+      "legacyId": "curitiba",
+      "cidade": "Curitiba",
+      "uf": "PR",
+      "regiao": "Sul",
+      "mercados": [
+        {
+          "id": "muffato",
+          "nome": "Super Muffato",
+          "tipo": "hiper",
+          "porte": "grande",
+          "cor": "#B71C1C",
+          "logo": "web/assets/logos/muffato.svg"
+        },
+        {
+          "id": "condor",
+          "nome": "Supermercados Condor",
+          "tipo": "hiper",
+          "porte": "grande",
+          "cor": "#1976D2",
+          "logo": "web/assets/logos/condor.svg"
+        },
+        {
+          "id": "festval",
+          "nome": "Festval",
+          "tipo": "premium",
+          "porte": "medio",
+          "cor": "#4E342E",
+          "logo": "web/assets/logos/festval.svg"
+        },
+        {
+          "id": "angeloni",
+          "nome": "Angeloni",
+          "tipo": "premium",
+          "porte": "medio",
+          "cor": "#D32F2F",
+          "logo": "web/assets/logos/angeloni.svg"
+        },
+        {
+          "id": "atacadao",
+          "nome": "Atacadão",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#2E7D32",
+          "logo": "web/assets/logos/atacadao.svg"
+        },
+        {
+          "id": "assai",
+          "nome": "Assaí Atacadista",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#1976D2",
+          "logo": "web/assets/logos/assai.svg"
+        },
+        {
+          "id": "jacomar",
+          "nome": "Supermercados Jacomar",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#283593",
+          "logo": "web/assets/logos/jacomar.svg"
+        },
+        {
+          "id": "max-atacadista",
+          "nome": "Max Atacadista",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#F57C00",
+          "logo": "web/assets/logos/max-atacadista.svg"
+        },
+        {
+          "id": "carrefour",
+          "nome": "Carrefour",
+          "tipo": "hiper",
+          "porte": "grande",
+          "cor": "#0D47A1",
+          "logo": "web/assets/logos/carrefour.svg"
+        },
+        {
+          "id": "casa-fiesta",
+          "nome": "Casa Fiesta Supermercados",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#C2185B",
+          "logo": "web/assets/logos/casa-fiesta.svg"
+        },
+        {
+          "id": "supermercado-zamprogna",
+          "nome": "Rede Rio Verde PR",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#2E7D32",
+          "logo": "web/assets/logos/supermercado-zamprogna.svg"
+        },
+        {
+          "id": "supermercado-kusma",
+          "nome": "Kusma Supermercados",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#00838F",
+          "logo": "web/assets/logos/supermercado-kusma.svg"
+        },
+        {
+          "id": "mercadinho-batel",
+          "nome": "Minimercado de Bairro CWB",
+          "tipo": "proximidade",
+          "porte": "pequeno",
+          "cor": "#00695C",
+          "logo": "web/assets/logos/mercadinho-batel.svg"
+        },
+        {
+          "id": "armazem-da-familia",
+          "nome": "Armazém da Família Curitiba",
+          "tipo": "proximidade",
+          "porte": "pequeno",
+          "cor": "#1565C0",
+          "logo": "web/assets/logos/armazem-da-familia.svg"
+        },
+        {
+          "id": "mercado-municipal-curitiba",
+          "nome": "Mercado Municipal de Curitiba",
+          "tipo": "hortifruti",
+          "porte": "pequeno",
+          "cor": "#33691E",
+          "logo": "web/assets/logos/mercado-municipal-curitiba.svg"
+        }
+      ]
+    },
+    "RS-PortoAlegre": {
+      "key": "RS-PortoAlegre",
+      "legacyId": "porto_alegre",
+      "cidade": "Porto Alegre",
+      "uf": "RS",
+      "regiao": "Sul",
+      "mercados": [
+        {
+          "id": "zaffari",
+          "nome": "Zaffari & Bourbon",
+          "tipo": "hiper",
+          "porte": "grande",
+          "cor": "#D32F2F",
+          "logo": "web/assets/logos/zaffari.svg"
+        },
+        {
+          "id": "stok-center",
+          "nome": "Stok Center",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#F57C00",
+          "logo": "web/assets/logos/stok-center.svg"
+        },
+        {
+          "id": "asun",
+          "nome": "Asun Supermercados",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#C2185B",
+          "logo": "web/assets/logos/asun.svg"
+        },
+        {
+          "id": "atacadao",
+          "nome": "Atacadão",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#2E7D32",
+          "logo": "web/assets/logos/atacadao.svg"
+        },
+        {
+          "id": "assai",
+          "nome": "Assaí Atacadista",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#1976D2",
+          "logo": "web/assets/logos/assai.svg"
+        },
+        {
+          "id": "carrefour",
+          "nome": "Carrefour",
+          "tipo": "hiper",
+          "porte": "grande",
+          "cor": "#0D47A1",
+          "logo": "web/assets/logos/carrefour.svg"
+        },
+        {
+          "id": "rissul",
+          "nome": "Supper Rissul",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#283593",
+          "logo": "web/assets/logos/rissul.svg"
+        },
+        {
+          "id": "muffato",
+          "nome": "Max Atacadista / Sul",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#B71C1C",
+          "logo": "web/assets/logos/muffato.svg"
+        },
+        {
+          "id": "supermercado-guanabara-rs",
+          "nome": "Guanabara RS",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#00838F",
+          "logo": "web/assets/logos/supermercado-guanabara-rs.svg"
+        },
+        {
+          "id": "super-kan",
+          "nome": "Super Kan Porto Alegre",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#EF6C00",
+          "logo": "web/assets/logos/super-kan.svg"
+        },
+        {
+          "id": "gecepel",
+          "nome": "Supermercado Gecepel",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#1565C0",
+          "logo": "web/assets/logos/gecepel.svg"
+        },
+        {
+          "id": "cestto-atacadista",
+          "nome": "Cestto Atacadista (Zaffari)",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#AD1457",
+          "logo": "web/assets/logos/cestto-atacadista.svg"
+        },
+        {
+          "id": "minimercado-moinhos",
+          "nome": "Minimercado Moinhos de Vento",
+          "tipo": "proximidade",
+          "porte": "pequeno",
+          "cor": "#00695C",
+          "logo": "web/assets/logos/minimercado-moinhos.svg"
+        },
+        {
+          "id": "hortifruti-cidade-baixa",
+          "nome": "Sacolão Cidade Baixa",
+          "tipo": "hortifruti",
+          "porte": "pequeno",
+          "cor": "#558B2F",
+          "logo": "web/assets/logos/hortifruti-cidade-baixa.svg"
+        },
+        {
+          "id": "mercado-publico-poa",
+          "nome": "Mercado Público de Porto Alegre",
+          "tipo": "hortifruti",
+          "porte": "pequeno",
+          "cor": "#33691E",
+          "logo": "web/assets/logos/mercado-publico-poa.svg"
+        }
+      ]
+    },
+    "SC-Florianopolis": {
+      "key": "SC-Florianopolis",
+      "legacyId": "florianopolis",
+      "cidade": "Florianópolis",
+      "uf": "SC",
+      "regiao": "Sul",
+      "mercados": [
+        {
+          "id": "angeloni",
+          "nome": "Angeloni",
+          "tipo": "hiper",
+          "porte": "grande",
+          "cor": "#D32F2F",
+          "logo": "web/assets/logos/angeloni.svg"
+        },
+        {
+          "id": "imperatriz",
+          "nome": "Supermercados Imperatriz",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#C2185B",
+          "logo": "web/assets/logos/imperatriz.svg"
+        },
+        {
+          "id": "fort-atacadista",
+          "nome": "Fort Atacadista",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#1565C0",
+          "logo": "web/assets/logos/fort-atacadista.svg"
+        },
+        {
+          "id": "bistek",
+          "nome": "Bistek Supermercados",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#B71C1C",
+          "logo": "web/assets/logos/bistek.svg"
+        },
+        {
+          "id": "giassi",
+          "nome": "Giassi Supermercados",
+          "tipo": "hiper",
+          "porte": "grande",
+          "cor": "#283593",
+          "logo": "web/assets/logos/giassi.svg"
+        },
+        {
+          "id": "hippo",
+          "nome": "Hippo Supermercados",
+          "tipo": "premium",
+          "porte": "medio",
+          "cor": "#1B5E20",
+          "logo": "web/assets/logos/hippo.svg"
+        },
+        {
+          "id": "atacadao",
+          "nome": "Atacadão",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#2E7D32",
+          "logo": "web/assets/logos/atacadao.svg"
+        },
+        {
+          "id": "assai",
+          "nome": "Assaí Atacadista",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#1976D2",
+          "logo": "web/assets/logos/assai.svg"
+        },
+        {
+          "id": "komprao",
+          "nome": "Komprão Koch Atacadista",
+          "tipo": "atacarejo",
+          "porte": "grande",
+          "cor": "#F57C00",
+          "logo": "web/assets/logos/komprao.svg"
+        },
+        {
+          "id": "supermercado-rosa-sc",
+          "nome": "Supermercado Rosa",
+          "tipo": "super",
+          "porte": "medio",
+          "cor": "#00838F",
+          "logo": "web/assets/logos/supermercado-rosa-sc.svg"
+        },
+        {
+          "id": "direto-do-campo",
+          "nome": "Direto do Campo",
+          "tipo": "hortifruti",
+          "porte": "pequeno",
+          "cor": "#33691E",
+          "logo": "web/assets/logos/direto-do-campo.svg"
+        },
+        {
+          "id": "sempre-perto-sc",
+          "nome": "Sempre Perto Proximidade",
+          "tipo": "proximidade",
+          "porte": "pequeno",
+          "cor": "#00796B",
+          "logo": "web/assets/logos/sempre-perto-sc.svg"
+        },
+        {
+          "id": "mercadinho-da-ilha",
+          "nome": "Mercadinho Lagoa da Conceição",
+          "tipo": "proximidade",
+          "porte": "pequeno",
+          "cor": "#00695C",
+          "logo": "web/assets/logos/mercadinho-da-ilha.svg"
+        },
+        {
+          "id": "sacolao-trindade-sc",
+          "nome": "Hortifruti Trindade",
+          "tipo": "hortifruti",
+          "porte": "pequeno",
+          "cor": "#558B2F",
+          "logo": "web/assets/logos/sacolao-trindade-sc.svg"
+        },
+        {
+          "id": "mercado-publico-floripa",
+          "nome": "Mercado Público de Florianópolis",
+          "tipo": "hortifruti",
+          "porte": "pequeno",
+          "cor": "#33691E",
+          "logo": "web/assets/logos/mercado-publico-floripa.svg"
+        }
+      ]
+    }
+  }
+}

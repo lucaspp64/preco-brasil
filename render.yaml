@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: precobrasil-app
+    runtime: node
+    plan: free
+    buildCommand: echo "Zero-dependency build ready"
+    startCommand: node server/index.js
+    envVars:
+      - key: NODE_ENV
+        value: production

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+    <rect width="120" height="120" rx="26" fill="#33691E"/>
+    <circle cx="60" cy="46" r="24" fill="#FFF8E1"/>
+    <text x="60" y="55" font-size="26" text-anchor="middle">🥬</text>
+    <text x="60" y="88" font-family="Arial Black, sans-serif" font-size="13.5" font-weight="900" fill="#FFD600" text-anchor="middle">SACOLÃO</text>
+    <text x="60" y="104" font-family="Arial, sans-serif" font-size="10" font-weight="800" fill="#FFF" text-anchor="middle">FEIRA &amp; BAIRRO</text>
+  </svg>

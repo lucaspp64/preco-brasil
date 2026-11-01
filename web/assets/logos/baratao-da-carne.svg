@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+    <defs>
+      <linearGradient id="bcGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#C62828"/>
+        <stop offset="100%" stop-color="#7F0000"/>
+      </linearGradient>
+    </defs>
+    <rect width="120" height="120" rx="26" fill="url(#bcGrad)"/>
+    <circle cx="60" cy="46" r="24" fill="#FFF" stroke="#FFD600" stroke-width="3"/>
+    <path d="M44 40 Q38 28 48 34 Q60 30 72 34 Q82 28 76 40 Q78 54 60 58 Q42 54 44 40 Z" fill="#C62828"/>
+    <circle cx="53" cy="44" r="2.5" fill="#FFF"/>
+    <circle cx="67" cy="44" r="2.5" fill="#FFF"/>
+    <text x="60" y="88" font-family="Arial Black, sans-serif" font-size="16" font-weight="900" fill="#FFD600" text-anchor="middle">BARATÃO</text>
+    <text x="60" y="104" font-family="Arial, sans-serif" font-size="11" font-weight="800" fill="#FFF" text-anchor="middle">DA CARNE</text>
+  </svg>

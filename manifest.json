@@ -1,0 +1,19 @@
+{
+  "name": "PreçoManaus Supermercados - Monitor de Preços",
+  "short_name": "PreçoManaus",
+  "description": "Compare preços em tempo real nos supermercados de Manaus (DB, Nova Era, Atacadão, Assaí, Baratão da Carne e Carrefour), otimize sua cesta com cálculo de combustível e leia NFC-e SEFAZ-AM.",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#F4F6F8",
+  "theme_color": "#0F6D44",
+  "orientation": "portrait-primary",
+  "lang": "pt-BR",
+  "icons": [
+    {
+      "src": "/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

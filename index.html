@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#0F6D44">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="PreçoBrasil">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="web/styles/main.css">
+  <title>PreçoBrasil - Do Mercadinho de Bairro ao Grande Atacarejo</title>
+</head>
+<body>
+
+<div id="app-container">
+  <!-- Top App Header -->
+  <header class="app-bar">
+    <div class="brand-title">
+      <img src="web/assets/logo.jpg" alt="PreçoBrasil" class="brand-logo-img">
+      <div>
+        <h1>PreçoBrasil</h1>
+        <span class="brand-subtitle">Monitor Nacional • Pequeno ao Grande Porte</span>
+      </div>
+    </div>
+    <div class="header-actions">
+      <select id="city-switcher-select" class="city-switcher-select" onchange="switchCity(this.value)" title="Escolher Capital (27 Capitais do Brasil)">
+        <optgroup label="🌿 Região Norte (7 Capitais)">
+          <option value="manaus">Manaus - AM</option>
+          <option value="boa_vista">Boa Vista - RR</option>
+          <option value="belem">Belém - PA</option>
+          <option value="porto_velho">Porto Velho - RO</option>
+          <option value="rio_branco">Rio Branco - AC</option>
+          <option value="macapa">Macapá - AP</option>
+          <option value="palmas">Palmas - TO</option>
+        </optgroup>
+        <optgroup label="☀️ Região Nordeste (9 Capitais)">
+          <option value="fortaleza">Fortaleza - CE</option>
+          <option value="recife">Recife - PE</option>
+          <option value="salvador">Salvador - BA</option>
+          <option value="sao_luis">São Luís - MA</option>
+          <option value="teresina">Teresina - PI</option>
+          <option value="natal">Natal - RN</option>
+          <option value="joao_pessoa">João Pessoa - PB</option>
+          <option value="maceio">Maceió - AL</option>
+          <option value="aracaju">Aracaju - SE</option>
+        </optgroup>
+        <optgroup label="🌾 Região Centro-Oeste (4 Capitais)">
+          <option value="brasilia">Brasília - DF</option>
+          <option value="goiania">Goiânia - GO</option>
+          <option value="cuiaba">Cuiabá - MT</option>
+          <option value="campo_grande">Campo Grande - MS</option>
+        </optgroup>
+        <optgroup label="🏙️ Região Sudeste (4 Capitais)">
+          <option value="sao_paulo">São Paulo - SP</option>
+          <option value="rio_de_janeiro">Rio de Janeiro - RJ</option>
+          <option value="belo_horizonte">Belo Horizonte - MG</option>
+          <option value="vitoria">Vitória - ES</option>
+        </optgroup>
+        <optgroup label="🌲 Região Sul (3 Capitais)">
+          <option value="curitiba">Curitiba - PR</option>
+          <option value="porto_alegre">Porto Alegre - RS</option>
+          <option value="florianopolis">Florianópolis - SC</option>
+        </optgroup>
+      </select>
+      <button class="header-btn" onclick="openScannerModal()" title="Escanear Código de Barras">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M4 6h2v12H4zm3 0h1v12H7zm2 0h3v12H9zm4 0h1v12h-1zm3 0h2v12h-2zm3 0h2v12h-2z"/></svg>
+        <span>Scanner</span>
+      </button>
+      <button class="header-btn" onclick="openContributionModal()" title="Colaborar com Foto da Etiqueta">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 12m-3.2 0a3.2 3.2 0 1 0 6.4 0 3.2 3.2 0 1 0 -6.4 0M9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/></svg>
+        <span>Colaborar</span>
+      </button>
+      <div class="city-chip" id="network-chip" onclick="toggleOfflineSimulation()" style="cursor:pointer;" title="Clique para alternar teste offline">
+        <span class="status-dot" id="status-dot"></span>
+        <span id="status-text">Online</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Offline Warning Banner -->
+  <div id="offline-banner" class="offline-banner">
+    <span class="status-dot offline"></span>
+    <span><b>Modo Offline:</b> Consultando cotações salvas em Manaus (sem internet).</span>
+  </div>
+
+  <!-- Location Permission Explanation Banner (Shown clearly after app open, not on frame 0) -->
+  <div id="location-permission-banner" class="location-prompt-card" style="display:none;">
+    <div style="display:flex; align-items:flex-start; gap:12px;">
+      <div style="width:36px; height:36px; border-radius:10px; background:#E8F5E9; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="var(--primary)"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+      </div>
+      <div style="flex:1;">
+        <div style="font-size:13px; font-weight:800; color:var(--text); margin-bottom:3px;">
+          📍 Detectar seu bairro automaticamente em Manaus?
+        </div>
+        <p style="font-size:12px; color:var(--text-secondary); line-height:1.4; margin:0 0 8px;">
+          Usamos sua localização aproximada apenas para sugerir o bairro mais próximo e calcular as rotas e fretes mais baratos na lista de compras. <strong>Nenhuma coordenada é enviada para servidores externos: o cálculo é 100% local no seu celular.</strong>
+        </p>
+        <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center;">
+          <button type="button" class="btn-primary" onclick="handleLocationPromptDecision('allow')" style="font-size:11px; padding:6px 12px; border-radius:8px; font-weight:700; cursor:pointer;">
+            Ativar Localização
+          </button>
+          <button type="button" class="btn-text" onclick="handleLocationPromptDecision('manual')" style="font-size:11px; padding:6px 10px; color:var(--primary); font-weight:700; background:var(--surface); border:1px solid var(--border); border-radius:8px; cursor:pointer;">
+            Escolher Manualmente
+          </button>
+          <button type="button" class="btn-text" onclick="handleLocationPromptDecision('dismiss')" style="font-size:11px; padding:6px 8px; color:var(--text-secondary); cursor:pointer;">
+            Depois
+          </button>
+        </div>
+      </div>
+      <button type="button" onclick="handleLocationPromptDecision('dismiss')" class="btn-text" style="color:var(--text-secondary); font-size:16px; line-height:1; padding:2px 4px; cursor:pointer;" title="Fechar aviso de localização">✕</button>
+    </div>
+  </div>
+
+  <!-- In-App Floating Toast -->
+  <div id="app-toast" class="app-toast"></div>
+
+  <!-- Main Content Wrapper -->
+  <main class="content-area">
+    
+    <!-- 1. MONITOR SCREEN (HOME) -->
+    <section id="screen-monitor" class="screen active">
+      <!-- Hero Banner Nacional (Abrangente para todo o Brasil) -->
+      <div class="hero-banner">
+        <div class="hero-badge">
+          🇧🇷 Monitor Nacional • 8 Redes: Do Mercadinho ao Atacarejo
+        </div>
+        <h2 class="hero-title">Do Mercadinho de Bairro ao Grande Atacarejo</h2>
+        <p class="hero-subtitle">Compare preços reais + custo de gasolina entre grandes redes, mercados médios e o mercadinho da sua rua.</p>
+        <div class="hero-stats-row">
+          <div class="hero-stat-pill">
+            <strong>3 Portes</strong>
+            <span>Bairro, Médio e Atacado</span>
+          </div>
+          <div class="hero-stat-pill">
+            <strong id="hero-stat-items-count">1.904 Itens</strong>
+            <span>Catálogo & EAN-13</span>
+          </div>
+          <div class="hero-stat-pill">
+            <strong>27 Capitais</strong>
+            <span>Todos os Estados</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Search Input with Camera Barcode Scanner Shortcut -->
+      <div class="search-box">
+        <div class="search-input-wrapper">
+          <svg viewBox="0 0 24 24">
+            <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+          </svg>
+          <input type="text" id="search-input" class="search-input" placeholder="Buscar arroz, feijão, tambaqui, café..." oninput="filterProducts()">
+          <button type="button" class="search-camera-btn" onclick="openScannerModal()" title="Escanear Código de Barras">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+              <path d="M4 6h2v12H4zm3 0h1v12H7zm2 0h3v12H9zm4 0h1v12h-1zm3 0h2v12h-2zm3 0h2v12h-2zM2 4h4V2H2v4zm20-2h-4v2h4v4h2V2zm-4 20h4v-4h2v6h-6v-2zM2 18v6h6v-2H4v-4H2z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Categories Filter Chips -->
+      <div class="chips-slider" id="category-chips">
+        <button class="chip active" onclick="selectCategory('Todos')">✨ Todos</button>
+        <button class="chip" onclick="selectCategory('Produtos Regionais')"><img src="web/assets/cat_fruits.jpg" class="chip-thumb" alt="">Regional AM</button>
+        <button class="chip" onclick="selectCategory('Perto do Vencimento')">⚡ Perto do Vencimento</button>
+        <button class="chip" onclick="selectCategory('Cesta Básica')"><img src="web/assets/cat_staples.jpg" class="chip-thumb" alt="">Cesta Básica</button>
+        <button class="chip" onclick="selectCategory('Carnes & Peixes Regionais')"><img src="web/assets/cat_meats.jpg" class="chip-thumb" alt="">Carnes & Peixes</button>
+        <button class="chip" onclick="selectCategory('Hortifruti & Manaus')"><img src="web/assets/cat_fruits.jpg" class="chip-thumb" alt="">Hortifruti</button>
+        <button class="chip" onclick="selectCategory('Matinais & Laticínios')"><img src="web/assets/cat_dairy.jpg" class="chip-thumb" alt="">Matinais & Leite</button>
+        <button class="chip" onclick="selectCategory('Especiarias & Temperos')">🌶️ Especiarias</button>
+        <button class="chip" onclick="selectCategory('Limpeza & Higiene')"><img src="web/assets/cat_cleaning.jpg" class="chip-thumb" alt="">Limpeza</button>
+        <button class="chip" onclick="selectCategory('Pets & Animais')"><img src="web/assets/cat_pets.jpg" class="chip-thumb" alt="">Pets</button>
+        <button class="chip" onclick="selectCategory('Higiene & Drogaria')"><img src="web/assets/cat_cleaning.jpg" class="chip-thumb" alt="">Higiene & Drogaria</button>
+        <button class="chip" onclick="selectCategory('Bebê & Infantil')"><img src="web/assets/cat_dairy.jpg" class="chip-thumb" alt="">Bebê</button>
+        <button class="chip" onclick="selectCategory('Papelaria & Bazar')">📚 Papelaria</button>
+      </div>
+
+      <!-- Store Size / Tier Filter Chips (Pequeno, Médio e Grande Porte) -->
+      <div class="market-chips-label">Filtrar por Porte (15 Maiores Redes da Capital):</div>
+      <div class="chips-slider" id="tier-chips">
+        <button class="chip active" onclick="selectTier('all')">🌟 Todos os Portes (15)</button>
+        <button class="chip" onclick="selectTier('pequeno')">🏘️ Pequeno Porte (Proximidade & Hortifruti)</button>
+        <button class="chip" onclick="selectTier('medio')">🛒 Médio Porte (Super & Premium)</button>
+        <button class="chip" onclick="selectTier('grande')">🏢 Grande Porte (Atacarejos & Hiper)</button>
+      </div>
+
+      <!-- Supermarket Filter Chips -->
+      <div class="market-chips-label">Filtrar por Rede ou Mercadinho Local:</div>
+      <div class="chips-slider" id="market-chips">
+        <button class="chip active" onclick="selectMarket('all')">🏪 Todas as Redes</button>
+        <button class="chip" onclick="selectMarket('mercadinho_bairro')"><img src="web/assets/logos/mercadinho.svg" class="store-logo-img" alt="Mercadinho">Mercadinho do Bairro</button>
+        <button class="chip" onclick="selectMarket('sacolao_feira')"><img src="web/assets/logos/feira.svg" class="store-logo-img" alt="Feira">Sacolão & Feira</button>
+        <button class="chip" onclick="selectMarket('db')"><img src="web/assets/logos/db.svg" class="store-logo-img" alt="DB">DB Supermercados</button>
+        <button class="chip" onclick="selectMarket('nova_era')"><img src="web/assets/logos/nova_era.svg" class="store-logo-img" alt="Nova Era">Nova Era Superatacado</button>
+        <button class="chip" onclick="selectMarket('atacadao')"><img src="web/assets/logos/atacadao.svg" class="store-logo-img" alt="Atacadão">Atacadão</button>
+        <button class="chip" onclick="selectMarket('assai')"><img src="web/assets/logos/assai.svg" class="store-logo-img" alt="Assaí">Assaí Atacadista</button>
+        <button class="chip" onclick="selectMarket('baratao')"><img src="web/assets/logos/baratao.svg" class="store-logo-img" alt="Baratão">Baratão da Carne</button>
+        <button class="chip" onclick="selectMarket('carrefour')"><img src="web/assets/logos/carrefour.svg" class="store-logo-img" alt="Carrefour">Carrefour</button>
+      </div>
+
+      <!-- Toolbar Filter & Sort -->
+      <div class="filter-toolbar">
+        <div class="toolbar-item">
+          <span>📍 Seu Bairro:</span>
+          <select id="global-neighborhood-select" class="toolbar-select" onchange="onGlobalNeighborhoodChange(this.value)">
+            <option value="adrianopolis">Adrianópolis</option>
+            <option value="flores">Flores / Pq 10</option>
+            <option value="cidade_nova">Cidade Nova</option>
+            <option value="autaz_mirim">Zona Leste</option>
+            <option value="betania">Betânia / Sul</option>
+            <option value="centro">Centro Histórico</option>
+            <option value="ponta_negra">Ponta Negra</option>
+            <option value="alvorada">Alvorada</option>
+            <option value="coroado">Coroado / Aleixo</option>
+          </select>
+        </div>
+        <div class="toolbar-item">
+          <span>Ordenar:</span>
+          <select id="sort-select" class="toolbar-select" onchange="onSortChange(this.value)">
+            <option value="price_asc">Menor Preço</option>
+            <option value="price_travel">Preço + Gasolina</option>
+            <option value="savings_desc">Maior % Economia</option>
+            <option value="name_asc">Nome (A-Z)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Product List Cards -->
+      <div class="products-list" id="products-container">
+        <!-- Rendered via JS -->
+      </div>
+    </section>
+
+    <!-- 2. CESTA / CARRINHO COMPARADOR SCREEN -->
+    <section id="screen-cesta" class="screen">
+      <div class="basket-summary-card">
+        <h3 style="font-size: 18px; margin-bottom: 4px;">Lista de Compras Inteligente</h3>
+        <p style="font-size: 13px; opacity: 0.9;">Otimizador de rota e economia: calcula se vale a pena comprar tudo em 1 mercado ou dividir entre até 2 mercados considerando o frete/combustível em Manaus.</p>
+      </div>
+
+      <!-- Auto Geolocation Detection & Strategy Settings in Shopping List -->
+      <div class="config-card" id="cesta-location-card">
+        <div class="config-row" style="align-items:flex-start; gap:12px;">
+          <div style="width:38px; height:38px; border-radius:12px; background:#E8F5E9; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="var(--primary)"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          </div>
+          <div style="flex:1;">
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:4px;">
+              <div id="cesta-location-heading" style="font-size:14px; color:var(--text); line-height:1.4;">
+                Você está perto de: <strong id="cesta-detected-name" style="color:var(--primary); font-weight:800;">Adrianópolis</strong>
+              </div>
+              <div style="display:flex; align-items:center; gap:6px;">
+                <button type="button" id="btn-alterar-bairro" class="btn-alterar-discreto" onclick="toggleManualNeighborhoodSelector()" title="Corrigir ou escolher outro bairro manualmente">
+                  Alterar
+                </button>
+                <button type="button" class="btn-text" onclick="detectUserLocation(true)" style="color:var(--text-secondary); font-size:11px; font-weight:600; padding:3px 7px; border:1px solid var(--border); border-radius:6px; background:var(--background);" title="Atualizar localização via satélite GPS">
+                  🔄 GPS
+                </button>
+              </div>
+            </div>
+            <div id="cesta-detected-sub" style="font-size:11px; color:var(--text-secondary); margin-top:2px;">
+              📍 Sugerido automaticamente via GPS em Manaus
+            </div>
+          </div>
+        </div>
+
+        <!-- Manual Alternative Selector Container (Shown on 'Alterar', GPS error, denial, or >40km) -->
+        <div id="cesta-manual-selector-container" style="display:none; margin-top:10px; padding-top:10px; border-top:1px dashed var(--border);">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+            <span id="manual-selector-reason" style="font-size:12px; font-weight:700; color:var(--text-secondary);">
+              Selecione seu bairro manualmente:
+            </span>
+            <button type="button" class="btn-text" onclick="toggleManualNeighborhoodSelector(false)" style="font-size:12px; color:var(--text-secondary); cursor:pointer;">
+              ✕ Fechar
+            </button>
+          </div>
+          <select id="cesta-manual-neighborhood-select" class="toolbar-select" style="width:100%; padding:8px 12px; font-size:14px; border:1.5px solid var(--primary);" onchange="onManualNeighborhoodChosen(this.value)">
+            <!-- Populated dynamically via JS with all Manaus neighborhoods -->
+          </select>
+          <div style="font-size:11px; color:var(--text-secondary); margin-top:4px;">
+            💡 A rota e a economia da lista de compras serão recalculadas para este bairro.
+          </div>
+        </div>
+
+        <div class="config-row" style="margin-top:10px; padding-top:10px; border-top:1px solid var(--border);">
+          <div class="config-label">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="#F57C00"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
+            <span>Corte Mínimo p/ 2 Mercados:</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:6px;">
+            <span style="font-size:12px; font-weight:700;">R$</span>
+            <input type="number" id="cutoff-input" class="config-input" style="width:65px; text-align:center;" value="15.00" step="1.00" min="0" onchange="onCutoffChange(this.value)">
+          </div>
+        </div>
+      </div>
+
+      <!-- Smart Recommendation Result Card -->
+      <div id="smart-strategy-container">
+        <!-- Rendered via JS ShoppingOptimizer -->
+      </div>
+
+      <!-- Detailed Single Market Rankings -->
+      <div style="padding: 0 16px 10px;">
+        <h4 style="font-size: 14px; font-weight: 700; margin-bottom: 8px; color:var(--text-secondary); text-transform:uppercase; letter-spacing:0.3px;">
+          Comparativo se Comprar Tudo em 1 Loja:
+        </h4>
+        <div class="basket-stores-list" id="basket-rankings">
+          <!-- Rendered via JS -->
+        </div>
+      </div>
+
+      <!-- Basket Item Management List -->
+      <div class="basket-items-list">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+          <h4 style="font-size: 15px; font-weight: 700;">Itens da sua Lista:</h4>
+          <div style="display:flex; gap:8px;">
+            <button class="btn-text" style="color:var(--primary); font-weight:700;" onclick="shareBasketOnWhatsApp()">📲 WhatsApp</button>
+            <button class="btn-text" style="color:#D32F2F" onclick="clearBasket()">Limpar lista</button>
+          </div>
+        </div>
+        <div id="basket-items-container">
+          <!-- Rendered via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. SCANNER SCREEN -->
+    <section id="screen-scanner" class="screen">
+      <div style="padding: 16px 16px 6px;">
+        <h2 style="font-size: 19px; font-weight: 800;">Scanner de Código de Barras</h2>
+        <p style="font-size: 13px; color: var(--text-secondary);">Aponte a câmera para o código EAN no mercado ou digite abaixo para comparar na hora nas redes de Manaus.</p>
+      </div>
+
+      <div style="padding: 0 16px 20px;">
+        <div class="scanner-viewfinder">
+          <video id="screen-scanner-video" class="scanner-video" playsinline muted></video>
+          <div class="scanner-frame">
+            <div class="scanner-laser"></div>
+            <span style="color:white; font-size:11px; font-weight:700; background:rgba(0,0,0,0.6); padding:2px 8px; border-radius:6px;">Mire no Código de Barras</span>
+          </div>
+        </div>
+
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+          <button class="header-btn" onclick="toggleCameraStream('screen-scanner-video')">
+            📷 Iniciar / Pausar Câmera
+          </button>
+          <span style="font-size:11px; color:var(--text-secondary);">Leitor EAN-13 Instantâneo</span>
+        </div>
+
+        <div class="form-group">
+          <label>Ou digite o Código EAN / Nome do Produto:</label>
+          <div style="display:flex; gap:8px;">
+            <input type="text" id="screen-manual-ean" class="form-control" placeholder="Ex: 7891149103112 ou Arroz">
+            <button class="btn-add" onclick="lookupBarcode(document.getElementById('screen-manual-ean').value, 'screen-scanner-result')">Buscar</button>
+          </div>
+        </div>
+
+        <div style="font-size:11px; font-weight:700; color:var(--text-secondary); margin-top:8px;">
+          ⚡ Testar Códigos Rápidos de Manaus:
+        </div>
+        <div class="ean-shortcuts">
+          <button class="ean-chip" onclick="lookupBarcode('7891149103112', 'screen-scanner-result')">🍚 Arroz Tio João</button>
+          <button class="ean-chip" onclick="lookupBarcode('7894900010015', 'screen-scanner-result')">☕ Café Pilão</button>
+          <button class="ean-chip" onclick="lookupBarcode('7890000000012', 'screen-scanner-result')">🐟 Tambaqui</button>
+          <button class="ean-chip" onclick="lookupBarcode('7891000100103', 'screen-scanner-result')">🥛 Leite Ninho</button>
+          <button class="ean-chip" onclick="lookupBarcode('7891035123456', 'screen-scanner-result')">🌾 Farinha Uarini</button>
+          <button class="ean-chip" onclick="lookupBarcode('7891234567890', 'screen-scanner-result')">⚡ Queijo Validade</button>
+        </div>
+
+        <div id="screen-scanner-result" style="margin-top:14px;"></div>
+      </div>
+    </section>
+
+    <!-- 4. ÍNDICE CESTA BÁSICA MANAUS (DIEESE ADAPTADO) -->
+    <section id="screen-indice" class="screen">
+      <div class="dieese-summary-card">
+        <div style="font-size:11px; text-transform:uppercase; letter-spacing:0.5px; opacity:0.85; font-weight:700;">
+          Índice Semanal PreçoManaus • DIEESE AM
+        </div>
+        <div class="dieese-value" id="dieese-total-val">R$ 638,40</div>
+        <div style="display:flex; align-items:center; gap:8px; margin-top:4px;">
+          <span class="dieese-variation" style="background:#E8F5E9; color:#1B5E20;">
+            📉 -2,1% vs semana anterior
+          </span>
+          <span style="font-size:11px; opacity:0.9;">12 itens essenciais</span>
+        </div>
+      </div>
+
+      <div style="padding: 0 16px 10px;">
+        <button class="btn-add" style="width:100%; justify-content:center; padding:12px;" onclick="addAllDieeseToBasket()">
+          🛒 Adicionar Todos os 12 Itens à Minha Lista de Compras
+        </button>
+      </div>
+
+      <div style="padding: 0 16px 14px;">
+        <h4 style="font-size:14px; font-weight:800; margin-bottom:8px; color:var(--text);">
+          🏆 Ranking da Cesta Básica por Supermercado:
+        </h4>
+        <div id="dieese-store-ranking" style="display:flex; flex-direction:column; gap:8px;">
+          <!-- Rendered via JS -->
+        </div>
+      </div>
+
+      <div style="padding: 0 16px 20px;">
+        <h4 style="font-size:14px; font-weight:800; margin-bottom:8px; color:var(--text);">
+          📊 Composição dos 12 Itens em Manaus:
+        </h4>
+        <div style="background:var(--surface); border:1px solid var(--border); border-radius:12px; overflow:hidden;">
+          <table class="dieese-table">
+            <thead>
+              <tr>
+                <th>Produto</th>
+                <th>Qtd/Mês</th>
+                <th>Preço Médio</th>
+                <th>Mais Barato</th>
+              </tr>
+            </thead>
+            <tbody id="dieese-items-body">
+              <!-- Rendered via JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. COMUNIDADE & COLABORAÇÃO SCREEN -->
+    <section id="screen-comunidade" class="screen">
+      <div style="padding: 16px 16px 4px;">
+        <h2 style="font-size: 19px; font-weight: 800;">Comunidade & Colaboração</h2>
+        <p style="font-size: 13px; color: var(--text-secondary);">Envie fotos de etiquetas, acumule pontos de reputação e fiscalize os preços em Manaus.</p>
+      </div>
+
+      <!-- Subtabs Bar -->
+      <div class="subtabs-bar">
+        <button class="subtab-btn active" onclick="switchCommunitySubtab('tab-enviar', this)">📸 Enviar Preço</button>
+        <button class="subtab-btn" onclick="switchCommunitySubtab('tab-feed', this)">🏆 Feed & Pontos</button>
+        <button class="subtab-btn" onclick="switchCommunitySubtab('tab-alertas-inner', this)">🔔 Meus Alertas</button>
+        <button class="subtab-btn" onclick="switchCommunitySubtab('tab-encartes-inner', this)">📰 Encartes</button>
+      </div>
+
+      <!-- Subtab 1: Form & Reputation -->
+      <div id="tab-enviar" class="comunidade-tab active" style="padding: 0 16px 20px;">
+        <div class="reputation-bar" id="comunidade-rep-bar">
+          <!-- Rendered via JS -->
+        </div>
+
+        <div style="background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:16px;">
+          <h4 style="font-size:15px; font-weight:700; margin-bottom:12px;">Nova Colaboração com Foto da Etiqueta</h4>
+          <form onsubmit="handleContributionSubmit(event, 'screen')">
+            <div class="form-group">
+              <label>Foto da Etiqueta na Gôndola:</label>
+              <input type="file" id="contrib-photo-screen" class="form-control" accept="image/*" onchange="previewContribPhoto(this, 'photo-preview-screen')">
+              <div id="photo-preview-screen" style="margin-top:8px; display:none;">
+                <img id="photo-preview-img-screen" style="width:100%; height:140px; object-fit:cover; border-radius:10px; border:1px solid var(--border);">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Produto:</label>
+              <select id="contrib-product-screen" class="form-control" required></select>
+            </div>
+
+            <div class="form-group">
+              <label>Supermercado:</label>
+              <select id="contrib-supermarket-screen" class="form-control" required>
+                <option value="db">DB Supermercados (Hiper Paraíba)</option>
+                <option value="nova_era">Nova Era Superatacado (Torquato)</option>
+                <option value="atacadao">Atacadão (Camapuã)</option>
+                <option value="assai">Assaí Atacadista (Autaz Mirim)</option>
+                <option value="baratao">Baratão da Carne (Betânia)</option>
+                <option value="carrefour">Carrefour (Adrianópolis)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Preço Encontrado (R$):</label>
+              <input type="number" id="contrib-price-screen" class="form-control" step="0.01" min="0.50" placeholder="Ex: 21.90" required>
+            </div>
+
+            <button type="submit" class="btn-submit">
+              Confirmar Preço (+25 Pontos de Reputação)
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Subtab 2: Feed of Recent Community Contributions -->
+      <div id="tab-feed" class="comunidade-tab" style="display:none; padding: 0 16px 20px;">
+        <h4 style="font-size:14px; font-weight:800; margin-bottom:10px; color:var(--text);">
+          Últimas Cotações Auditadas pela Comunidade:
+        </h4>
+        <div id="community-feed-container">
+          <!-- Rendered via JS -->
+        </div>
+      </div>
+
+      <!-- Subtab 3: In-Screen Price Alerts -->
+      <div id="tab-alertas-inner" class="comunidade-tab" style="display:none; padding: 0 16px 20px;">
+        <div style="display:flex; gap:8px; margin-bottom:12px;">
+          <button class="btn-add" style="flex:1; justify-content:center;" onclick="openAlertModal()">+ Novo Alerta</button>
+          <button class="btn-text" style="color:var(--primary); font-weight:700; border:1px solid var(--border); padding:8px 12px; border-radius:8px;" onclick="simulatePriceDrop()">⚡ Testar Queda</button>
+        </div>
+        <div id="community-alerts-container"></div>
+      </div>
+
+      <!-- Subtab 4: Encartes -->
+      <div id="tab-encartes-inner" class="comunidade-tab" style="display:none; padding: 0 16px 20px;">
+        <div class="flyers-grid" id="flyers-container-sub">
+          <!-- Rendered via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. ENCARTES SCREEN (Fallback / Direct) -->
+    <section id="screen-encartes" class="screen">
+      <div style="padding: 16px 16px 4px;">
+        <h2 style="font-size: 19px; font-weight: 800;">Folhetos e Encartes de Manaus</h2>
+        <p style="font-size: 13px; color: var(--text-secondary);">Encartes semanais oficiais atualizados das redes da capital.</p>
+      </div>
+      <div class="flyers-grid" id="flyers-container">
+        <!-- Rendered via JS -->
+      </div>
+    </section>
+
+    <!-- 7. ALERTAS DE PREÇO SCREEN (Fallback / Direct) -->
+    <section id="screen-alertas" class="screen">
+      <div style="padding: 16px 16px 8px;">
+        <h2 style="font-size: 19px; font-weight: 800;">Meus Alertas de Preço</h2>
+        <p style="font-size: 13px; color: var(--text-secondary);">Receba aviso quando o item atingir seu preço ideal em Manaus.</p>
+      </div>
+      <div style="padding: 0 16px 14px; display:flex; gap:8px;">
+        <button class="btn-add" style="flex:1; justify-content:center; padding:12px;" onclick="openAlertModal()">
+          + Novo Alerta
+        </button>
+        <button class="btn-text" style="color:var(--primary); font-weight:700; border:1px solid var(--border); padding:8px 12px; border-radius:8px;" onclick="simulatePriceDrop()">
+          ⚡ Simular Queda
+        </button>
+      </div>
+      <div class="products-list" id="alerts-container">
+        <!-- Rendered via JS -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Bottom Navigation (5 CUJs) -->
+  <nav class="bottom-nav">
+    <button class="nav-btn active" onclick="switchTab('screen-monitor', this)">
+      <svg viewBox="0 0 24 24"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
+      <span>Preços</span>
+    </button>
+    <button class="nav-btn" onclick="switchTab('screen-cesta', this)" style="position:relative;">
+      <svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+      <span>Cesta</span>
+      <span class="badge-count" id="cesta-badge" style="display:none;">0</span>
+    </button>
+    <button class="nav-btn" onclick="switchTab('screen-scanner', this)">
+      <svg viewBox="0 0 24 24"><path d="M4 6h2v12H4zm3 0h1v12H7zm2 0h3v12H9zm4 0h1v12h-1zm3 0h2v12h-2zm3 0h2v12h-2zM2 4h4V2H2v4zm20-2h-4v2h4v4h2V2zm-4 20h4v-4h2v6h-6v-2zM2 18v6h6v-2H4v-4H2z"/></svg>
+      <span>Scanner</span>
+    </button>
+    <button class="nav-btn" onclick="switchTab('screen-indice', this)">
+      <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg>
+      <span>Índice AM</span>
+    </button>
+    <button class="nav-btn" onclick="switchTab('screen-comunidade', this)">
+      <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+      <span>Comunidade</span>
+    </button>
+  </nav>
+
+  <!-- Modal Adicionar Preço / Alerta -->
+  <div class="modal-overlay" id="generic-modal" onclick="if(event.target===this) closeModal()">
+    <div class="modal-sheet">
+      <h3 id="modal-title" style="font-size:18px; margin-bottom:14px;">Criar Alerta de Preço</h3>
+      <div id="modal-content"></div>
+    </div>
+  </div>
+
+  <!-- Modal 1: Scanner de Código de Barras (EAN-13) -->
+  <div class="modal-overlay" id="scanner-modal" onclick="if(event.target===this) closeScannerModal()">
+    <div class="modal-sheet">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+        <h3 style="font-size:18px; font-weight:800;">📷 Scanner de Código de Barras</h3>
+        <button class="btn-text" onclick="closeScannerModal()" style="font-size:16px;">✕</button>
+      </div>
+      <p style="font-size:12px; color:var(--text-secondary); margin-bottom:10px;">
+        Aponte a câmera para o código de barras na gôndola para comparar os preços em todas as redes de Manaus na hora!
+      </p>
+
+      <div class="scanner-viewfinder">
+        <video id="scanner-video" class="scanner-video" playsinline></video>
+        <div class="scanner-frame">
+          <div class="scanner-laser"></div>
+          <span style="color:white; font-size:11px; font-weight:700; background:rgba(0,0,0,0.6); padding:2px 8px; border-radius:6px;">Mire no Código de Barras</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Ou digite o Código EAN / Nome do Produto:</label>
+        <div style="display:flex; gap:8px;">
+          <input type="text" id="manual-ean-input" class="form-control" placeholder="Ex: 7891149103112 ou Arroz">
+          <button class="btn-add" onclick="lookupBarcode(document.getElementById('manual-ean-input').value)">Buscar</button>
+        </div>
+      </div>
+
+      <div style="font-size:11px; font-weight:700; color:var(--text-secondary); margin-top:8px;">
+        ⚡ Testar Códigos Rápidos de Manaus:
+      </div>
+      <div class="ean-shortcuts">
+        <button class="ean-chip" onclick="lookupBarcode('7891149103112')">🍚 Arroz Tio João</button>
+        <button class="ean-chip" onclick="lookupBarcode('7894900010015')">☕ Café Pilão</button>
+        <button class="ean-chip" onclick="lookupBarcode('7890000000012')">🐟 Tambaqui</button>
+        <button class="ean-chip" onclick="lookupBarcode('7891000100103')">🥛 Leite Ninho</button>
+        <button class="ean-chip" onclick="lookupBarcode('7891035123456')">🌾 Farinha Uarini</button>
+      </div>
+
+      <div id="scanner-result" style="margin-top:14px;"></div>
+    </div>
+  </div>
+
+  <!-- Modal 2: Contribuição Comunitária com Foto da Etiqueta -->
+  <div class="modal-overlay" id="contrib-modal" onclick="if(event.target===this) closeContributionModal()">
+    <div class="modal-sheet">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+        <h3 style="font-size:18px; font-weight:800;">📸 Enviar Preço / Etiqueta</h3>
+        <button class="btn-text" onclick="closeContributionModal()" style="font-size:16px;">✕</button>
+      </div>
+
+      <!-- Reputation Status Card -->
+      <div class="reputation-bar">
+        <div class="reputation-icon">🏅</div>
+        <div class="reputation-info">
+          <div class="reputation-title">Fiscal Comunitário Nível 3</div>
+          <div class="reputation-sub">480 pontos de reputação • 24 preços validados em Manaus</div>
+        </div>
+      </div>
+
+      <form onsubmit="handleContributionSubmit(event)">
+        <div class="form-group">
+          <label>Foto da Etiqueta / Produto no Mercado:</label>
+          <input type="file" id="contrib-photo" class="form-control" accept="image/*" onchange="previewContribPhoto(this)">
+          <div id="contrib-photo-preview" style="margin-top:8px; display:none;">
+            <img id="photo-preview-img" style="width:100%; height:130px; object-fit:cover; border-radius:10px; border:1px solid var(--border);">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Produto Encontrado:</label>
+          <select id="contrib-product" class="form-control" required>
+            <!-- Rendered via JS -->
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Supermercado e Unidade:</label>
+          <select id="contrib-supermarket" class="form-control" required>
+            <option value="db">DB Supermercados (Hiper Paraíba)</option>
+            <option value="nova_era">Nova Era Superatacado (Torquato)</option>
+            <option value="atacadao">Atacadão (Camapuã)</option>
+            <option value="assai">Assaí Atacadista (Autaz Mirim)</option>
+            <option value="baratao">Baratão da Carne (Betânia)</option>
+            <option value="carrefour">Carrefour (Adrianópolis)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Preço Encontrado na Etiqueta (R$):</label>
+          <input type="number" id="contrib-price" class="form-control" step="0.01" min="0.50" placeholder="Ex: 19.90" required>
+        </div>
+
+        <button type="submit" class="btn-submit">
+          Confirmar e Ganhar +20 Pontos de Reputação
+        </button>
+      </form>
+
+      <div style="font-size:11px; color:var(--text-secondary); text-align:center; margin-top:10px;">
+        🛡️ Cada envio passa por validação cruzada comunitária para manter os dados 100% confiáveis em Manaus.
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 3: Histórico de Preços & Análise de Promoção Real -->
+  <div class="modal-overlay" id="history-modal" onclick="if(event.target===this) closeHistoryModal()">
+    <div class="modal-sheet">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+        <h3 id="history-modal-title" style="font-size:18px; font-weight:800;">Histórico de Preços</h3>
+        <button class="btn-text" onclick="closeHistoryModal()" style="font-size:16px;">✕</button>
+      </div>
+      <div id="history-modal-content"></div>
+    </div>
+  </div>
+
+</div>
+
+  <!-- Módulos PreçoBrasil (Catálogo Canônico, MarketService, Distâncias Haversine, Otimizador, Cliente API e App UI) -->
+  <script src="web/data/manausCatalog.js"></script>
+  <script src="web/services/marketService.js"></script>
+  <script src="web/services/distanceService.js"></script>
+  <script src="web/services/shoppingOptimizer.js"></script>
+  <script src="web/services/apiClient.js"></script>
+  <script src="web/app.js"></script>
+</body>
+</html>

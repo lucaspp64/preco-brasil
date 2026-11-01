@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+    <rect width="120" height="120" rx="26" fill="#004D40"/>
+    <circle cx="60" cy="46" r="24" fill="#FFD600"/>
+    <path d="M42 50 Q60 26 78 44 Q66 46 60 58 Q52 48 42 50 Z" fill="#004D40"/>
+    <text x="60" y="88" font-family="Arial Black, sans-serif" font-size="18" font-weight="900" fill="#FFF" text-anchor="middle">GAVIÃO</text>
+    <text x="60" y="104" font-family="Arial, sans-serif" font-size="10" font-weight="800" fill="#FFD600" text-anchor="middle">BOA VISTA • RR</text>
+  </svg>

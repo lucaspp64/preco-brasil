@@ -1,0 +1,25 @@
+{
+  "name": "preco-manaus",
+  "version": "2.0.0",
+  "description": "Ecossistema PreçoManaus - Monitoramento de preços, Otimizador de Cesta com Combustível, SEFAZ-AM NFC-e, Leitor de Etiquetas IA e App Android",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js",
+    "test": "node server/test-api.js"
+  },
+  "keywords": [
+    "manaus",
+    "supermercados",
+    "sefaz-am",
+    "nfce",
+    "pwa",
+    "android",
+    "gemini"
+  ],
+  "os": [
+    "win32",
+    "darwin",
+    "linux"
+  ]
+}

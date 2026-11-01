@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+    <defs>
+      <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#FFFDE7"/>
+        <stop offset="100%" stop-color="#FFF59D"/>
+      </linearGradient>
+    </defs>
+    <rect width="120" height="120" rx="24" fill="url(#bg)"/>
+    
+      <rect x="48" y="14" width="24" height="12" rx="4" fill="#2E7D32"/>
+      <path d="M44 26 H76 L86 46 V98 C86 103 82 106 77 106 H43 C38 106 34 103 34 98 V46 Z" fill="#FBC02D" stroke="#FFF" stroke-width="2"/>
+      <rect x="38" y="52" width="44" height="36" rx="6" fill="#FFF" opacity="0.95"/>
+    
+    <text x="60" y="65" font-size="24" text-anchor="middle">🫗</text>
+    <text x="60" y="80" font-family="Arial Black, sans-serif" font-size="9.5" font-weight="900" fill="#1A241E" text-anchor="middle">ÓLEO SOJA</text>
+    <rect x="28" y="92" width="64" height="15" rx="7.5" fill="#2E7D32"/>
+    <text x="60" y="103" font-family="Arial, sans-serif" font-size="8.5" font-weight="800" fill="#FFF" text-anchor="middle">900ML PURO</text>
+  </svg>
