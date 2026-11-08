@@ -703,7 +703,8 @@
       justify-content: center;
       z-index: 200;
     }
-    .modal-overlay.open {
+    .modal-overlay.open,
+    .modal-overlay.active {
       display: flex;
     }
     .modal-sheet {

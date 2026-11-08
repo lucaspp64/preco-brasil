@@ -1977,13 +1977,23 @@ const ICON_PACK_SVGS = {
 };
 
 function openThemeModal() {
+  const current = document.documentElement.getAttribute("data-theme") || "light";
+  if (current === "light") {
+    setAppTheme("dark");
+  }
   const modal = document.getElementById("theme-studio-modal");
-  if (modal) modal.classList.add("active");
+  if (modal) {
+    modal.classList.add("open");
+    modal.classList.add("active");
+  }
 }
 
 function closeThemeModal() {
   const modal = document.getElementById("theme-studio-modal");
-  if (modal) modal.classList.remove("active");
+  if (modal) {
+    modal.classList.remove("open");
+    modal.classList.remove("active");
+  }
 }
 
 function setAppTheme(themeName, silent = false) {
@@ -2046,12 +2056,18 @@ function initThemeAndIcons() {
 // =========================================================================
 function openAiAgentModal() {
   const modal = document.getElementById("ai-agent-modal");
-  if (modal) modal.classList.add("active");
+  if (modal) {
+    modal.classList.add("open");
+    modal.classList.add("active");
+  }
 }
 
 function closeAiAgentModal() {
   const modal = document.getElementById("ai-agent-modal");
-  if (modal) modal.classList.remove("active");
+  if (modal) {
+    modal.classList.remove("open");
+    modal.classList.remove("active");
+  }
 }
 
 function askAiAgentChip(text) {
