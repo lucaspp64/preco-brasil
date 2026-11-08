@@ -1,9 +1,10 @@
 // PreçoManaus Service Worker v3 - Network-First + Caching Modular & Notificações de Alertas
-const CACHE_NAME = 'precomanaus-v16';
+const CACHE_NAME = 'precomanaus-v17';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
   '/manifest.json',
+  '/web/styles/shuffle.css',
   '/web/styles/main.css',
   '/web/data/manausCatalog.js',
   '/web/services/distanceService.js',

@@ -240,6 +240,14 @@ function switchCity(cityId) {
   const heroBadgeEl = document.querySelector(".hero-badge");
   if (heroBadgeEl) heroBadgeEl.textContent = cityCfg.heroBadge;
 
+  const pbHeroHighlight = document.getElementById("pb-hero-city-highlight");
+  if (pbHeroHighlight) pbHeroHighlight.textContent = cityCfg.shortName + ".";
+  const pbOffersCityLabel = document.getElementById("pb-offers-city-label");
+  if (pbOffersCityLabel) pbOffersCityLabel.textContent = "Ofertas em " + cityCfg.name;
+  const pbMobileCityLabel = document.getElementById("pb-mobile-city-label");
+  if (pbMobileCityLabel) pbMobileCityLabel.textContent = cityCfg.name;
+  const pbBadgeText = document.getElementById("pb-hero-badge-text");
+  if (pbBadgeText) pbBadgeText.textContent = "Preços de " + cityCfg.name + " atualizados hoje, 2026";
   const heroTitleEl = document.querySelector(".hero-title");
   if (heroTitleEl) heroTitleEl.textContent = cityCfg.heroTitle;
 
