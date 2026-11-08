@@ -108,6 +108,9 @@ function createAgentToolsExecutors(db, defaultCapitalKey = "AM-Manaus") {
           marketId: bestMarket.id,
           marketName: bestMarket.nome,
           marketType: bestMarket.tipo,
+          marketDomain: bestMarket.domain || MarketService.getMarketDomain(bestMarket.id),
+          marketInitials: bestMarket.initials || MarketService.getMarketInitials(bestMarket.nome),
+          marketColor: bestMarket.color || "#0F6D44",
           marketLogo: MarketService.getMarketLogoUrl(bestMarket.id)
         };
       });

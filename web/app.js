@@ -102,15 +102,38 @@ function getProductImageUrl(prod) {
   return "web/assets/products/arroz.svg";
 }
 
+function handleMarketLogoError(imgEl) {
+  if (!imgEl) return;
+  imgEl.onerror = null;
+  imgEl.style.display = "none";
+  if (imgEl.parentElement) {
+    imgEl.parentElement.classList.remove("logo-loaded");
+    imgEl.parentElement.classList.add("logo-fallback");
+  }
+}
+window.handleMarketLogoError = handleMarketLogoError;
+
+function renderDynamicStoreLogo(storeObj) {
+  const s = storeObj || {};
+  const storeName = s.name || s.nome || "Supermercado";
+  const canonicalId = s.id || "";
+  const domain = s.domain
+    || (window.getMarketDomain && canonicalId ? window.getMarketDomain(canonicalId) : null)
+    || (window.MarketService && window.MarketService.deduceMarketDomain ? window.MarketService.deduceMarketDomain(canonicalId, storeName) : "supermercado.com.br");
+  const logoUrl = `https://logo.clearbit.com/${domain}`;
+  const color = s.color || "#0F6D44";
+  const initials = s.initials
+    || (window.getMarketInitials ? window.getMarketInitials(storeName) : storeName.slice(0, 2).toUpperCase());
+  const genericStoreSvg = `<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"/><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4"/><path d="M2 7h20"/></svg>`;
+  const fallbackContent = initials ? initials : genericStoreSvg;
+
+  return `<span class="store-logo-wrap" style="--store-color:${color};" title="${storeName} (${domain})"><img src="${logoUrl}" alt="${storeName}" data-domain="${domain}" class="store-logo-img" loading="lazy" onload="if(this.parentElement)this.parentElement.classList.add('logo-loaded')" onerror="handleMarketLogoError(this)"><span class="store-avatar-circle" style="background:${color};" aria-hidden="true">${fallbackContent}</span></span>`;
+}
+
 function getStoreAvatarHtml(storeKey) {
   const cityCfg = (window.CITIES_CONFIG && window.CITIES_CONFIG[currentCity]) || (window.CITIES_CONFIG && window.CITIES_CONFIG.manaus);
-  const storeCfg = (cityCfg && cityCfg.supermarkets && cityCfg.supermarkets[storeKey]) || SUPERMARKETS[storeKey];
-  const canonicalId = storeCfg && storeCfg.id;
-  const logoUrl = (storeCfg && storeCfg.logo)
-    || (window.getMarketLogoUrl && canonicalId ? window.getMarketLogoUrl(canonicalId) : null)
-    || "web/assets/logos/default-market.svg";
-  const storeName = (storeCfg && storeCfg.name) || "Mercado";
-  return `<img src="${logoUrl}" alt="${storeName}" class="store-logo-img" loading="lazy" onerror="this.onerror=null;this.src='web/assets/logos/default-market.svg'">`;
+  const storeCfg = (cityCfg && cityCfg.supermarkets && cityCfg.supermarkets[storeKey]) || SUPERMARKETS[storeKey] || { name: "Supermercado", color: "#0F6D44" };
+  return renderDynamicStoreLogo(storeCfg);
 }
 
 function getStoreTierBadgeHtml(storeKey) {
@@ -149,7 +172,7 @@ function renderMarketChipsForCurrentCity() {
     <button class="chip ${currentMarket === 'all' ? 'active' : ''}" onclick="selectMarket('all')">🏪 Todas (${entries.length})</button>
     ${entries.map(([sKey, sObj]) => `
       <button class="chip ${currentMarket === sKey ? 'active' : ''}" onclick="selectMarket('${sKey}')">
-        <img src="${sObj.logo}" alt="${sObj.name}" class="store-logo-img">
+        ${renderDynamicStoreLogo(sObj)}
         ${sObj.name}
       </button>
     `).join("")}
@@ -2133,8 +2156,8 @@ async function submitAiAgentPrompt(event) {
       marketsHtml = `
         <div style="display:flex; gap:6px; overflow-x:auto; margin-top:10px; padding-bottom:4px;">
           ${data.markets.slice(0, 8).map(m => `
-            <div style="display:flex; align-items:center; gap:5px; background:var(--surface); color:var(--text); border:1px solid var(--border); border-radius:999px; padding:3px 9px 3px 4px; white-space:nowrap; font-size:11px; font-weight:700;">
-              <img src="${m.logo}" alt="${m.nome}" onerror="this.src='web/assets/logos/default-market.svg'" style="width:18px; height:18px; border-radius:50%; object-fit:contain; background:#fff;">
+            <div style="display:flex; align-items:center; gap:6px; background:var(--surface); color:var(--text); border:1px solid var(--border); border-radius:999px; padding:3px 10px 3px 4px; white-space:nowrap; font-size:11px; font-weight:700;">
+              ${renderDynamicStoreLogo(m)}
               <span>${m.nome}</span>
             </div>
           `).join("")}
@@ -2149,7 +2172,7 @@ async function submitAiAgentPrompt(event) {
           ${data.recommendedProducts.map(p => `
             <div style="display:flex; justify-content:space-between; align-items:center; background:var(--surface); color:var(--text); border:1px solid var(--border); border-radius:10px; padding:8px 10px;">
               <div style="display:flex; align-items:center; gap:8px;">
-                <img src="${p.marketLogo}" alt="${p.marketName}" onerror="this.src='web/assets/logos/default-market.svg'" style="width:24px; height:24px; border-radius:6px; object-fit:contain; background:#fff;">
+                ${renderDynamicStoreLogo({ id: p.marketId, name: p.marketName, domain: p.marketDomain, initials: p.marketInitials, color: p.marketColor, logo: p.marketLogo })}
                 <div>
                   <div style="font-size:12px; font-weight:800;">${p.name}</div>
                   <div style="font-size:11px; color:var(--text-secondary);">${p.marketName} • <strong style="color:var(--green-best);">R$ ${Number(p.bestPrice).toFixed(2).replace(".", ",")}</strong></div>

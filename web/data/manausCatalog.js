@@ -3,22 +3,53 @@
  * Compatível com Browser (window) e Node.js (CommonJS).
  */
 (function (root) {
+  const KNOWN_DOMAINS = {"carrefour":"carrefour.com.br","pao-de-acucar":"paodeacucar.com.br","atacadao":"atacadao.com.br","assai":"assai.com.br","sonda":"sonda.com.br","mambo":"mambo.com.br","st-marche":"marche.com.br","dia":"dia.com.br","nagumo":"nagumo.com.br","davo":"davo.com.br","hirota":"hirota.com.br","pastorinho":"pastorinho.com.br","lopes":"supermercadoslopes.com.br","natural-da-terra":"naturaldaterra.com.br","akki-atacadista":"akkiatacadista.com.br","guanabara":"supermercadosguanabara.com.br","mundial":"supermercadosmundial.com.br","zona-sul":"zonasul.com.br","prezunic":"prezunic.com.br","supermarket":"redesupermarket.com.br","princesa":"supermercadosprincesa.com.br","supermercados-bh":"supermercadosbh.com.br","epa":"epa.com.br","verdemar":"bvverdemar.com.br","super-nosso":"supernosso.com.br","mart-minas":"martminas.com.br","apoio-mineiro":"apoiomineiro.com.br","condor":"condor.com.br","super-muffato":"muffato.com.br","muffato":"muffato.com.br","festval":"festval.com.br","jacomar":"jacomar.com.br","angeloni":"angeloni.com.br","bistek":"bistek.com.br","giassi":"giassi.com.br","imperatriz":"superimperatriz.com.br","koch-supermercados":"superkoch.com.br","zaffari":"zaffari.com.br","bourbon":"bourbon.com.br","asun":"asun.com.br","stok-center":"stokcenter.com.br","nacional":"nacional.com.br","mix-mateus":"grupomateus.com.br","mateus":"grupomateus.com.br","hiper-mateus":"grupomateus.com.br","camino-supermercados":"grupomateus.com.br","comper":"comper.com.br","fort-atacadista":"fortatacadista.com.br","big-box":"bigbox.com.br","oba-hortifruti":"obahortifruti.com.br","super-adega":"superadega.com.br","tatico":"tatico.com.br","bretas":"bretas.com.br","db-supermercados":"supermercadosdb.com.br","db":"supermercadosdb.com.br","emporio-db":"supermercadosdb.com.br","nova-era":"supernovaera.com.br","nova_era":"supernovaera.com.br","baratao-da-carne":"barataodacarne.com.br","baratao":"barataodacarne.com.br","atack":"atack.com.br","rodrigues":"supermercadosrodrigues.com.br","coema":"coema.com.br","veneza":"supermercadosveneza.com.br","lider":"lidernet.com.br","formosa":"formosa.com.br","precomais":"mateusmais.com.br","sao-luiz":"mercadinhossaoluiz.com.br","frangolandia":"frangolandia.com.br","pinheiro":"supermercadopinheiro.com.br","cometa":"cometasupermercados.com.br","nordestao":"nordestao.com.br","favorito":"supermercadofavorito.com.br","extrabom":"extrabom.com.br","perim":"perim.com.br","carone":"carone.com.br","sempre-tem":"sempretem.com.br","gbarbosa":"gbarbosa.com.br","g-barbosa":"gbarbosa.com.br","hiperideal":"hiperideal.com.br","redemix":"redemix.com.br","atack-salvador":"atack.com.br","rede-compras":"redecompras.com.br","palato":"palato.com.br","unicompra":"unicompra.com.br","atakarejo":"atakarejo.com.br"};
+
+  function deduceMarketDomain(id, nome) {
+    if (KNOWN_DOMAINS[id]) return KNOWN_DOMAINS[id];
+    for (const [k, dom] of Object.entries(KNOWN_DOMAINS)) {
+      if (String(id || "").includes(k)) return dom;
+    }
+    const clean = String(id || nome || "mercado")
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/-(am|rr|pa|ap|to|ro|ac|ma|pi|ce|rn|pb|pe|al|se|ba|mg|es|rj|sp|pr|sc|rs|ms|mt|go|df)$/i, "")
+      .replace(/[^a-z0-9]/g, "");
+    return (clean || "supermercado") + ".com.br";
+  }
+
+  function getMarketInitials(nome) {
+    const stop = new Set(["de", "da", "do", "das", "dos", "e", "supermercado", "supermercados", "rede", "grupo", "hiper", "super"]);
+    const words = String(nome || "SM")
+      .replace(/[^\p{L}\p{N}\s]/gu, " ")
+      .trim()
+      .split(/\s+/)
+      .filter(w => w.length > 0);
+    const meaningful = words.filter(w => !stop.has(w.toLowerCase()));
+    const pool = meaningful.length > 0 ? meaningful : words;
+    if (pool.length >= 2) {
+      return (pool[0][0] + pool[1][0]).toUpperCase();
+    }
+    return pool[0].slice(0, 2).toUpperCase();
+  }
+
   const SUPERMARKETS = {
-    db: { name: "DB Supermercados", color: "#D32F2F", unit: "Hiper DB Paraíba - Adrianópolis", lat: -3.1110, lng: -60.0150, tier: "grande", tierLabel: "Grande Porte / Hiper", logo: "web/assets/logos/db.svg" },
-    nova_era: { name: "Nova Era Superatacado", color: "#F57C00", unit: "Nova Era Torquato Tapajós", lat: -3.0620, lng: -60.0270, tier: "grande", tierLabel: "Grande Porte / Atacarejo", logo: "web/assets/logos/nova_era.svg" },
-    atacadao: { name: "Atacadão", color: "#2E7D32", unit: "Atacadão Camapuã - Cidade Nova", lat: -3.0350, lng: -59.9720, tier: "grande", tierLabel: "Grande Porte / Atacarejo", logo: "web/assets/logos/atacadao.svg" },
-    assai: { name: "Assaí Atacadista", color: "#1976D2", unit: "Assaí Autaz Mirim - Z. Leste", lat: -3.0730, lng: -59.9410, tier: "grande", tierLabel: "Grande Porte / Atacarejo", logo: "web/assets/logos/assai.svg" },
-    baratao: { name: "Baratão da Carne", color: "#C2185B", unit: "Baratão Betânia", lat: -3.1400, lng: -60.0050, tier: "medio", tierLabel: "Médio Porte / Regional", logo: "web/assets/logos/baratao.svg" },
-    carrefour: { name: "Carrefour Bairro & Hiper", color: "#0D47A1", unit: "Carrefour Adrianópolis", lat: -3.1070, lng: -60.0190, tier: "medio", tierLabel: "Médio/Grande Porte", logo: "web/assets/logos/carrefour.svg" },
-    mercadinho_bairro: { name: "Mercadinho do Bairro", color: "#00695C", unit: "Mercadinho de Esquina (A 400m)", lat: -3.1060, lng: -60.0130, tier: "pequeno", tierLabel: "Pequeno Porte / Bairro", logo: "web/assets/logos/mercadinho.svg" },
-    sacolao_feira: { name: "Feira da Manaus Moderna", color: "#33691E", unit: "Hortifruti & Feira", lat: -3.1080, lng: -60.0140, tier: "pequeno", tipo: "hortifruti", tierLabel: "Hortifruti & Feira", logo: "web/assets/logos/feira-manaus-moderna.svg" },
-    m9: { name: "Supermercados Rodrigues", color: "#1565C0", unit: "Supermercado", lat: -3.0950, lng: -60.0050, tier: "medio", tipo: "super", tierLabel: "Supermercado", logo: "web/assets/logos/supermercados-rodrigues.svg" },
-    m10: { name: "Supermercado Coari", color: "#2E7D32", unit: "Supermercado", lat: -3.1150, lng: -60.0250, tier: "medio", tipo: "super", tierLabel: "Supermercado", logo: "web/assets/logos/supermercado-coari.svg" },
-    m11: { name: "Supermercado Veneza", color: "#AD1457", unit: "Supermercado", lat: -3.0850, lng: -60.0350, tier: "medio", tipo: "super", tierLabel: "Supermercado", logo: "web/assets/logos/supermercado-veneza-am.svg" },
-    m12: { name: "Supermercados Vitória", color: "#EF6C00", unit: "Supermercado", lat: -3.0750, lng: -59.9950, tier: "medio", tipo: "super", tierLabel: "Supermercado", logo: "web/assets/logos/supermercado-vitoria-am.svg" },
-    m13: { name: "Empório DB", color: "#B71C1C", unit: "Premium", lat: -3.1020, lng: -60.0110, tier: "medio", tipo: "premium", tierLabel: "Premium", logo: "web/assets/logos/emporio-db.svg" },
-    m14: { name: "Mania Supermercados", color: "#00838F", unit: "Supermercado", lat: -3.0650, lng: -60.0450, tier: "medio", tipo: "super", tierLabel: "Supermercado", logo: "web/assets/logos/mania-supermercados.svg" },
-    m15: { name: "Bom Preço Manaus", color: "#283593", unit: "Proximidade", lat: -3.1090, lng: -60.0160, tier: "pequeno", tipo: "proximidade", tierLabel: "Proximidade", logo: "web/assets/logos/supermercado-bom-preco-am.svg" }
+    db: { id: "db-supermercados", name: "DB Supermercados", domain: "supermercadosdb.com.br", website: "https://supermercadosdb.com.br", initials: "DB", color: "#D32F2F", unit: "Hiper DB Paraíba - Adrianópolis", lat: -3.1110, lng: -60.0150, tier: "grande", tierLabel: "Grande Porte / Hiper", logo: "https://logo.clearbit.com/supermercadosdb.com.br", localLogoFallback: "web/assets/logos/db.svg" },
+    nova_era: { id: "nova-era", name: "Nova Era Superatacado", domain: "supernovaera.com.br", website: "https://supernovaera.com.br", initials: "NE", color: "#F57C00", unit: "Nova Era Torquato Tapajós", lat: -3.0620, lng: -60.0270, tier: "grande", tierLabel: "Grande Porte / Atacarejo", logo: "https://logo.clearbit.com/supernovaera.com.br", localLogoFallback: "web/assets/logos/nova_era.svg" },
+    atacadao: { id: "atacadao", name: "Atacadão", domain: "atacadao.com.br", website: "https://atacadao.com.br", initials: "AT", color: "#2E7D32", unit: "Atacadão Camapuã - Cidade Nova", lat: -3.0350, lng: -59.9720, tier: "grande", tierLabel: "Grande Porte / Atacarejo", logo: "https://logo.clearbit.com/atacadao.com.br", localLogoFallback: "web/assets/logos/atacadao.svg" },
+    assai: { id: "assai", name: "Assaí Atacadista", domain: "assai.com.br", website: "https://assai.com.br", initials: "AA", color: "#1976D2", unit: "Assaí Autaz Mirim - Z. Leste", lat: -3.0730, lng: -59.9410, tier: "grande", tierLabel: "Grande Porte / Atacarejo", logo: "https://logo.clearbit.com/assai.com.br", localLogoFallback: "web/assets/logos/assai.svg" },
+    baratao: { id: "baratao-da-carne", name: "Baratão da Carne", domain: "barataodacarne.com.br", website: "https://barataodacarne.com.br", initials: "BC", color: "#C2185B", unit: "Baratão Betânia", lat: -3.1400, lng: -60.0050, tier: "medio", tierLabel: "Médio Porte / Regional", logo: "https://logo.clearbit.com/barataodacarne.com.br", localLogoFallback: "web/assets/logos/baratao.svg" },
+    carrefour: { id: "carrefour", name: "Carrefour Bairro & Hiper", domain: "carrefour.com.br", website: "https://carrefour.com.br", initials: "CB", color: "#0D47A1", unit: "Carrefour Adrianópolis", lat: -3.1070, lng: -60.0190, tier: "medio", tierLabel: "Médio/Grande Porte", logo: "https://logo.clearbit.com/carrefour.com.br", localLogoFallback: "web/assets/logos/carrefour.svg" },
+    mercadinho_bairro: { id: "mercadinho-sao-jorge", name: "Mercadinho São Jorge", domain: "mercadinhosaojorge.com.br", website: "https://mercadinhosaojorge.com.br", initials: "MJ", color: "#00695C", unit: "Mercadinho de Esquina (A 400m)", lat: -3.1060, lng: -60.0130, tier: "pequeno", tierLabel: "Pequeno Porte / Bairro", logo: "https://logo.clearbit.com/mercadinhosaojorge.com.br", localLogoFallback: "web/assets/logos/mercadinho.svg" },
+    sacolao_feira: { id: "feira-manaus-moderna", name: "Feira da Manaus Moderna", domain: "feiramanausmoderna.com.br", website: "https://feiramanausmoderna.com.br", initials: "FM", color: "#33691E", unit: "Hortifruti & Feira", lat: -3.1080, lng: -60.0140, tier: "pequeno", tipo: "hortifruti", tierLabel: "Hortifruti & Feira", logo: "https://logo.clearbit.com/feiramanausmoderna.com.br", localLogoFallback: "web/assets/logos/feira-manaus-moderna.svg" },
+    m9: { id: "supermercados-rodrigues", name: "Supermercados Rodrigues", domain: "supermercadosrodrigues.com.br", website: "https://supermercadosrodrigues.com.br", initials: "RO", color: "#1565C0", unit: "Supermercado", lat: -3.0950, lng: -60.0050, tier: "medio", tipo: "super", tierLabel: "Supermercado", logo: "https://logo.clearbit.com/supermercadosrodrigues.com.br", localLogoFallback: "web/assets/logos/supermercados-rodrigues.svg" },
+    m10: { id: "supermercado-coari", name: "Supermercado Coari", domain: "supermercadocoari.com.br", website: "https://supermercadocoari.com.br", initials: "CO", color: "#2E7D32", unit: "Supermercado", lat: -3.1150, lng: -60.0250, tier: "medio", tipo: "super", tierLabel: "Supermercado", logo: "https://logo.clearbit.com/supermercadocoari.com.br", localLogoFallback: "web/assets/logos/supermercado-coari.svg" },
+    m11: { id: "supermercado-veneza-am", name: "Supermercado Veneza", domain: "supermercadosveneza.com.br", website: "https://supermercadosveneza.com.br", initials: "VE", color: "#AD1457", unit: "Supermercado", lat: -3.0850, lng: -60.0350, tier: "medio", tipo: "super", tierLabel: "Supermercado", logo: "https://logo.clearbit.com/supermercadosveneza.com.br", localLogoFallback: "web/assets/logos/supermercado-veneza-am.svg" },
+    m12: { id: "supermercado-vitoria-am", name: "Supermercados Vitória", domain: "supermercadovitoria.com.br", website: "https://supermercadovitoria.com.br", initials: "VI", color: "#EF6C00", unit: "Supermercado", lat: -3.0750, lng: -59.9950, tier: "medio", tipo: "super", tierLabel: "Supermercado", logo: "https://logo.clearbit.com/supermercadovitoria.com.br", localLogoFallback: "web/assets/logos/supermercado-vitoria-am.svg" },
+    m13: { id: "emporio-db", name: "Empório DB", domain: "supermercadosdb.com.br", website: "https://supermercadosdb.com.br", initials: "ED", color: "#B71C1C", unit: "Premium", lat: -3.1020, lng: -60.0110, tier: "medio", tipo: "premium", tierLabel: "Premium", logo: "https://logo.clearbit.com/supermercadosdb.com.br", localLogoFallback: "web/assets/logos/emporio-db.svg" },
+    m14: { id: "mania-supermercados", name: "Mania Supermercados", domain: "maniasupermercados.com.br", website: "https://maniasupermercados.com.br", initials: "MA", color: "#00838F", unit: "Supermercado", lat: -3.0650, lng: -60.0450, tier: "medio", tipo: "super", tierLabel: "Supermercado", logo: "https://logo.clearbit.com/maniasupermercados.com.br", localLogoFallback: "web/assets/logos/mania-supermercados.svg" },
+    m15: { id: "supermercado-bom-preco-am", name: "Bom Preço Manaus", domain: "supermercadobompreco.com.br", website: "https://supermercadobompreco.com.br", initials: "BP", color: "#283593", unit: "Proximidade", lat: -3.1090, lng: -60.0160, tier: "pequeno", tipo: "proximidade", tierLabel: "Proximidade", logo: "https://logo.clearbit.com/supermercadobompreco.com.br", localLogoFallback: "web/assets/logos/supermercado-bom-preco-am.svg" }
   };
 
   const KNOWN_EANS = {
@@ -188,15 +219,20 @@
     mkts.forEach(([mId, mNome, mTipo], idx) => {
       const sk = SLOT_KEYS[idx] || ('m' + (idx + 1));
       const [tier, tierLabel] = TIER_MAP[mTipo] || ['medio', 'Supermercado'];
-      const logo = 'web/assets/logos/' + mId + '.svg';
+      const domain = deduceMarketDomain(mId, mNome);
+      const website = 'https://' + domain;
+      const initials = getMarketInitials(mNome);
+      const color = COLORS[idx % COLORS.length];
+      const logo = 'https://logo.clearbit.com/' + domain;
+      const localLogoFallback = 'web/assets/logos/' + mId + '.svg';
       supermarkets[sk] = {
-        id: mId, name: mNome, color: COLORS[idx % COLORS.length],
+        id: mId, name: mNome, domain, website, initials, color,
         unit: mNome + ' (' + tierLabel + ')',
         lat: +(baseLat + ((idx % 5) - 2) * 0.012).toFixed(4),
         lng: +(baseLng + ((idx % 4) - 1.5) * 0.012).toFixed(4),
-        tier, tipo: mTipo, tierLabel, logo
+        tier, tipo: mTipo, tierLabel, logo, localLogoFallback
       };
-      mercados.push({ id: mId, nome: mNome, tipo: mTipo, logo });
+      mercados.push({ id: mId, nome: mNome, tipo: mTipo, domain, website, initials, color, logo, localLogoFallback });
     });
     CANONICAL_CAPITAIS[canKey] = { cidade: shortName, uf, regiao: region, legacyId: id, mercados };
     const topNames = mkts.slice(0, 6).map(m => m[1]).join(', ');

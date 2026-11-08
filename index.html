@@ -8,7 +8,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="PreçoBrasil">
   <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="web/styles/main.css?v=20261108">
+  <link rel="stylesheet" href="web/styles/main.css?v=20261109">
   <title>PreçoBrasil - Do Mercadinho de Bairro ao Grande Atacarejo</title>
   <style>
     .modal-overlay.open, .modal-overlay.active { display: flex !important; }
@@ -241,15 +241,13 @@
       <!-- Supermarket Filter Chips -->
       <div class="market-chips-label">Filtrar por Rede ou Mercadinho Local:</div>
       <div class="chips-slider" id="market-chips">
-        <button class="chip active" onclick="selectMarket('all')">🏪 Todas as Redes</button>
-        <button class="chip" onclick="selectMarket('mercadinho_bairro')"><img src="web/assets/logos/mercadinho.svg" class="store-logo-img" alt="Mercadinho">Mercadinho do Bairro</button>
-        <button class="chip" onclick="selectMarket('sacolao_feira')"><img src="web/assets/logos/feira.svg" class="store-logo-img" alt="Feira">Sacolão & Feira</button>
-        <button class="chip" onclick="selectMarket('db')"><img src="web/assets/logos/db.svg" class="store-logo-img" alt="DB">DB Supermercados</button>
-        <button class="chip" onclick="selectMarket('nova_era')"><img src="web/assets/logos/nova_era.svg" class="store-logo-img" alt="Nova Era">Nova Era Superatacado</button>
-        <button class="chip" onclick="selectMarket('atacadao')"><img src="web/assets/logos/atacadao.svg" class="store-logo-img" alt="Atacadão">Atacadão</button>
-        <button class="chip" onclick="selectMarket('assai')"><img src="web/assets/logos/assai.svg" class="store-logo-img" alt="Assaí">Assaí Atacadista</button>
-        <button class="chip" onclick="selectMarket('baratao')"><img src="web/assets/logos/baratao.svg" class="store-logo-img" alt="Baratão">Baratão da Carne</button>
-        <button class="chip" onclick="selectMarket('carrefour')"><img src="web/assets/logos/carrefour.svg" class="store-logo-img" alt="Carrefour">Carrefour</button>
+        <button class="chip active" onclick="selectMarket('all')">🏪 Todas (15)</button>
+        <button class="chip" onclick="selectMarket('db')"><span class="store-logo-wrap" style="--store-color:#D32F2F;"><img src="https://logo.clearbit.com/supermercadosdb.com.br" class="store-logo-img" alt="DB" onload="if(this.parentElement)this.parentElement.classList.add('logo-loaded')" onerror="handleMarketLogoError(this)"><span class="store-avatar-circle" style="background:#D32F2F;">DB</span></span>DB Supermercados</button>
+        <button class="chip" onclick="selectMarket('nova_era')"><span class="store-logo-wrap" style="--store-color:#F57C00;"><img src="https://logo.clearbit.com/supernovaera.com.br" class="store-logo-img" alt="Nova Era" onload="if(this.parentElement)this.parentElement.classList.add('logo-loaded')" onerror="handleMarketLogoError(this)"><span class="store-avatar-circle" style="background:#F57C00;">NE</span></span>Nova Era Superatacado</button>
+        <button class="chip" onclick="selectMarket('atacadao')"><span class="store-logo-wrap" style="--store-color:#2E7D32;"><img src="https://logo.clearbit.com/atacadao.com.br" class="store-logo-img" alt="Atacadão" onload="if(this.parentElement)this.parentElement.classList.add('logo-loaded')" onerror="handleMarketLogoError(this)"><span class="store-avatar-circle" style="background:#2E7D32;">AT</span></span>Atacadão</button>
+        <button class="chip" onclick="selectMarket('assai')"><span class="store-logo-wrap" style="--store-color:#1976D2;"><img src="https://logo.clearbit.com/assai.com.br" class="store-logo-img" alt="Assaí" onload="if(this.parentElement)this.parentElement.classList.add('logo-loaded')" onerror="handleMarketLogoError(this)"><span class="store-avatar-circle" style="background:#1976D2;">AA</span></span>Assaí Atacadista</button>
+        <button class="chip" onclick="selectMarket('baratao')"><span class="store-logo-wrap" style="--store-color:#C2185B;"><img src="https://logo.clearbit.com/barataodacarne.com.br" class="store-logo-img" alt="Baratão" onload="if(this.parentElement)this.parentElement.classList.add('logo-loaded')" onerror="handleMarketLogoError(this)"><span class="store-avatar-circle" style="background:#C2185B;">BC</span></span>Baratão da Carne</button>
+        <button class="chip" onclick="selectMarket('carrefour')"><span class="store-logo-wrap" style="--store-color:#0D47A1;"><img src="https://logo.clearbit.com/carrefour.com.br" class="store-logo-img" alt="Carrefour" onload="if(this.parentElement)this.parentElement.classList.add('logo-loaded')" onerror="handleMarketLogoError(this)"><span class="store-avatar-circle" style="background:#0D47A1;">CA</span></span>Carrefour</button>
       </div>
 
       <!-- Toolbar Filter & Sort -->
@@ -873,12 +871,12 @@
 </div>
 
   <!-- Módulos PreçoBrasil (Catálogo Canônico, MarketService, Distâncias Haversine, Otimizador, Cliente API e App UI) -->
-  <script src="web/data/manausCatalog.js?v=20261108"></script>
-  <script src="web/services/marketService.js?v=20261108"></script>
-  <script src="web/services/distanceService.js?v=20261108"></script>
-  <script src="web/services/shoppingOptimizer.js?v=20261108"></script>
-  <script src="web/services/apiClient.js?v=20261108"></script>
-  <script src="web/app.js?v=20261108"></script>
+  <script src="web/data/manausCatalog.js?v=20261109"></script>
+  <script src="web/services/marketService.js?v=20261109"></script>
+  <script src="web/services/distanceService.js?v=20261109"></script>
+  <script src="web/services/shoppingOptimizer.js?v=20261109"></script>
+  <script src="web/services/apiClient.js?v=20261109"></script>
+  <script src="web/app.js?v=20261109"></script>
   <script>
     // Limpa caches antigos do Service Worker para garantir atualização imediata
     if ('caches' in window) {
