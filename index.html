@@ -63,12 +63,20 @@
           <option value="florianopolis">Florianópolis - SC</option>
         </optgroup>
       </select>
+      <button class="theme-trigger-btn" onclick="openThemeModal()" title="Mudar Tema (Modo Escuro) e Pacote de Ícones">
+        <span id="header-theme-icon">🌙</span>
+        <span>Tema</span>
+      </button>
       <button class="header-btn" onclick="openScannerModal()" title="Escanear Código de Barras">
-        <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M4 6h2v12H4zm3 0h1v12H7zm2 0h3v12H9zm4 0h1v12h-1zm3 0h2v12h-2zm3 0h2v12h-2z"/></svg>
+        <span id="header-icon-scanner" style="display:inline-flex;">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M7 8v8"/><path d="M12 8v8"/><path d="M17 8v8"/></svg>
+        </span>
         <span>Scanner</span>
       </button>
       <button class="header-btn" onclick="openContributionModal()" title="Colaborar com Foto da Etiqueta">
-        <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 12m-3.2 0a3.2 3.2 0 1 0 6.4 0 3.2 3.2 0 1 0 -6.4 0M9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/></svg>
+        <span id="header-icon-camera" style="display:inline-flex;">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
+        </span>
         <span>Colaborar</span>
       </button>
       <div class="city-chip" id="network-chip" onclick="toggleOfflineSimulation()" style="cursor:pointer;" title="Clique para alternar teste offline">
@@ -544,27 +552,37 @@
 
   </main>
 
-  <!-- Bottom Navigation (5 CUJs) -->
+  <!-- Bottom Navigation (5 CUJs com Pacotes de Ícones Dinâmicos) -->
   <nav class="bottom-nav">
     <button class="nav-btn active" onclick="switchTab('screen-monitor', this)">
-      <svg viewBox="0 0 24 24"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
+      <span class="nav-icon-wrap" id="nav-icon-monitor">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1.5" fill="currentColor" fill-opacity="0.18"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5" fill="currentColor" fill-opacity="0.18"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>
+      </span>
       <span>Preços</span>
     </button>
     <button class="nav-btn" onclick="switchTab('screen-cesta', this)" style="position:relative;">
-      <svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+      <span class="nav-icon-wrap" id="nav-icon-cesta">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1.5"/><circle cx="19" cy="21" r="1.5"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" fill="currentColor" fill-opacity="0.16"/></svg>
+      </span>
       <span>Cesta</span>
       <span class="badge-count" id="cesta-badge" style="display:none;">0</span>
     </button>
     <button class="nav-btn" onclick="switchTab('screen-scanner', this)">
-      <svg viewBox="0 0 24 24"><path d="M4 6h2v12H4zm3 0h1v12H7zm2 0h3v12H9zm4 0h1v12h-1zm3 0h2v12h-2zm3 0h2v12h-2zM2 4h4V2H2v4zm20-2h-4v2h4v4h2V2zm-4 20h4v-4h2v6h-6v-2zM2 18v6h6v-2H4v-4H2z"/></svg>
+      <span class="nav-icon-wrap" id="nav-icon-scanner">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><rect x="6" y="7" width="12" height="10" rx="1" fill="currentColor" fill-opacity="0.15"/><path d="M8 10v4"/><path d="M12 10v4"/><path d="M16 10v4"/></svg>
+      </span>
       <span>Scanner</span>
     </button>
     <button class="nav-btn" onclick="switchTab('screen-indice', this)">
-      <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg>
+      <span class="nav-icon-wrap" id="nav-icon-indice">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3" fill="currentColor" fill-opacity="0.15"/><path d="M8 16v-5"/><path d="M12 16V8"/><path d="M16 16v-3"/></svg>
+      </span>
       <span>Índice Semanal</span>
     </button>
     <button class="nav-btn" onclick="switchTab('screen-comunidade', this)">
-      <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+      <span class="nav-icon-wrap" id="nav-icon-comunidade">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" fill="currentColor" fill-opacity="0.16"/><circle cx="9" cy="7" r="4" fill="currentColor" fill-opacity="0.16"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </span>
       <span>Comunidade</span>
     </button>
   </nav>
@@ -728,6 +746,82 @@
         <input type="text" id="ai-agent-input" class="form-control" placeholder="Ex: Onde comprar arroz, feijão e café mais barato?" style="flex:1; margin:0;" required>
         <button type="submit" id="ai-agent-send-btn" class="btn-submit" style="width:auto; padding:0 16px; margin:0;">Enviar</button>
       </form>
+    </div>
+  </div>
+
+  <!-- Modal 4: Estúdio de Aparência (Temas Escuros & Pacotes de Ícones) -->
+  <div class="modal-overlay" id="theme-studio-modal" onclick="if(event.target===this) closeThemeModal()">
+    <div class="modal-sheet">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span style="font-size:20px;">🎨</span>
+          <div>
+            <h3 style="font-size:17px; font-weight:800; margin:0;">Temas & Pacotes de Ícones</h3>
+            <span style="font-size:11px; color:var(--text-secondary);">Personalize o visual e os ícones do seu PreçoBrasil</span>
+          </div>
+        </div>
+        <button class="btn-text" onclick="closeThemeModal()" style="font-size:16px;">✕</button>
+      </div>
+
+      <div style="font-size:12px; font-weight:800; color:var(--text-secondary); text-transform:uppercase; letter-spacing:0.4px; margin-bottom:8px;">
+        1. Escolha o Tema de Cores:
+      </div>
+      <div class="theme-studio-grid">
+        <button type="button" class="theme-option-card" data-theme-choice="light" onclick="setAppTheme('light')">
+          <div class="theme-swatch" style="background:linear-gradient(135deg, #0F6D44 0%, #E8F5E9 100%); color:#fff;">☀️</div>
+          <div>
+            <div style="font-size:13px; font-weight:800;">Claro Esmeralda</div>
+            <div style="font-size:10.5px; color:var(--text-secondary);">Clássico diurno</div>
+          </div>
+        </button>
+
+        <button type="button" class="theme-option-card" data-theme-choice="dark" onclick="setAppTheme('dark')">
+          <div class="theme-swatch" style="background:linear-gradient(135deg, #090D12 0%, #34D399 100%); color:#fff;">🌙</div>
+          <div>
+            <div style="font-size:13px; font-weight:800;">Escuro OLED</div>
+            <div style="font-size:10.5px; color:var(--text-secondary);">Conforto noturno</div>
+          </div>
+        </button>
+
+        <button type="button" class="theme-option-card" data-theme-choice="midnight" onclick="setAppTheme('midnight')">
+          <div class="theme-swatch" style="background:linear-gradient(135deg, #05100D 0%, #2DD4BF 100%); color:#fff;">🌌</div>
+          <div>
+            <div style="font-size:13px; font-weight:800;">Amazônia Noturno</div>
+            <div style="font-size:10.5px; color:var(--text-secondary);">Verde-floresta & ouro</div>
+          </div>
+        </button>
+
+        <button type="button" class="theme-option-card" data-theme-choice="contrast" onclick="setAppTheme('contrast')">
+          <div class="theme-swatch" style="background:linear-gradient(135deg, #000000 0%, #FACC15 100%); color:#fff;">⚡</div>
+          <div>
+            <div style="font-size:13px; font-weight:800;">Alto Contraste</div>
+            <div style="font-size:10.5px; color:var(--text-secondary);">Preto puro & neon</div>
+          </div>
+        </button>
+      </div>
+
+      <div style="font-size:12px; font-weight:800; color:var(--text-secondary); text-transform:uppercase; letter-spacing:0.4px; margin-bottom:8px;">
+        2. Escolha o Pacote de Ícones:
+      </div>
+      <div class="icon-pack-grid">
+        <button type="button" class="icon-pack-card" data-icon-choice="duotone" onclick="setIconPack('duotone')">
+          <div style="font-size:20px;">✨</div>
+          <div style="font-size:12px; font-weight:800;">Lucide Duotone</div>
+          <div style="font-size:10px; color:var(--text-secondary);">2 tons modernos</div>
+        </button>
+
+        <button type="button" class="icon-pack-card" data-icon-choice="outline" onclick="setIconPack('outline')">
+          <div style="font-size:20px;">🎯</div>
+          <div style="font-size:12px; font-weight:800;">Minimal Outline</div>
+          <div style="font-size:10px; color:var(--text-secondary);">Traço fino limpo</div>
+        </button>
+
+        <button type="button" class="icon-pack-card" data-icon-choice="3d" onclick="setIconPack('3d')">
+          <div style="font-size:20px;">🎨</div>
+          <div style="font-size:12px; font-weight:800;">3D Vibrante</div>
+          <div style="font-size:10px; color:var(--text-secondary);">Botões em relevo</div>
+        </button>
+      </div>
     </div>
   </div>
 

@@ -1924,6 +1924,7 @@ async function syncWithBackendServer() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  initThemeAndIcons();
   if (window.MarketService && typeof window.MarketService.initBrowserDatabase === "function") {
     window.MarketService.initBrowserDatabase();
   }
@@ -1947,6 +1948,98 @@ document.addEventListener("DOMContentLoaded", () => {
     initLocationFlow();
   }, 1200);
 });
+
+// =========================================================================
+// ESTÚDIO DE TEMAS (DARK OLED / AMAZÔNIA / CONTRASTE) & PACOTES DE ÍCONES
+// =========================================================================
+const ICON_PACK_SVGS = {
+  duotone: {
+    monitor: `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1.5" fill="currentColor" fill-opacity="0.22"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5" fill="currentColor" fill-opacity="0.22"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>`,
+    cesta: `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1.5"/><circle cx="19" cy="21" r="1.5"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" fill="currentColor" fill-opacity="0.2"/></svg>`,
+    scanner: `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><rect x="6" y="7" width="12" height="10" rx="1" fill="currentColor" fill-opacity="0.18"/><path d="M8 10v4"/><path d="M12 10v4"/><path d="M16 10v4"/></svg>`,
+    indice: `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3" fill="currentColor" fill-opacity="0.18"/><path d="M8 16v-5"/><path d="M12 16V8"/><path d="M16 16v-3"/></svg>`,
+    comunidade: `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" fill="currentColor" fill-opacity="0.2"/><circle cx="9" cy="7" r="4" fill="currentColor" fill-opacity="0.2"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`
+  },
+  outline: {
+    monitor: `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z"/><path d="M7 7h.01"/></svg>`,
+    cesta: `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>`,
+    scanner: `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><line x1="7" y1="12" x2="17" y2="12"/></svg>`,
+    indice: `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>`,
+    comunidade: `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`
+  },
+  "3d": {
+    monitor: `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/></svg>`,
+    cesta: `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1.5"/><circle cx="19" cy="21" r="1.5"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>`,
+    scanner: `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M8 8v8"/><path d="M12 8v8"/><path d="M16 8v8"/></svg>`,
+    indice: `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>`,
+    comunidade: `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`
+  }
+};
+
+function openThemeModal() {
+  const modal = document.getElementById("theme-studio-modal");
+  if (modal) modal.classList.add("active");
+}
+
+function closeThemeModal() {
+  const modal = document.getElementById("theme-studio-modal");
+  if (modal) modal.classList.remove("active");
+}
+
+function setAppTheme(themeName, silent = false) {
+  const valid = ["light", "dark", "midnight", "contrast"].includes(themeName) ? themeName : "light";
+  document.documentElement.setAttribute("data-theme", valid);
+  localStorage.setItem("precobrasil_theme", valid);
+
+  const iconEl = document.getElementById("header-theme-icon");
+  if (iconEl) {
+    iconEl.textContent = valid === "light" ? "🌙" : valid === "dark" ? "☀️" : valid === "midnight" ? "🌌" : "⚡";
+  }
+
+  document.querySelectorAll(".theme-option-card").forEach(btn => {
+    btn.classList.toggle("active", btn.getAttribute("data-theme-choice") === valid);
+  });
+
+  if (!silent && typeof showToast === "function") {
+    const labels = { light: "☀️ Tema Claro Esmeralda", dark: "🌙 Tema Escuro OLED", midnight: "🌌 Tema Amazônia Noturno", contrast: "⚡ Tema Alto Contraste" };
+    showToast(`${labels[valid]} ativado!`);
+  }
+}
+
+function setIconPack(packName, silent = false) {
+  const valid = ["duotone", "outline", "3d"].includes(packName) ? packName : "duotone";
+  document.documentElement.setAttribute("data-icon-pack", valid);
+  localStorage.setItem("precobrasil_icon_pack", valid);
+
+  const pack = ICON_PACK_SVGS[valid] || ICON_PACK_SVGS.duotone;
+  const mapIds = {
+    "nav-icon-monitor": pack.monitor,
+    "nav-icon-cesta": pack.cesta,
+    "nav-icon-scanner": pack.scanner,
+    "nav-icon-indice": pack.indice,
+    "nav-icon-comunidade": pack.comunidade
+  };
+  Object.entries(mapIds).forEach(([id, svg]) => {
+    const el = document.getElementById(id);
+    if (el) el.innerHTML = svg;
+  });
+
+  document.querySelectorAll(".icon-pack-card").forEach(btn => {
+    btn.classList.toggle("active", btn.getAttribute("data-icon-choice") === valid);
+  });
+
+  if (!silent && typeof showToast === "function") {
+    const labels = { duotone: "✨ Ícones Lucide Duotone", outline: "🎯 Ícones Minimal Outline", "3d": "🎨 Ícones 3D Vibrante" };
+    showToast(`${labels[valid]} aplicado!`);
+  }
+}
+
+function initThemeAndIcons() {
+  const savedTheme = localStorage.getItem("precobrasil_theme") || "light";
+  const savedPack = localStorage.getItem("precobrasil_icon_pack") || "duotone";
+  setAppTheme(savedTheme, true);
+  setIconPack(savedPack, true);
+}
 
 // =========================================================================
 // AGENTE IA PREÇOBRASIL (Vercel AI SDK ToolLoopAgent + MarketService)
@@ -1996,7 +2089,7 @@ async function submitAiAgentPrompt(event) {
 
   // Indicador de carregamento
   const loadingBubble = document.createElement("div");
-  loadingBubble.style.cssText = "align-self:flex-start; background:#F8FAFC; border:1px solid var(--border); border-radius:12px; padding:10px 12px; font-size:12px; color:var(--text-secondary);";
+  loadingBubble.style.cssText = "align-self:flex-start; background:var(--surface-variant); border:1px solid var(--border); border-radius:12px; padding:10px 12px; font-size:12px; color:var(--text-secondary);";
   loadingBubble.innerHTML = "⏳ <strong>ToolLoopAgent</strong> consultando <code>MarketService</code> e catálogo...";
   container.appendChild(loadingBubble);
   container.scrollTop = container.scrollHeight;
@@ -2017,14 +2110,14 @@ async function submitAiAgentPrompt(event) {
     loadingBubble.remove();
 
     const botBubble = document.createElement("div");
-    botBubble.style.cssText = "align-self:flex-start; background:#F8FAFC; border:1px solid var(--border); border-radius:12px 12px 12px 2px; padding:12px; font-size:13px; color:var(--text); max-width:95%; line-height:1.48;";
+    botBubble.style.cssText = "align-self:flex-start; background:var(--surface-variant); border:1px solid var(--border); border-radius:12px 12px 12px 2px; padding:12px; font-size:13px; color:var(--text); max-width:95%; line-height:1.48;";
 
     let marketsHtml = "";
     if (Array.isArray(data.markets) && data.markets.length > 0) {
       marketsHtml = `
         <div style="display:flex; gap:6px; overflow-x:auto; margin-top:10px; padding-bottom:4px;">
           ${data.markets.slice(0, 8).map(m => `
-            <div style="display:flex; align-items:center; gap:5px; background:#fff; border:1px solid var(--border); border-radius:999px; padding:3px 9px 3px 4px; white-space:nowrap; font-size:11px; font-weight:700;">
+            <div style="display:flex; align-items:center; gap:5px; background:var(--surface); color:var(--text); border:1px solid var(--border); border-radius:999px; padding:3px 9px 3px 4px; white-space:nowrap; font-size:11px; font-weight:700;">
               <img src="${m.logo}" alt="${m.nome}" onerror="this.src='web/assets/logos/default-market.svg'" style="width:18px; height:18px; border-radius:50%; object-fit:contain; background:#fff;">
               <span>${m.nome}</span>
             </div>
@@ -2038,9 +2131,9 @@ async function submitAiAgentPrompt(event) {
       productsHtml = `
         <div style="display:flex; flex-direction:column; gap:6px; margin-top:10px;">
           ${data.recommendedProducts.map(p => `
-            <div style="display:flex; justify-content:space-between; align-items:center; background:#fff; border:1px solid var(--border); border-radius:10px; padding:8px 10px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; background:var(--surface); color:var(--text); border:1px solid var(--border); border-radius:10px; padding:8px 10px;">
               <div style="display:flex; align-items:center; gap:8px;">
-                <img src="${p.marketLogo}" alt="${p.marketName}" onerror="this.src='web/assets/logos/default-market.svg'" style="width:24px; height:24px; border-radius:6px; object-fit:contain;">
+                <img src="${p.marketLogo}" alt="${p.marketName}" onerror="this.src='web/assets/logos/default-market.svg'" style="width:24px; height:24px; border-radius:6px; object-fit:contain; background:#fff;">
                 <div>
                   <div style="font-size:12px; font-weight:800;">${p.name}</div>
                   <div style="font-size:11px; color:var(--text-secondary);">${p.marketName} • <strong style="color:var(--green-best);">R$ ${Number(p.bestPrice).toFixed(2).replace(".", ",")}</strong></div>
