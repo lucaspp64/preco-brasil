@@ -8,8 +8,53 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="PreçoBrasil">
   <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="web/styles/main.css">
+  <link rel="stylesheet" href="web/styles/main.css?v=20261108">
   <title>PreçoBrasil - Do Mercadinho de Bairro ao Grande Atacarejo</title>
+  <style>
+    .modal-overlay.open, .modal-overlay.active { display: flex !important; }
+    [data-theme="dark"] {
+      --primary: #34D399; --primary-dark: #059669; --primary-light: rgba(52, 211, 153, 0.14);
+      --accent: #FBBF24; --accent-dark: #F59E0B; --green-best: #34D399; --green-bg: rgba(16, 185, 129, 0.14);
+      --bg: #090D12; --surface: #111822; --surface-variant: #1A2332; --text: #F1F5F9; --text-secondary: #94A3B8; --border: #263346;
+    }
+    [data-theme="midnight"] {
+      --primary: #2DD4BF; --primary-dark: #0D9488; --primary-light: rgba(45, 212, 191, 0.15);
+      --accent: #FCD34D; --accent-dark: #F59E0B; --green-best: #4ADE80; --green-bg: rgba(74, 222, 128, 0.15);
+      --bg: #05100D; --surface: #0B1E18; --surface-variant: #132C24; --text: #ECFDF5; --text-secondary: #86EFAC; --border: #1E4236;
+    }
+    [data-theme="contrast"] {
+      --primary: #4ADE80; --primary-dark: #16A34A; --primary-light: rgba(74, 222, 128, 0.22);
+      --accent: #FACC15; --accent-dark: #EAB308; --green-best: #4ADE80; --green-bg: rgba(74, 222, 128, 0.22);
+      --bg: #000000; --surface: #0A0A0A; --surface-variant: #171717; --text: #FFFFFF; --text-secondary: #D4D4D8; --border: #3F3F46;
+    }
+    [data-theme="dark"] .product-card, [data-theme="midnight"] .product-card, [data-theme="contrast"] .product-card {
+      background: var(--surface) !important; border-color: var(--border) !important;
+    }
+    [data-theme="dark"] .best-price-box, [data-theme="midnight"] .best-price-box, [data-theme="contrast"] .best-price-box {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.16) 0%, rgba(5, 150, 105, 0.08) 100%) !important;
+      border-color: rgba(52, 211, 153, 0.35) !important;
+    }
+    .theme-trigger-btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 5px;
+      background: var(--surface-variant); color: var(--text); border: 1.5px solid var(--border);
+      padding: 6px 10px; border-radius: 10px; font-size: 11px; font-weight: 800; cursor: pointer;
+    }
+    .theme-studio-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 16px; }
+    .theme-option-card {
+      display: flex; align-items: center; gap: 10px; padding: 11px 12px; border-radius: 14px;
+      border: 2px solid var(--border); background: var(--surface-variant); color: var(--text); cursor: pointer; text-align: left;
+    }
+    .theme-option-card.active { border-color: var(--primary); background: var(--primary-light); }
+    .theme-swatch {
+      width: 32px; height: 32px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0;
+    }
+    .icon-pack-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    .icon-pack-card {
+      display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 12px 8px;
+      border-radius: 14px; border: 2px solid var(--border); background: var(--surface-variant); color: var(--text); cursor: pointer; text-align: center;
+    }
+    .icon-pack-card.active { border-color: var(--primary); background: var(--primary-light); }
+  </style>
 </head>
 <body>
 
@@ -828,11 +873,26 @@
 </div>
 
   <!-- Módulos PreçoBrasil (Catálogo Canônico, MarketService, Distâncias Haversine, Otimizador, Cliente API e App UI) -->
-  <script src="web/data/manausCatalog.js"></script>
-  <script src="web/services/marketService.js"></script>
-  <script src="web/services/distanceService.js"></script>
-  <script src="web/services/shoppingOptimizer.js"></script>
-  <script src="web/services/apiClient.js"></script>
-  <script src="web/app.js"></script>
+  <script src="web/data/manausCatalog.js?v=20261108"></script>
+  <script src="web/services/marketService.js?v=20261108"></script>
+  <script src="web/services/distanceService.js?v=20261108"></script>
+  <script src="web/services/shoppingOptimizer.js?v=20261108"></script>
+  <script src="web/services/apiClient.js?v=20261108"></script>
+  <script src="web/app.js?v=20261108"></script>
+  <script>
+    // Limpa caches antigos do Service Worker para garantir atualização imediata
+    if ('caches' in window) {
+      caches.keys().then(function(keys) {
+        keys.forEach(function(k) {
+          if (k !== 'precomanaus-v14') caches.delete(k);
+        });
+      });
+    }
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then(function(regs) {
+        regs.forEach(function(r) { r.update(); });
+      });
+    }
+  </script>
 </body>
 </html>

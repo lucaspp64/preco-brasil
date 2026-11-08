@@ -1,5 +1,5 @@
 // PreçoManaus Service Worker v3 - Network-First + Caching Modular & Notificações de Alertas
-const CACHE_NAME = 'precomanaus-v13';
+const CACHE_NAME = 'precomanaus-v14';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
