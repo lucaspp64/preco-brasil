@@ -102,13 +102,34 @@ function getProductImageUrl(prod) {
   return "web/assets/products/arroz.svg";
 }
 
+function handleMarketLogoLoad(imgEl) {
+  if (!imgEl) return;
+  // Se o Google S2 retornar o globo genérico 16x16 de 404 para um domínio desconhecido, aciona o fallback
+  if (imgEl.src.includes("google.com/s2/favicons") && imgEl.naturalWidth <= 16 && imgEl.dataset.isOfficial !== "1") {
+    handleMarketLogoError(imgEl);
+    return;
+  }
+  imgEl.style.display = "block";
+  const circle = imgEl.nextElementSibling;
+  if (circle) circle.style.display = "none";
+}
+window.handleMarketLogoLoad = handleMarketLogoLoad;
+
 function handleMarketLogoError(imgEl) {
   if (!imgEl) return;
+  // Tenta cascata: 1) Google S2 Favicon 128px -> 2) Fallback circular com as 2 iniciais na cor da marca
+  const stage = Number(imgEl.dataset.fallbackStage || "0");
+  const domain = imgEl.dataset.domain || "";
+  if (stage === 0 && domain && !imgEl.src.includes("google.com/s2/favicons")) {
+    imgEl.dataset.fallbackStage = "1";
+    imgEl.src = `https://www.google.com/s2/favicons?domain=${domain}&sz=128`;
+    return;
+  }
   imgEl.onerror = null;
   imgEl.style.display = "none";
-  if (imgEl.parentElement) {
-    imgEl.parentElement.classList.remove("logo-loaded");
-    imgEl.parentElement.classList.add("logo-fallback");
+  const circle = imgEl.nextElementSibling;
+  if (circle) {
+    circle.style.display = "inline-flex";
   }
 }
 window.handleMarketLogoError = handleMarketLogoError;
@@ -120,14 +141,15 @@ function renderDynamicStoreLogo(storeObj) {
   const domain = s.domain
     || (window.getMarketDomain && canonicalId ? window.getMarketDomain(canonicalId) : null)
     || (window.MarketService && window.MarketService.deduceMarketDomain ? window.MarketService.deduceMarketDomain(canonicalId, storeName) : "supermercado.com.br");
-  const logoUrl = `https://logo.clearbit.com/${domain}`;
+  const logoUrl = s.logo
+    || (window.getMarketLogoUrl && canonicalId ? window.getMarketLogoUrl(canonicalId) : null)
+    || `https://www.google.com/s2/favicons?domain=${domain}&sz=128`;
+  const isOfficial = logoUrl.startsWith("web/assets/logos/") || ["atacadao.com.br", "assai.com.br", "carrefour.com.br", "paodeacucar.com.br", "dbsupermercados.com.br", "supernovaera.com.br", "grupomateus.com.br", "muffato.com.br"].includes(domain) ? "1" : "0";
   const color = s.color || "#0F6D44";
   const initials = s.initials
     || (window.getMarketInitials ? window.getMarketInitials(storeName) : storeName.slice(0, 2).toUpperCase());
-  const genericStoreSvg = `<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"/><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4"/><path d="M2 7h20"/></svg>`;
-  const fallbackContent = initials ? initials : genericStoreSvg;
 
-  return `<span class="store-logo-wrap" style="--store-color:${color};" title="${storeName} (${domain})"><img src="${logoUrl}" alt="${storeName}" data-domain="${domain}" class="store-logo-img" loading="lazy" onload="if(this.parentElement)this.parentElement.classList.add('logo-loaded')" onerror="handleMarketLogoError(this)"><span class="store-avatar-circle" style="background:${color};" aria-hidden="true">${fallbackContent}</span></span>`;
+  return `<span class="store-logo-wrap" style="position:relative;display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;flex-shrink:0;vertical-align:middle;" title="${storeName} (${domain})"><img src="${logoUrl}" alt="${storeName}" data-domain="${domain}" data-is-official="${isOfficial}" data-fallback-stage="0" class="store-logo-img" style="width:24px;height:24px;border-radius:50%;object-fit:contain;background:#ffffff;padding:1px;box-shadow:0 1px 4px rgba(0,0,0,0.16);display:block;" loading="lazy" onload="handleMarketLogoLoad(this)" onerror="handleMarketLogoError(this)"><span class="store-avatar-circle" style="display:none;width:24px;height:24px;border-radius:50%;background:${color};color:#ffffff;font-size:10px;font-weight:800;align-items:center;justify-content:center;letter-spacing:-0.3px;text-transform:uppercase;box-shadow:0 2px 5px rgba(0,0,0,0.22);border:1.5px solid rgba(255,255,255,0.88);line-height:1;" aria-hidden="true">${initials}</span></span>`;
 }
 
 function getStoreAvatarHtml(storeKey) {

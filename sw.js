@@ -1,5 +1,5 @@
 // PreçoManaus Service Worker v3 - Network-First + Caching Modular & Notificações de Alertas
-const CACHE_NAME = 'precomanaus-v15';
+const CACHE_NAME = 'precomanaus-v16';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
@@ -47,7 +47,7 @@ self.addEventListener('activate', (event) => {
 
 // Network-First para atualizar imediatamente o visual no navegador, com fallback offline
 self.addEventListener('fetch', (event) => {
-  if (event.request.url.includes('/api/')) {
+  if (!event.request.url.startsWith(self.location.origin) || event.request.url.includes('/api/')) {
     return;
   }
   event.respondWith(

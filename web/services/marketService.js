@@ -30,7 +30,7 @@
     "princesa": "supermercadosprincesa.com.br",
     "supermercados-bh": "supermercadosbh.com.br",
     "epa": "epa.com.br",
-    "verdemar": "bvverdemar.com.br",
+    "verdemar": "verdemar.com.br",
     "super-nosso": "supernosso.com.br",
     "mart-minas": "martminas.com.br",
     "apoio-mineiro": "apoiomineiro.com.br",
@@ -60,9 +60,9 @@
     "super-adega": "superadega.com.br",
     "tatico": "tatico.com.br",
     "bretas": "bretas.com.br",
-    "db-supermercados": "supermercadosdb.com.br",
-    "db": "supermercadosdb.com.br",
-    "emporio-db": "supermercadosdb.com.br",
+    "db-supermercados": "dbsupermercados.com.br",
+    "db": "dbsupermercados.com.br",
+    "emporio-db": "dbsupermercados.com.br",
     "nova-era": "supernovaera.com.br",
     "nova_era": "supernovaera.com.br",
     "baratao-da-carne": "barataodacarne.com.br",
@@ -180,17 +180,19 @@
   }
 
   // Retorna a URL dinâmica da logo via API Clearbit (https://logo.clearbit.com/{dominio})
+  const OFFICIAL_LOCAL_LOGOS = {"atacadao":"web/assets/logos/atacadao.svg","assai":"web/assets/logos/assai.svg","carrefour":"web/assets/logos/carrefour.svg","nova-era":"web/assets/logos/nova-era.svg","nova_era":"web/assets/logos/nova_era.svg","pao-de-acucar":"web/assets/logos/pao-de-acucar.svg","pao_acucar":"web/assets/logos/pao_acucar.svg","mateus":"web/assets/logos/mateus.svg","mix-mateus":"web/assets/logos/mix-mateus.svg","supermercado-mateus":"web/assets/logos/supermercado-mateus.svg","muffato":"web/assets/logos/muffato.svg","super-muffato":"web/assets/logos/muffato.svg"};
+
   function getMarketLogoUrl(marketId) {
     if (!marketId) return "web/assets/logos/default-market.svg";
+    if (OFFICIAL_LOCAL_LOGOS[marketId]) return OFFICIAL_LOCAL_LOGOS[marketId];
     for (const capital of Object.values(database.capitais || {})) {
       const market = capital.mercados.find(m => m.id === marketId);
-      if (market) {
-        const dom = market.domain || deduceMarketDomain(market.id, market.nome);
-        return `https://logo.clearbit.com/${dom}`;
+      if (market && market.logo) {
+        return market.logo;
       }
     }
-    const deduced = deduceMarketDomain(marketId, marketId);
-    return `https://logo.clearbit.com/${deduced}`;
+    const dom = deduceMarketDomain(marketId, marketId);
+    return `https://www.google.com/s2/favicons?domain=${dom}&sz=128`;
   }
 
   // Retorna todas as 27 capitais disponíveis

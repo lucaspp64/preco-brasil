@@ -782,7 +782,7 @@
       z-index: 95;
     }
     @keyframes slideDownLocationPrompt {
-      from { opacity: 0; transform: translateY(-8px); }
+      from { opacity: 1; transform: translateY(-8px); }
       to { opacity: 1; transform: translateY(0); }
     }
     .btn-alterar-discreto {
@@ -1077,7 +1077,7 @@
       box-shadow: 0 4px 16px rgba(0,0,0,0.3);
       z-index: 9999;
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      opacity: 0;
+      opacity: 1;
       pointer-events: none;
       max-width: 90%;
       text-align: center;
@@ -1402,7 +1402,7 @@
   padding: 2px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.16);
   border: 1px solid rgba(0,0,0,0.1);
-  opacity: 0;
+  opacity: 1;
   transition: opacity 0.2s ease;
 }
 
@@ -1411,7 +1411,7 @@
 }
 
 .store-logo-wrap.logo-loaded .store-avatar-circle {
-  opacity: 0;
+  opacity: 1;
 }
 
 .best-price-box .store-logo-img {
